@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Phone>
+<h2>Список телефонов</h2>
+<ul>
+    @foreach (var phone in Model)
+    {
+        <li>Модель: @phone.Title  Цена:@phone.Price</li>
+    }
+</ul>

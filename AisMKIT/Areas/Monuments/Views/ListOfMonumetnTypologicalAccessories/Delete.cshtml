@@ -1,0 +1,38 @@
+﻿@model AisMKIT.Models.ListOfMonumetnTypologicalAccessory
+
+@{
+    ViewData["Title"] = "Типологическая принадлежность";
+}
+
+<h1>Удаление</h1>
+
+<h3>Вы хотите удалить эту запись?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ListOfMonuments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ListOfMonuments.NameRus)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictMonumentTypologicalType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictMonumentTypologicalType.Id)
+        </dd class>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>*@
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index" asp-route-id="@Model.ListOfMonumentsId">Назад</a>
+    </form>
+</div>

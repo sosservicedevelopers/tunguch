@@ -1,0 +1,18 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        @foreach (var item in Model)
+        {
+            <p>@item</p>
+        }
+
+        <h3>@await Component.InvokeAsync("BestPhone", new { maxprice = 55000 })</h3>
+        <p>@await Component.InvokeAsync("PhonesList", new { maxprice = 55000 })</p>
+        <p>@await Component.InvokeAsync("PhonesList", new { maxprice = 60000, minprice = 20000 })</p>
+    </div>
+

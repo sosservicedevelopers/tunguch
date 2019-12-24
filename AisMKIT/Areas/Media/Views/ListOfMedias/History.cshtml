@@ -1,0 +1,127 @@
+﻿@model IEnumerable<AisMKIT.Models.ListOfMediaHistory>
+
+@{
+    ViewData["Title"] = "Реестр СМИ";
+}
+
+<h2>@ViewBag.SMI</h2>
+
+<p></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameRus)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.NameKyrg)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.DictLegalForm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Territoryy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictMediaLangType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictMediaType)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.AddressRus)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.AddressKyrg)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.DictMediaFreqRelease)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DictFinSource)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReregistrationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EliminationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </th> 
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameRus)
+                    
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.NameKyrg)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.DictLegalForm.NameRus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Territoryy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DictMediaLangType.NameRus)
+                </td>
+                
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictMediaType.NameRus)
+                    </td>
+               <td>
+                        @Html.DisplayFor(modelItem => item.AddressRus)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.AddressKyrg)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictMediaFreqRelease.NameRus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictFinSource.NameRus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReregistrationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EliminationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>

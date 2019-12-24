@@ -1,0 +1,71 @@
+﻿@model AisMKIT.Models.ListOfMonuments
+
+@{
+    ViewData["Title"] = "Список памятников";
+}
+
+<h1>Добавление</h1>
+
+    <h4>Список памятников</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="NameKyrg" />
+                <input type="hidden" asp-for="CreateDate" />
+                <div class="form-group">
+                    <label asp-for="NameRus" class="control-label"></label>
+                    <input asp-for="NameRus" class="form-control" />
+                    <span asp-validation-for="NameRus" class="text-danger"></span>
+                </div>
+                @*<div class="form-group">
+            <label asp-for="NameKyrg" class="control-label"></label>
+            <input asp-for="NameKyrg" class="form-control" />
+            <span asp-validation-for="NameKyrg" class="text-danger"></span>
+        </div>*@
+                <div class="form-group">
+                    <label asp-for="DatingOfMonument" class="control-label"></label>
+                    <input asp-for="DatingOfMonument" class="form-control" />
+                    <span asp-validation-for="DatingOfMonument" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictDistrictId" class="control-label"></label>
+                    <select asp-for="DictDistrictId" class="form-control" asp-items="ViewBag.DictDistrictId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LegalAddress" class="control-label"></label>
+                    <input asp-for="LegalAddress" class="form-control" />
+                    <span asp-validation-for="LegalAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictFinSourceId" class="control-label"></label>
+                    <select asp-for="DictFinSourceId" class="form-control" asp-items="ViewBag.DictFinSourceId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictMonumentTypeId" class="control-label"></label>
+                    <select asp-for="DictMonumentTypeId" class="form-control" asp-items="ViewBag.DictMonumentTypeId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictMonumemtSignOfLossId" class="control-label"></label>
+                    <select asp-for="DictMonumemtSignOfLossId" class="form-control" asp-items="ViewBag.DictMonumemtSignOfLossId"></select>
+                </div>
+                @*<div class="form-group">
+            <label asp-for="CreateDate" class="control-label"></label>
+            <input asp-for="CreateDate" class="form-control" />
+            <span asp-validation-for="CreateDate" class="text-danger"></span>
+        </div>*@
+                <div class="form-group">
+                    <input type="submit" value="Добавить" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

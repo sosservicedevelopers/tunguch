@@ -1,0 +1,116 @@
+﻿@model AisMKIT.Models.ListOfMedia
+
+@{
+    ViewData["Title"] = "Реестр СМИ";
+}
+
+<h1>Удаление</h1>
+
+<h3>Вы хотите удалить эту запись?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameRus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameRus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameKyrg)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameKyrg)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictLegalForm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictLegalForm.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.INN)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.INN)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RegistrationDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RegistrationDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Territoryy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Territoryy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictMediaLangType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictMediaLangType.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictMediaType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictMediaType.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AddressRus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AddressRus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AddressKyrg)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AddressKyrg)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictMediaFreqRelease)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictMediaFreqRelease.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictFinSource)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictFinSource.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReregistrationDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReregistrationDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EliminationDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EliminationDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>

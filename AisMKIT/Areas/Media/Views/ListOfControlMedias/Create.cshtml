@@ -1,0 +1,159 @@
+﻿@model AisMKIT.Models.ListOfControlMedia
+
+@{
+    ViewData["Title"] = "Проверки и вынесенные решения";
+}
+
+<h1>Добавление</h1>
+
+<h4>Проверки и вынесенные решения</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CreateDate" />
+                <input type="hidden" asp-for="ListOfMediaId" />
+                <div class="form-group">
+                    <label asp-for="DictControlTypeId" class="control-label"></label>
+                    <select asp-for="DictControlTypeId" class="form-control" asp-items="ViewBag.DictControlTypeId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartDate" class="control-label"></label>
+                    <input asp-for="StartDate" class="form-control" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EndDate" class="control-label"></label>
+                    <input asp-for="EndDate" class="form-control" />
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartDatePeriod" class="control-label"></label>
+                    <input asp-for="StartDatePeriod" class="form-control" />
+                    <span asp-validation-for="StartDatePeriod" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EndDatePeriod" class="control-label"></label>
+                    <input asp-for="EndDatePeriod" class="form-control" />
+                    <span asp-validation-for="EndDatePeriod" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PatronicName" class="control-label"></label>
+                    <input asp-for="PatronicName" class="form-control" />
+                    <span asp-validation-for="PatronicName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ActDateControl" class="control-label"></label>
+                    <input asp-for="ActDateControl" class="form-control" />
+                    <span asp-validation-for="ActDateControl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberOfAct" class="control-label"></label>
+                    <input asp-for="NumberOfAct" class="form-control" />
+                    <span asp-validation-for="NumberOfAct" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictMediaControlResultId" class="control-label"></label>
+                    <select asp-for="DictMediaControlResultId" class="form-control" asp-items="ViewBag.DictMediaControlResultId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberOfWarning" class="control-label"></label>
+                    <input asp-for="NumberOfWarning" class="form-control" />
+                    <span asp-validation-for="NumberOfWarning" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="WarningDate" class="control-label"></label>
+                    <input asp-for="WarningDate" class="form-control" />
+                    <span asp-validation-for="WarningDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="WarningEndDate" class="control-label"></label>
+                    <input asp-for="WarningEndDate" class="form-control" />
+                    <span asp-validation-for="WarningEndDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="WarningRemovalDate" class="control-label"></label>
+                    <input asp-for="WarningRemovalDate" class="form-control" />
+                    <span asp-validation-for="WarningRemovalDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateOfPenalty" class="control-label"></label>
+                    <input asp-for="DateOfPenalty" class="form-control" />
+                    <span asp-validation-for="DateOfPenalty" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DocNumPenalty" class="control-label"></label>
+                    <input asp-for="DocNumPenalty" class="form-control" />
+                    <span asp-validation-for="DocNumPenalty" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PenaltySum" class="control-label"></label>
+                    <input asp-for="PenaltySum" class="form-control" />
+                    <span asp-validation-for="PenaltySum" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateOfPenaltyPay" class="control-label"></label>
+                    <input asp-for="DateOfPenaltyPay" class="form-control" />
+                    <span asp-validation-for="DateOfPenaltyPay" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AnulmentDate" class="control-label"></label>
+                    <input asp-for="AnulmentDate" class="form-control" />
+                    <span asp-validation-for="AnulmentDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberOfAnulment" class="control-label"></label>
+                    <input asp-for="NumberOfAnulment" class="form-control" />
+                    <span asp-validation-for="NumberOfAnulment" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateOfSuit" class="control-label"></label>
+                    <input asp-for="DateOfSuit" class="form-control" />
+                    <span asp-validation-for="DateOfSuit" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberOfSuit" class="control-label"></label>
+                    <input asp-for="NumberOfSuit" class="form-control" />
+                    <span asp-validation-for="NumberOfSuit" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateOfSuitPerm" class="control-label"></label>
+                    <input asp-for="DateOfSuitPerm" class="form-control" />
+                    <span asp-validation-for="DateOfSuitPerm" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberOfSuitPerm" class="control-label"></label>
+                    <input asp-for="NumberOfSuitPerm" class="form-control" />
+                    <span asp-validation-for="NumberOfSuitPerm" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictMediaSuitPermId" class="control-label"></label>
+                    <select asp-for="DictMediaSuitPermId" class="form-control" asp-items="ViewBag.DictMediaSuitPermId">
+                        <option disabled selected>--- Выбрать ---</option>                    
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Добавить" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+</div>
+
+    <div>
+        <a asp-action="Index" asp-route-id="@Model.ListOfMediaId">Назад</a>
+    </div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

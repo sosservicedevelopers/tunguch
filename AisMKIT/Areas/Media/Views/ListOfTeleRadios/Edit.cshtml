@@ -1,0 +1,66 @@
+﻿@model AisMKIT.Models.ListOfTeleRadio
+
+@{
+    ViewData["Title"] = "Данные телерадиоканалов и операторов телерадиовещания";
+}
+
+<h4>Редактирование</h4>
+
+<h4>Данные телерадиоканалов и операторов телерадиовещания</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="ListOfMediaId" />
+                <input type="hidden" asp-for="CreateDate" />
+                  <div class="form-group">
+                    <label asp-for="NumberOfPermission" class="control-label"></label>
+                    <input asp-for="NumberOfPermission" class="form-control" />
+                    <span asp-validation-for="NumberOfPermission" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PermissionDate" class="control-label"></label>
+                    <input asp-for="PermissionDate" class="form-control" />
+                    <span asp-validation-for="PermissionDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictAgencyPermId" class="control-label"></label>
+                    <select asp-for="DictAgencyPermId" class="form-control" asp-items="ViewBag.DictAgencyPermId"></select>
+                    <span asp-validation-for="DictAgencyPermId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateOfPay" class="control-label"></label>
+                    <input asp-for="DateOfPay" class="form-control" />
+                    <span asp-validation-for="DateOfPay" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumOfPermGas" class="control-label"></label>
+                    <input asp-for="NumOfPermGas" class="form-control" />
+                    <span asp-validation-for="NumOfPermGas" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PermGASDate" class="control-label"></label>
+                    <input asp-for="PermGASDate" class="form-control" />
+                    <span asp-validation-for="PermGASDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PermElimGASDate" class="control-label"></label>
+                    <input asp-for="PermElimGASDate" class="form-control" />
+                    <span asp-validation-for="PermElimGASDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Сохранить" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-id="@Model.ListOfMediaId">Назад</a>
+</div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

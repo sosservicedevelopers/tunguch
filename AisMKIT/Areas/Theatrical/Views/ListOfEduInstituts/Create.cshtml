@@ -1,0 +1,92 @@
+﻿@model AisMKIT.Models.ListOfEduInstituts
+
+@{
+    ViewData["Title"] = "Реестр учебных заведений";
+}
+
+<h1>Добавление</h1>
+
+<h4>Реестр учебных заведений</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CreateDate" />
+                <input type="hidden" asp-for="NameKyrg" />
+                <div class="form-group">
+                    <label asp-for="NameRus" class="control-label"></label>
+                    <input asp-for="NameRus" class="form-control" />
+                    <span asp-validation-for="NameRus" class="text-danger"></span>
+                </div>
+                @*<div class="form-group">
+            <label asp-for="NameKyrg" class="control-label"></label>
+            <input asp-for="NameKyrg" class="form-control" />
+            <span asp-validation-for="NameKyrg" class="text-danger"></span>
+        </div>*@
+                <div class="form-group">
+                    <label asp-for="DictLegalFormId" class="control-label"></label>
+                    <select asp-for="DictLegalFormId" class="form-control" asp-items="ViewBag.DictLegalFormId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="INN" class="control-label"></label>
+                    <input asp-for="INN" class="form-control" />
+                    <span asp-validation-for="INN" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastNameDirector" class="control-label"></label>
+                    <input asp-for="LastNameDirector" class="form-control" />
+                    <span asp-validation-for="LastNameDirector" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstNameDirector" class="control-label"></label>
+                    <input asp-for="FirstNameDirector" class="form-control" />
+                    <span asp-validation-for="FirstNameDirector" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PatronicNameDirector" class="control-label"></label>
+                    <input asp-for="PatronicNameDirector" class="form-control" />
+                    <span asp-validation-for="PatronicNameDirector" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictEduInstTypeId" class="control-label"></label>
+                    <select asp-for="DictEduInstTypeId" class="form-control" asp-items="ViewBag.DictEduInstTypeId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictFinSourceId" class="control-label"></label>
+                    <select asp-for="DictFinSourceId" class="form-control" asp-items="ViewBag.DictFinSourceId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RegistrationDate" class="control-label"></label>
+                    <input asp-for="RegistrationDate" class="form-control" />
+                    <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReregistrationDate" class="control-label"></label>
+                    <input asp-for="ReregistrationDate" class="form-control" />
+                    <span asp-validation-for="ReregistrationDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DeactiveDate" class="control-label"></label>
+                    <input asp-for="DeactiveDate" class="form-control" />
+                    <span asp-validation-for="DeactiveDate" class="text-danger"></span>
+                </div>
+                @*<div class="form-group">
+            <label asp-for="CreateDate" class="control-label"></label>
+            <input asp-for="CreateDate" class="form-control" />
+            <span asp-validation-for="CreateDate" class="text-danger"></span>
+        </div>*@
+                <div class="form-group">
+                    <input type="submit" value="Добавить" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

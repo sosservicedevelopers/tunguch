@@ -1,0 +1,83 @@
+﻿@model IEnumerable<AisMKIT.Models.ListOfTeleRadio>
+
+@{
+    ViewData["Title"] = "Данные телерадиоканалов и операторов телерадиовещания";
+}
+
+    <h2>Данные телерадиоканалов и операторов телерадиовещания</h2>
+
+<p>
+    <a asp-action="Create">Добавить новый</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListOfMedia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfPermission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermissionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictAgencyPerm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfPay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumOfPermGas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermGASDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermElimGASDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListOfMedia.NameRus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfPermission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermissionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DictAgencyPerm.NameRus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfPay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfPermGas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermGASDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermElimGASDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                @*<a asp-action="Details" asp-route-id="@item.Id">Детали</a> |*@
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

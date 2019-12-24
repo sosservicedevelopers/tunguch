@@ -1,0 +1,50 @@
+﻿@model AisMKIT.Models.ListOfTourismServices
+
+@{
+    ViewData["Title"] = "Оказываемые услуги";
+}
+
+<h1>Удаление</h1>
+
+<h3>Вы хотите удалить эту запись?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictTourismServices)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictTourismServices.Id)
+        </dd class>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ListOfTourism)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ListOfTourism.Id)
+        </dd class>*@
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictStatus.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DeactivateStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeactivateStatus)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>*@
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>

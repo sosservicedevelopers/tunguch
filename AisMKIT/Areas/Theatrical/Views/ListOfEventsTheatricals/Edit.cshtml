@@ -1,0 +1,71 @@
+﻿@model AisMKIT.Models.ListOfEventsTheatrical
+
+@{
+    ViewData["Title"] = "Репертуары";
+}
+
+<h4>Редактирование</h4>
+
+<h4>Репертуары</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="CreateDate" />
+                <input type="hidden" asp-for="ListOfTheatricalId" />
+                @*<div class="form-group">
+                    <label asp-for="ListOfTheatricalId" class="control-label"></label>
+                    <select asp-for="ListOfTheatricalId" class="form-control" asp-items="ViewBag.ListOfTheatricalId"></select>
+                    <span asp-validation-for="ListOfTheatricalId" class="text-danger"></span>
+                </div>*@
+                <div class="form-group">
+                    <label asp-for="Year" class="control-label"></label>
+                    <input asp-for="Year" class="form-control" />
+                    <span asp-validation-for="Year" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Month" class="control-label"></label>
+                    <input asp-for="Month" class="form-control" />
+                    <span asp-validation-for="Month" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DayOfMonth" class="control-label"></label>
+                    <input asp-for="DayOfMonth" class="form-control" />
+                    <span asp-validation-for="DayOfMonth" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Time" class="control-label"></label>
+                    <input asp-for="Time" class="form-control" />
+                    <span asp-validation-for="Time" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NameOfEvent" class="control-label"></label>
+                    <input asp-for="NameOfEvent" class="form-control" />
+                    <span asp-validation-for="NameOfEvent" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictTheatricalHallId" class="control-label"></label>
+                    <select asp-for="DictTheatricalHallId" class="form-control" asp-items="ViewBag.DictTheatricalHallId"></select>
+                    <span asp-validation-for="DictTheatricalHallId" class="text-danger"></span>
+                </div>
+                @*<div class="form-group">
+                    <label asp-for="CreateDate" class="control-label"></label>
+                    <input asp-for="CreateDate" class="form-control" />
+                    <span asp-validation-for="CreateDate" class="text-danger"></span>
+                </div>*@
+                <div class="form-group">
+                    <input type="submit" value="Сохранить" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-id="@Model.ListOfTheatricalId">Назад</a>
+</div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

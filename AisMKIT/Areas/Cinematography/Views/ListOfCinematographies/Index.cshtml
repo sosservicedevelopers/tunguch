@@ -1,0 +1,152 @@
+﻿@model IEnumerable<AisMKIT.Models.ListOfCinematography>
+
+@{
+    ViewData["Title"] = "Реестр субъектов киномотографии";
+}
+
+<h2>Реестр субъектов киномотографии</h2>
+
+<table class="table">
+    <tr>
+        <td width="150">
+            <p>
+                <a asp-action="Create">Добавить новый</a>
+            </p>
+        </td>
+        <td width="400">
+            <form asp-action="Index">
+                <table>
+                    <tr>
+                        <td>
+                            <select id="Id" name="Id" class="form-control" asp-items="ViewBag.DictFinSourceId">
+                                <option disabled selected>--- Выбрать ---</option>
+                            </select>
+                        </td>
+                        <td><input type="submit" value="Фильтр" class="btn btn-primary" /></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+<p>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameRus)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.NameKyrg)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.DictLegalForm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastNameDirector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstNameDirector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatronicNameDirector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictFinSource)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictDistrict)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LegalAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FactDistrictId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LegalFactAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReregistrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeactiveDate)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameRus)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.NameKyrg)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.DictLegalForm.NameRus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastNameDirector)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstNameDirector)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatronicNameDirector)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DictFinSource.NameRus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DictDistrict.NameRus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LegalAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FactDistrictId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LegalFactAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReregistrationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeactiveDate)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                <a asp-controller="ListOfCinematographyServices" asp-action="Index" asp-route-id="@item.Id">Услуги</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,56 @@
+﻿@model AisMKIT.Models.ListOfCinematographyServices
+
+@{
+    ViewData["Title"] = "Список оказываемых услуг";
+}
+
+<h4>Редактирование</h4>
+
+<h4>Список оказываемых услуг</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="CreateDate" />
+                <input type="hidden" asp-for="ListOfCinematographyId" />
+                <div class="form-group">
+                    <label asp-for="DictCinematographyServicesId" class="control-label"></label>
+                    <select asp-for="DictCinematographyServicesId" class="form-control" asp-items="ViewBag.DictCinematographyServicesId"></select>
+                    <span asp-validation-for="DictCinematographyServicesId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ListOfCinematographyId" class="control-label"></label>
+                    <select asp-for="ListOfCinematographyId" class="form-control" asp-items="ViewBag.ListOfCinematographyId"></select>
+                    <span asp-validation-for="ListOfCinematographyId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictStatusId" class="control-label"></label>
+                    <select asp-for="DictStatusId" class="form-control" asp-items="ViewBag.DictStatusId"></select>
+                    <span asp-validation-for="DictStatusId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DeactivateStatus" class="control-label"></label>
+                    <input asp-for="DeactivateStatus" class="form-control" />
+                    <span asp-validation-for="DeactivateStatus" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CreateDate" class="control-label"></label>
+                    <input asp-for="CreateDate" class="form-control" />
+                    <span asp-validation-for="CreateDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Сохранить" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-id="@Model.ListOfCinematographyId">Назад</a>
+</div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

@@ -1,0 +1,72 @@
+﻿@model AisMKIT.Models.ListOfMonuments
+
+@{
+    ViewData["Title"] = "Список памятников";
+}
+
+<h4>Детали</h4>
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameRus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameRus)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameKyrg)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameKyrg)
+        </dd>*@
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DatingOfMonument)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DatingOfMonument)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictDistrict)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictDistrict.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LegalAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LegalAddress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictFinSource)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictFinSource.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictMonumentType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictMonumentType.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictMonumemtSignOfLoss)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictMonumemtSignOfLoss.Id)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>*@
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a> |
+    <a asp-action="Index">Назад</a>
+</div>

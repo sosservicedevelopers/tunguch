@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AisMKIT.Models.ListOfCouncilTheatrical>
+
+@{
+    ViewData["Title"] = "Cостав художественного совета";
+}
+
+    <h2>Cостав художественного совета</h2>
+
+<p>
+    <a asp-action="Create">Добавить новый</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListOfTheatrical)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastNameOfArts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstNameOfArts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatronicNameOfArts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateInArtCouncil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOutArtCouncil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListOfTheatrical.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastNameOfArts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstNameOfArts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatronicNameOfArts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateInArtCouncil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOutArtCouncil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

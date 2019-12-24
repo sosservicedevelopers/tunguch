@@ -1,0 +1,90 @@
+﻿@model IEnumerable<AisMKIT.Areas.Media.Models.PermissionMediaModel>
+
+@{
+    ViewData["Title"] = "Перечень выданных разрешений на телерадиоканалы";
+}
+
+    <h2>Перечень выданных разрешений на телерадиоканалы</h2>
+
+<p>
+    
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <strong>№п.п.</strong>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LegalForm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegisterDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MediaType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermissionNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermissionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepPermGive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WarningDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WarningEndDate)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int id = 1;}
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @id
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LegalForm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.INN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisterDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MediaType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermissionNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermissionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepPermGive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WarningDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WarningEndDate)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

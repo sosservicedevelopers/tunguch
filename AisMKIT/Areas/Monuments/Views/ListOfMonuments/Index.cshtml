@@ -1,0 +1,111 @@
+﻿@model IEnumerable<AisMKIT.Models.ListOfMonuments>
+
+@{
+    ViewData["Title"] = "Список памятников";
+}
+
+<h2>Список памятников</h2>
+
+
+<table class="table">
+    <tr>
+        <td width="150">
+            <p>
+                <a asp-action="Create">Добавить новый</a>
+            </p>
+        </td>
+        <td width="400">
+            <form asp-action="Index">
+                <table>
+                    <tr>
+                        <td>
+                            <select id="Id" name="Id" class="form-control" asp-items="ViewBag.DictFinSourceId">
+                                <option disabled selected>--- Выбрать ---</option>
+                            </select>
+                        </td>
+                        <td><input type="submit" value="Фильтр" class="btn btn-primary" /></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+<p>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameRus)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.NameKyrg)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.DatingOfMonument)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictDistrict)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LegalAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictFinSource)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictMonumentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictMonumemtSignOfLoss)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameRus)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.NameKyrg)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatingOfMonument)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DictDistrict.NameRus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LegalAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DictFinSource.NameRus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DictMonumentType.NameRus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DictMonumemtSignOfLoss.NameRus)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                <a asp-action="Index" asp-controller="ListOfMonumetnTypologicalAccessories" asp-route-id="@item.Id">Типовые принадлежности</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+            </tr>
+        }
+    </tbody>
+</table>

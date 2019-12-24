@@ -1,0 +1,52 @@
+﻿@model AisMKIT.Models.ListOfTourismServices
+
+@{
+    ViewData["Title"] = "Оказываемые услуги";
+}
+
+<h1>Добавление</h1>
+
+    <h4>Оказываемые услуги</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CreateDate" />
+                <input type="hidden" asp-for="ListOfTourismId" />
+                <div class="form-group">
+                    <label asp-for="DictTourismServicesId" class="control-label"></label>
+                    <select asp-for="DictTourismServicesId" class="form-control" asp-items="ViewBag.DictTourismServicesId"></select>
+                </div>
+                @*<div class="form-group">
+                    <label asp-for="ListOfTourismId" class="control-label"></label>
+                    <select asp-for="ListOfTourismId" class="form-control" asp-items="ViewBag.ListOfTourismId"></select>
+                </div>*@
+                <div class="form-group">
+                    <label asp-for="DictStatusId" class="control-label"></label>
+                    <select asp-for="DictStatusId" class="form-control" asp-items="ViewBag.DictStatusId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DeactivateStatus" class="control-label"></label>
+                    <input asp-for="DeactivateStatus" class="form-control" />
+                    <span asp-validation-for="DeactivateStatus" class="text-danger"></span>
+                </div>
+                @*<div class="form-group">
+                    <label asp-for="CreateDate" class="control-label"></label>
+                    <input asp-for="CreateDate" class="form-control" />
+                    <span asp-validation-for="CreateDate" class="text-danger"></span>
+                </div>*@
+                <div class="form-group">
+                    <input type="submit" value="Добавить" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-id="@Model.ListOfTourismId">Назад</a>
+</div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

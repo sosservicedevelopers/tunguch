@@ -1,0 +1,46 @@
+﻿@model AisMKIT.Models.DictMonumemtSignOfLoss
+
+@{
+    ViewData["Title"] = "Признак утраты";
+}
+
+<h4>Редактирование</h4>
+
+<h4>Признак утраты</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="NameKyrg" />
+            <input type="hidden" asp-for="CreateDate" />
+            @*<div class="form-group">
+            <label asp-for="NameKyrg" class="control-label"></label>
+            <input asp-for="NameKyrg" class="form-control" />
+            <span asp-validation-for="NameKyrg" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <label asp-for="NameRus" class="control-label"></label>
+                <input asp-for="NameRus" class="form-control" />
+                <span asp-validation-for="NameRus" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="CreateDate" class="control-label"></label>
+            <input asp-for="CreateDate" class="form-control" />
+            <span asp-validation-for="CreateDate" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

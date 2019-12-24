@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Общие справочники</h1>
+<br />
+@*<div class="container">
+
+    <h2>Справочники</h2>
+    <br />
+
+   
+</div>*@
+
+<div class="row justify-content-center">
+
+    <div class="card" style="width: 18rem;">
+        @*<img src="~/img/depDCAE.png" class="img-thumbnail" alt="...">*@
+        <div class="card-body justify-content-center">
+            <div class="container">
+
+                <h2>Справочники</h2>
+                <br />
+
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictRegions" asp-action="Index">Регионы</a>
+                </div>
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictDistricts" asp-action="Index">Районы</a>
+                </div>
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictLegalForms" asp-action="Index">Организационно-правовая форма</a>
+                </div>
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictFinSources" asp-action="Index">Источник финансирования</a>
+                </div>
+
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictStatus" asp-action="Index">Статусы</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        @*<img src="~/img/cultural.jpg" class="img-thumbnail" alt="...">*@
+        <div class="card-body justify-content-center">
+            <div class="container">
+
+                <h2>Справочники СМИ</h2>
+                <br />
+
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictMediaTypes" asp-action="Index">Типы СМИ</a>
+                </div>
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictMediaLangTypes" asp-action="Index">Язык вещания СМИ</a>
+                </div>
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictMediaFreqReleases" asp-action="Index">Периодичность выпуска СМИ</a>
+                </div>
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictAgencyPerms" asp-action="Index">Орган выдающий разрещения</a>
+                </div>
+
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictMediaControlResults" asp-action="Index">Результаты проверки СМИ</a>
+                </div>
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictControlTypes" asp-action="Index">Вид проверки СМИ</a>
+                </div>
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictMediaSuitPerms" asp-action="Index">Судебное решение</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        @*<img src="~/img/subinstitution.jpg" class="img-thumbnail" alt="...">*@
+        <div class="card-body justify-content-center">
+            <div class="container">
+
+                <h2>Справочники TЗУ</h2>
+                <br />
+
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictTheatricalHalls" asp-action="Index">Залы для ТЗУ</a>
+                </div>
+                
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictEduInstTypes" asp-action="Index">Вид учебного заведения</a>
+                </div>
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictMediaSuitPerms" asp-action="Index">Судебное решение</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        @*<img src="~/img/media.jpg" class="img-thumbnail" alt="...">*@
+        <div class="container">
+
+            <h2>Справочники Tуризм</h2>
+            <br />
+
+            <div>
+                <a asp-area="GlobalDicts" asp-controller="DictTourismServices" asp-action="Index">Туристические услуги</a>
+            </div>
+
+          
+
+        </div>
+    </div>
+
+
+
+    <div class="card" style="width: 18rem;">
+        @*<img src="~/img/cinematography.jpg" class="img-thumbnail" alt="...">*@
+        <div class="card-body justify-content-center">
+            <div class="container">
+
+                <h2>Справочники Киномотографии</h2>
+                <br />
+
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictCinematographyServices" asp-action="Index">Услуги киномотографии</a>
+                </div>
+
+
+
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="card" style="width: 18rem;">
+        @*<img src="~/img/turism.jpg" class="img-thumbnail" alt="...">*@
+        <div class="card-body justify-content-center">
+            <div class="container">
+
+                <h2>Справочники управления сохранения и развития культурного наследия </h2>
+                <br />
+
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictMonumemtSignOfLosses" asp-action="Index">Признаки утраты</a>
+                </div>
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictMonumentTypes" asp-action="Index">Типы объектов</a>
+                </div>
+                <div>
+                    <a asp-area="GlobalDicts" asp-controller="DictMonumentTypologicalTypes" asp-action="Index">Типы типологической принадлежность</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

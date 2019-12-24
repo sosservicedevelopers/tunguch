@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Театрально-зрелищные учреждения";
+}
+
+<h1>Театрально-зрелищные учреждения</h1>
+<br />
+<div class="container">
+
+    <h2>Реестр</h2>
+    <br />
+
+    <div>
+        <a asp-area="Theatrical" asp-controller="ListOfTheatricals" asp-action="Index">Реестр теотрально-зрелищных учреждений</a>
+    </div>
+
+    <div>
+        <a asp-area="Theatrical" asp-controller="ListOfEduInstituts" asp-action="Index">Реестр учебных заведений</a>
+    </div>
+
+    <div>
+        <a asp-area="Theatrical" asp-controller="ListOfEventsTheatricals" asp-action="Index">Репертуары</a>
+    </div>
+
+    <br />
+
+    <h2>Справочники</h2>
+    <br />
+
+    <div>
+        <a asp-area="Theatrical" asp-controller="DictTheatricalFinSources" asp-action="Index">Источники финансирования</a>
+    </div>
+    <div>
+        <a asp-area="Theatrical" asp-controller="DictTheatricalLegalForms" asp-action="Index">Организационно-правовая форма</a>
+    </div>
+
+</div>
+

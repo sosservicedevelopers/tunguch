@@ -1,0 +1,157 @@
+﻿@model IEnumerable<AisMKIT.Models.ListOfMedia>
+
+@{
+    ViewData["Title"] = "Реестр СМИ";
+}
+
+<h2>Реестр СМИ</h2>
+
+<table class="table">
+    <tr>
+        <td>
+            <p>
+                <a asp-action="Create">Добавить новый</a>
+            </p>
+        </td>
+        <td>
+            <form asp-action="PermissionsMedia">
+                <input type="submit" value="Перечень выданных разрешений на телерадиоканалы" class="btn btn-primary" />
+            </form>
+        </td>
+        <td>
+            <form asp-action="PermissionsDepartment">
+                <input type="submit" value="Подведомственные учреждения СМИ" class="btn btn-primary" />
+            </form>
+        </td>
+    </tr>
+</table>
+<p></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameRus)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.NameKyrg)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.DictLegalForm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Territoryy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictMediaLangType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictMediaType)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.AddressRus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddressKyrg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DictMediaFreqRelease)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DictFinSource)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReregistrationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EliminationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.NameRus)*@
+                    <a asp-action="History" asp-route-id="@item.Id">  @Html.DisplayFor(modelItem => item.NameRus)</a>
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.NameKyrg)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.DictLegalForm.NameRus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Territoryy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DictMediaLangType.NameRus)
+                </td>
+                @if (item.DictMediaTypeId == 3)
+                {
+                    <td>
+                        <a asp-area="Media" asp-controller="ListOfTeleRadios" asp-action="Index" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.DictMediaType.NameRus)</a>
+                    </td>
+
+                }
+                else
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictMediaType.NameRus)
+                    </td>
+                }
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.AddressRus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AddressKyrg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictMediaFreqRelease.NameRus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictFinSource.NameRus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReregistrationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EliminationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>*@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                    <a asp-area="Media" asp-controller="ListOfControlMedias" asp-action="Index" asp-route-id="@item.Id">Проверки</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Ликвидация</a>
+                    @*<a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,110 @@
+﻿@model AisMKIT.Models.ListOfTheatrical
+
+@{
+    ViewData["Title"] = "Реестр ТЗУ";
+}
+
+<h1>Удаление</h1>
+
+<h3>Вы хотите удалить эту запись?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameRus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameRus)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameKyrg)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameKyrg)
+        </dd>*@
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictLegalForm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictLegalForm.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.INN)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.INN)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastNameDirector)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastNameDirector)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstNameDirector)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstNameDirector)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PatronicNameDirector)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PatronicNameDirector)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastNameOfArtsDirector)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastNameOfArtsDirector)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstNameOfArtsDirector)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstNameOfArtsDirector)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PatronicNameOfArtsDirector)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PatronicNameOfArtsDirector)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumEmployees)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumEmployees)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictFinSource)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictFinSource.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReregistrationDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReregistrationDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DeactiveDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeactiveDate)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>*@
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>

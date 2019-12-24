@@ -1,0 +1,164 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "АИС";
+}
+
+    <div class="row justify-content-center">
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/depDCAE.png" class="img-thumbnail" alt="...">
+            <div class="card-body justify-content-center">
+                <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="DepDCAE">Управление завития культуры, искусства и профессионального образования</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/cultural.jpg" class="img-thumbnail" alt="...">
+            <div class="card-body justify-content-center">
+                <a class="btn btn-primary" asp-area="Monument" asp-controller="Main">Управление сохранения и развития культурного наследия</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/subinstitution.jpg" class="img-thumbnail" alt="...">
+            <div class="card-body justify-content-center">
+                <a class="btn btn-primary" asp-area="Theatrical" asp-controller="Main">ТЗУ</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/media.jpg" class="img-thumbnail" alt="...">
+            <div class="card-body justify-content-center">
+                <a class="btn btn-primary" asp-area="Media" asp-controller="Main">Департамент информации и массовых коммуникаций</a>
+            </div>
+        </div>
+
+
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/cinematography.jpg" class="img-thumbnail" alt="...">
+            <div class="card-body justify-content-center">
+                <a class="btn btn-primary" asp-area="Cinematography" asp-controller="ListOfCinematographies">Департамент киномотографии</a>
+            </div>
+        </div>
+
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/turism.jpg" class="img-thumbnail" alt="...">
+            <div class="card-body justify-content-center">
+                <a class="btn btn-primary" asp-area="Tourism" asp-controller="ListOfTourism">Департамент туризма</a>
+            </div>
+        </div>
+
+    </div>
+
+
+@*<div class="row portfolio-container">
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+            <div class="portfolio-wrap">
+                <figure>
+                    <img src="~/img/media.jpg" class="img-fluid" alt="">
+                    <a href="~/1/img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                </figure>
+
+                <div class="portfolio-info">
+                    <h4><a href="#">Средства массовой информации</a></h4>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+            <div class="portfolio-wrap">
+                <figure>
+                    <img src="~/img/media.jpg" class="img-fluid" alt="">
+                    <a href="~/img/media.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                </figure>
+
+                <div class="portfolio-info">
+                    <h4><a href="#">Театрально-зрелищные учреждения</a></h4>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m-3">
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/media.jpg" class="img-fluid">
+            <div class="card-body">
+                <a class="btn btn-success" asp-area="Media" asp-controller="Main">
+                    <h6 class="card-title">Средства массовой информации</h6>
+                </a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/theatre.jpg" class="img-fluid">
+            <div class="card-body">
+                <a class="btn btn-success" asp-area="Theatrical" asp-controller="Main">
+                    <h6 class="card-title">Театрально-зрелищные учреждения</h6>
+                </a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/education.png" class="card-img-top">
+            <div class="card-body">
+                <a class="btn btn-success" asp-area="Media" asp-controller="Main">
+                    <h6 class="card-title">Учебные заведения</h6>
+                </a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/library.jpg" class="card-img-top">
+            <div class="card-body">
+                <a class="btn btn-success" asp-area="Media" asp-controller="Main">
+                    <h6 class="card-title">Библиотеки</h6>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="d-flex">
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/art.jpg" class="card-img-top">
+            <div class="card-body">
+                <a class="btn btn-success" asp-area="Media" asp-controller="Main">
+                    <h6 class="card-title">Объекты произведений культуры и искусства</h6>
+                </a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/subinstitution.jpg" class="card-img-top">
+            <div class="card-body">
+                <a class="btn btn-success" asp-area="Media" asp-controller="Main">
+                    <h6 class="card-title">Подведомственные учреждения</h6>
+                </a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/award.jpg" class="card-img-top">
+            <div class="card-body">
+                <a class="btn btn-success" asp-area="Media" asp-controller="Main">
+                    <h6 class="card-title">Государственные и ведомственные награды</h6>
+                </a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/cultural.jpg" class="card-img-top">
+            <div class="card-body">
+                <a class="btn btn-success" asp-area="Media" asp-controller="Main">
+                    <h6 class="card-title">Охраняемые объекты культурного наследия</h6>
+                </a>
+            </div>
+        </div>
+    </div>*@

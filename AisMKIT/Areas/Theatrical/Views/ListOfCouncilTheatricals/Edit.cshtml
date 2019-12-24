@@ -1,0 +1,66 @@
+﻿@model AisMKIT.Models.ListOfCouncilTheatrical
+
+@{
+    ViewData["Title"] = "Cостав художественного совета";
+}
+
+<h4>Редактирование</h4>
+
+<h4>Cостав художественного совета</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="CreateDate" />
+                <input type="hidden" asp-for="ListOfTheatricalId" />
+                @*<div class="form-group">
+                    <label asp-for="ListOfTheatricalId" class="control-label"></label>
+                    <select asp-for="ListOfTheatricalId" class="form-control" asp-items="ViewBag.ListOfTheatricalId"></select>
+                    <span asp-validation-for="ListOfTheatricalId" class="text-danger"></span>
+                </div>*@
+                <div class="form-group">
+                    <label asp-for="LastNameOfArts" class="control-label"></label>
+                    <input asp-for="LastNameOfArts" class="form-control" />
+                    <span asp-validation-for="LastNameOfArts" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstNameOfArts" class="control-label"></label>
+                    <input asp-for="FirstNameOfArts" class="form-control" />
+                    <span asp-validation-for="FirstNameOfArts" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PatronicNameOfArts" class="control-label"></label>
+                    <input asp-for="PatronicNameOfArts" class="form-control" />
+                    <span asp-validation-for="PatronicNameOfArts" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateInArtCouncil" class="control-label"></label>
+                    <input asp-for="DateInArtCouncil" class="form-control" />
+                    <span asp-validation-for="DateInArtCouncil" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateOutArtCouncil" class="control-label"></label>
+                    <input asp-for="DateOutArtCouncil" class="form-control" />
+                    <span asp-validation-for="DateOutArtCouncil" class="text-danger"></span>
+                </div>
+                @*<div class="form-group">
+                    <label asp-for="CreateDate" class="control-label"></label>
+                    <input asp-for="CreateDate" class="form-control" />
+                    <span asp-validation-for="CreateDate" class="text-danger"></span>
+                </div>*@
+                <div class="form-group">
+                    <input type="submit" value="Сохранить" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+</div>
+
+    <div>
+        <a asp-action="Index" asp-route-id="@Model.ListOfTheatricalId">Назад</a>
+    </div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

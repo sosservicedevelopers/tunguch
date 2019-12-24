@@ -1,0 +1,114 @@
+﻿@model AisMKIT.Models.ListOfMedia
+
+@{
+    ViewData["Title"] = "Реестр СМИ";
+}
+
+<h4>Детали</h4>
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.NameRus)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.NameRus)
+        </dd>
+        @*<dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.NameKyrg)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.NameKyrg)
+        </dd>*@
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.DictLegalForm)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.DictLegalForm.NameRus)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.INN)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.INN)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.RegistrationDate)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.RegistrationDate)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Territoryy)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Territoryy)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.DictMediaLangType)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.DictMediaLangType.NameRus)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.DictMediaType)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.DictMediaType.NameRus)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.AddressRus)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.AddressRus)
+        </dd>
+        @*<dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.AddressKyrg)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.AddressKyrg)
+        </dd>*@
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.DictMediaFreqRelease)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.DictMediaFreqRelease.NameRus)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.DictFinSource)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.DictFinSource.NameRus)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.ReregistrationDate)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.ReregistrationDate)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.EliminationDate)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.EliminationDate)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a> |
+    <a asp-action="Index">Назад</a>
+</div>

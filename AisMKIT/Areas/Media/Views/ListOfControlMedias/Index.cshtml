@@ -1,0 +1,191 @@
+﻿@model IEnumerable<AisMKIT.Models.ListOfControlMedia>
+
+@{
+    ViewData["Title"] = "Проверки и вынесенные решения";
+}
+
+    <h2>Проверки и вынесенные решения</h2>
+
+<p>
+    <a asp-action="Create">Добавить новый</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListOfMedia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictControlType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDatePeriod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDatePeriod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatronicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActDateControl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfAct)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictMediaControlResult)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfWarning)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WarningDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WarningEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WarningRemovalDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfPenalty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocNumPenalty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PenaltySum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfPenaltyPay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnulmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfAnulment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfSuit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfSuit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfSuitPerm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfSuitPerm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DictMediaSuitPerm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListOfMedia.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DictControlType.NameRus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDatePeriod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDatePeriod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatronicName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActDateControl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfAct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DictMediaControlResult.NameRus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfWarning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WarningDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WarningEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WarningRemovalDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfPenalty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocNumPenalty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PenaltySum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfPenaltyPay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnulmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfAnulment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfSuit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSuit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfSuitPerm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSuitPerm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DictMediaSuitPerm.NameRus)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

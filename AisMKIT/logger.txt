@@ -1,0 +1,277 @@
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT
+Request starting HTTP/2.0 GET https://localhost:44341/  
+Executing endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Controllers.HomeController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 379.8195ms.
+Executed action AisMKIT.Controllers.HomeController.Index (AisMKIT) in 861.6151000000001ms
+Executed endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Request finished in 1070.4758000000002ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/lib/jquery/dist/jquery.min.js  
+Request starting HTTP/2.0 GET https://localhost:44341/css/site.css  
+Request starting HTTP/2.0 GET https://localhost:44341/lib/bootstrap/dist/css/bootstrap.min.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\css\site.css'
+Request finished in 33.369ms 200 text/css
+Request starting HTTP/2.0 GET https://localhost:44341/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\js\site.js'
+Request finished in 6.9804ms 200 application/javascript
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request finished in 47.7535ms 200 text/css
+Request starting HTTP/2.0 GET https://localhost:44341/lib/bootstrap/dist/js/bootstrap.bundle.min.js  
+Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\lib\jquery\dist\jquery.min.js'
+Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+Request finished in 122.24300000000001ms 200 application/javascript
+Request finished in 34.013ms 200 application/javascript
+Request starting HTTP/2.0 GET https://localhost:44341/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\favicon.ico'
+Request finished in 5.69ms 200 image/x-icon
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT
+Request starting HTTP/2.0 GET https://localhost:44341/  
+Executing endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Controllers.HomeController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 393.0804ms.
+Executed action AisMKIT.Controllers.HomeController.Index (AisMKIT) in 678.8480000000001ms
+Executed endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Request finished in 789.162ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/Home/Privacy  
+Executing endpoint 'AisMKIT.Controllers.HomeController.Privacy (AisMKIT)'
+Route matched with {action = "Privacy", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Privacy() on controller AisMKIT.Controllers.HomeController (AisMKIT).
+Executing ViewResult, running view Privacy.
+Executed ViewResult - view Privacy executed in 14.0777ms.
+Executed action AisMKIT.Controllers.HomeController.Privacy (AisMKIT) in 17.6762ms
+Executed endpoint 'AisMKIT.Controllers.HomeController.Privacy (AisMKIT)'
+Request finished in 46.209700000000005ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT
+Request starting HTTP/2.0 GET https://localhost:44341/  
+Executing endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Controllers.HomeController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 271.06170000000003ms.
+Executed action AisMKIT.Controllers.HomeController.Index (AisMKIT) in 577.1778ms
+Executed endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Request finished in 692.9096000000001ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/Identity/Account/Login  
+Executing endpoint '/Account/Login'
+Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+Executing handler method AisMKIT.Areas.Identity.Pages.Account.LoginModel.OnGetAsync - ModelState is Valid
+AuthenticationScheme: Identity.External signed out.
+Executed handler method OnGetAsync, returned result .
+Executing an implicit handler method - ModelState is Valid
+Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+Executed page /Account/Login in 123.47540000000001ms
+Executed endpoint '/Account/Login'
+Request finished in 200.556ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js  
+Request starting HTTP/2.0 GET https://localhost:44341/Identity/lib/jquery-validation/dist/jquery.validate.js  
+Sending file. Request path: '/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js'. Physical path: 'C:\Users\AliBekAman\.nuget\packages\microsoft.aspnetcore.identity.ui\3.0.0\staticwebassets\V4\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js'
+Request finished in 18.2514ms 200 application/javascript
+Sending file. Request path: '/Identity/lib/jquery-validation/dist/jquery.validate.js'. Physical path: 'C:\Users\AliBekAman\.nuget\packages\microsoft.aspnetcore.identity.ui\3.0.0\staticwebassets\V4\lib\jquery-validation\dist\jquery.validate.js'
+Request finished in 32.4602ms 200 application/javascript
+Request starting HTTP/2.0 POST https://localhost:44341/Identity/Account/Login application/x-www-form-urlencoded 260
+Executing endpoint '/Account/Login'
+Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+Executing handler method AisMKIT.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is Valid
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed page /Account/Login in 783.2916ms
+Executed endpoint '/Account/Login'
+An unhandled exception has occurred while executing the request.
+Request finished in 924.7079ms 500 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/Identity/Account/Login  
+Executing endpoint '/Account/Login'
+Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+Executing handler method AisMKIT.Areas.Identity.Pages.Account.LoginModel.OnGetAsync - ModelState is Valid
+AuthenticationScheme: Identity.External signed out.
+Executed handler method OnGetAsync, returned result .
+Executing an implicit handler method - ModelState is Valid
+Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+Executed page /Account/Login in 21.5062ms
+Executed endpoint '/Account/Login'
+Request finished in 38.252ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map  
+Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map'
+Request finished in 22.8064ms 200 text/plain
+Request starting HTTP/2.0 GET https://localhost:44341/lib/bootstrap/dist/css/bootstrap.min.css.map  
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+Request finished in 22.594900000000003ms 200 text/plain
+Request starting HTTP/2.0 POST https://localhost:44341/Identity/Account/Login application/x-www-form-urlencoded 264
+Executing endpoint '/Account/Login'
+Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+Executing handler method AisMKIT.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is Valid
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed page /Account/Login in 80.68090000000001ms
+Executed endpoint '/Account/Login'
+An unhandled exception has occurred while executing the request.
+Request finished in 130.0372ms 500 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT
+Request starting HTTP/2.0 GET https://localhost:44341/  
+Executing endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Controllers.HomeController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 246.23010000000002ms.
+Executed action AisMKIT.Controllers.HomeController.Index (AisMKIT) in 455.86260000000004ms
+Executed endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Request finished in 571.1153ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/Account/Account  
+Processing request /Account/Account
+Request finished in 10.8442ms 200 
+Request starting HTTP/2.0 GET https://localhost:44341/Account/Account/index  
+Processing request /Account/Account/index
+Request finished in 15.8025ms 200 
+Request starting HTTP/2.0 GET https://localhost:44341/  
+Executing endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Controllers.HomeController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 10.184000000000001ms.
+Executed action AisMKIT.Controllers.HomeController.Index (AisMKIT) in 14.495800000000001ms
+Executed endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Request finished in 26.2112ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/Account/index  
+Processing request /Account/index
+Request finished in 9.408800000000001ms 200 
+Request starting HTTP/2.0 GET https://localhost:44341/Account/index  
+Processing request /Account/index
+Request finished in 11.062000000000001ms 200 
+Request starting HTTP/2.0 GET https://localhost:44341/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\favicon.ico'
+Request finished in 34.240700000000004ms 200 image/x-icon
+Request starting HTTP/2.0 GET https://localhost:44341/Cinematography/Test  
+Executing endpoint 'AisMKIT.Areas.Cinematography.Controllers.TestController.Index (AisMKIT)'
+Route matched with {area = "Cinematography", action = "Index", controller = "Test", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Areas.Cinematography.Controllers.TestController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 30.793100000000003ms.
+Executed action AisMKIT.Areas.Cinematography.Controllers.TestController.Index (AisMKIT) in 34.6094ms
+Executed endpoint 'AisMKIT.Areas.Cinematography.Controllers.TestController.Index (AisMKIT)'
+Request finished in 45.580000000000005ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT
+Request starting HTTP/2.0 GET https://localhost:44341/  
+Executing endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Controllers.HomeController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 362.1171ms.
+Executed action AisMKIT.Controllers.HomeController.Index (AisMKIT) in 652.9953ms
+Executed endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Request finished in 815.0558000000001ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/ManageUsers/Account  
+Executing endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+Route matched with {area = "ManageUsers", action = "Index", controller = "Account", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Areas.Account.Controllers.AccountController (AisMKIT).
+Executed action AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT) in 4.5998ms
+Executed endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+An unhandled exception has occurred while executing the request.
+Request finished in 125.4225ms 500 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/ManageUsers/Account  
+Executing endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+Route matched with {area = "ManageUsers", action = "Index", controller = "Account", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Areas.Account.Controllers.AccountController (AisMKIT).
+Executed action AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT) in 0.8671000000000001ms
+Executed endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+An unhandled exception has occurred while executing the request.
+Request finished in 38.5568ms 500 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\favicon.ico'
+Request finished in 32.586800000000004ms 200 image/x-icon
+Request starting HTTP/2.0 GET https://localhost:44341/Cinematography/Test  
+Executing endpoint 'AisMKIT.Areas.Cinematography.Controllers.TestController.Index (AisMKIT)'
+Route matched with {area = "Cinematography", action = "Index", controller = "Test", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Areas.Cinematography.Controllers.TestController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 15.4664ms.
+Executed action AisMKIT.Areas.Cinematography.Controllers.TestController.Index (AisMKIT) in 17.707ms
+Executed endpoint 'AisMKIT.Areas.Cinematography.Controllers.TestController.Index (AisMKIT)'
+Request finished in 28.4768ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/ManageUsers/Account  
+Executing endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+Route matched with {area = "ManageUsers", action = "Index", controller = "Account", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Areas.Account.Controllers.AccountController (AisMKIT).
+Executed action AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT) in 0.8118000000000001ms
+Executed endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+An unhandled exception has occurred while executing the request.
+Request finished in 48.583000000000006ms 500 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT
+Request starting HTTP/2.0 GET https://localhost:44341/  
+Executing endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Controllers.HomeController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed action AisMKIT.Controllers.HomeController.Index (AisMKIT) in 575.7294ms
+Executed endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+An unhandled exception has occurred while executing the request.
+Request finished in 919.1422ms 500 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/  
+Executing endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Controllers.HomeController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed action AisMKIT.Controllers.HomeController.Index (AisMKIT) in 14.722000000000001ms
+Executed endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+An unhandled exception has occurred while executing the request.
+Request finished in 63.0782ms 500 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\favicon.ico'
+Request finished in 27.3732ms 200 image/x-icon
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT
+Request starting HTTP/2.0 GET https://localhost:44341/  
+Executing endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Controllers.HomeController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 368.8089ms.
+Executed action AisMKIT.Controllers.HomeController.Index (AisMKIT) in 608.7296ms
+Executed endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Request finished in 726.346ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/ManageUsers/Account  
+Executing endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+Route matched with {area = "ManageUsers", action = "Index", controller = "Account", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Areas.Account.Controllers.AccountController (AisMKIT).
+Executed action AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT) in 3.1399000000000004ms
+Executed endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+An unhandled exception has occurred while executing the request.
+Request finished in 134.49030000000002ms 500 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT
+Request starting HTTP/2.0 GET https://localhost:44341/  
+Executing endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Route matched with {action = "Index", controller = "Home", area = "", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AisMKIT.Controllers.HomeController (AisMKIT).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 371.32570000000004ms.
+Executed action AisMKIT.Controllers.HomeController.Index (AisMKIT) in 739.5419ms
+Executed endpoint 'AisMKIT.Controllers.HomeController.Index (AisMKIT)'
+Request finished in 873.3284ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/ManageUsers/Account  
+Executing endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+Route matched with {area = "ManageUsers", action = "Index", controller = "Account", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller AisMKIT.Areas.Account.Controllers.AccountController (AisMKIT).
+Executed action AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT) in 2.0782000000000003ms
+Executed endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+An unhandled exception has occurred while executing the request.
+Request finished in 135.0764ms 500 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\favicon.ico'
+Request finished in 22.0147ms 200 image/x-icon
+Request starting HTTP/2.0 GET https://localhost:44341/ManageUsers/Account  
+Executing endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+Route matched with {area = "ManageUsers", action = "Index", controller = "Account", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller AisMKIT.Areas.Account.Controllers.AccountController (AisMKIT).
+Executed action AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT) in 0.5961000000000001ms
+Executed endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+An unhandled exception has occurred while executing the request.
+Request finished in 30.0443ms 500 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\favicon.ico'
+Request finished in 17.4543ms 200 image/x-icon
+Request starting HTTP/2.0 GET https://localhost:44341/ManageUsers/Account  
+Executing endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+Route matched with {area = "ManageUsers", action = "Index", controller = "Account", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller AisMKIT.Areas.Account.Controllers.AccountController (AisMKIT).
+Executed action AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT) in 1.0062ms
+Executed endpoint 'AisMKIT.Areas.Account.Controllers.AccountController.Index (AisMKIT)'
+An unhandled exception has occurred while executing the request.
+Request finished in 39.327000000000005ms 500 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44341/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\AliBekAman\source\repos\AisMKIT\AisMKIT\wwwroot\favicon.ico'
+Request finished in 5.4689000000000005ms 200 image/x-icon
