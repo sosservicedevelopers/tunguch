@@ -66,7 +66,7 @@ namespace AisMKIT.Models
         public DateTime? DeactiveDate { get; set; }
 
         public DateTime CreateDate { get; set; }
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
     }
@@ -131,7 +131,7 @@ namespace AisMKIT.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? DeactiveDate { get; set; }
         public DateTime CreateDate { get; set; }
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
     }
@@ -168,7 +168,7 @@ namespace AisMKIT.Models
         public DateTime ? DateOutArtCouncil { get; set; }
 
         public DateTime CreateDate { get; set; }
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
     }
  
@@ -203,7 +203,7 @@ namespace AisMKIT.Models
         public DictTheatricalHall DictTheatricalHall { get; set; }
 
         public DateTime CreateDate { get; set; }
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
     }
@@ -282,7 +282,7 @@ namespace AisMKIT.Models
         public DateTime? DeactiveDate { get; set; }
 
         public DateTime CreateDate { get; set; }
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
     }

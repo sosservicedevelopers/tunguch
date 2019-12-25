@@ -115,7 +115,7 @@ namespace AisMKIT.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? PermElimGASDate { get; set; }
 
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
     }
 
@@ -189,7 +189,7 @@ namespace AisMKIT.Models
         public DateTime? EliminationDate { get; set; }
 
         public DateTime CreateDate { get; set; }
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
     }
@@ -237,7 +237,7 @@ namespace AisMKIT.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? PermElimGASDate { get; set; }
 
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
     }
 
@@ -312,7 +312,7 @@ namespace AisMKIT.Models
         public DateTime? EliminationDate { get; set; }
 
         public DateTime CreateDate { get; set; }
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
     }
         
@@ -440,7 +440,7 @@ namespace AisMKIT.Models
         public int? DictMediaSuitPermId { get; set; }
         public DictMediaSuitPerm DictMediaSuitPerm { get; set; }
         public DateTime CreateDate { get; set; }
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
     }

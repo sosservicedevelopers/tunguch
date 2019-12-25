@@ -40,7 +40,7 @@ namespace AisMKIT.Models
         public DictMonumemtSignOfLoss DictMonumemtSignOfLoss { get; set; }
         public DateTime CreateDate { get; set; }
 
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
     }
@@ -89,7 +89,7 @@ namespace AisMKIT.Models
         [Display(Name = "Типологическая принадлежность")]
         public DictMonumentTypologicalType DictMonumentTypologicalType { get; set; }
         public DateTime CreateDate { get; set; }
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
     }
 

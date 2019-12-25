@@ -1,4 +1,5 @@
 ﻿using AisMKIT.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,9 +31,24 @@ namespace AisMKIT.Data
 
     public class DataSeeder
     {
+        RoleManager<IdentityRole> roleManager;
+        private UserManager<ApplicationUser> userManager;
         public static void SeedCountries(ApplicationDbContext context)
         {
-            if (!context.DictRegion.Any())
+            if (!context.Departments.Any())
+            {
+                context.Departments.Add(new Departments { Address = "", Contacts = "", Name = "IT", Phone = "XXX" });
+                context.SaveChanges();
+            }
+            if (!context.Roles.Any())
+            {
+                IdentityRole role = new IdentityRole("Администратор");
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор", NormalizedName = "АДМИНИСТРАТОР" });
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Пользователь", NormalizedName = "ПОЛЬЗОВАТЕЛЬ" });
+                context.SaveChanges();
+            }
+
+                if (!context.DictRegion.Any())
             {
                 context.DictRegion.Add(new DictRegion() {NameRus="Чуй",NameKyrg= "Чуй" });
                 context.DictRegion.Add(new DictRegion() { NameRus = "Иссык-Куль", NameKyrg = "Иссык-Куль" });

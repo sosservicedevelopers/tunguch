@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
+using System.Security.Claims;
 
 namespace AisMKIT.Areas.Cinematography.Controllers
 {
@@ -59,9 +60,11 @@ namespace AisMKIT.Areas.Cinematography.Controllers
             ViewData["DictFinSourceId"] = new SelectList(_context.DictFinSource, "Id", "NameRus");
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus");
             ViewData["FactDistrictId"] = new SelectList(_context.DictDistrict, "NameRus", "NameRus");
+            string uid = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             ListOfCinematography model = new ListOfCinematography();
             model.CreateDate = DateTime.Now;
             model.NameKyrg = "NULL";
+            model.ApplicationUserId = uid;
             return View(model);
         }
 
