@@ -188,5 +188,38 @@ namespace AisMKIT.Models
         public DictStatus DictStatus { get; set; }
         public DateTime CreateDate { get; set; }
     }
-    
+    public class TourismIndicator
+    {
+        [Display(Name = "год")]
+        public string Year { get; set; }
+
+        [Display(Name = "объём ВВП")]
+        public string GDP { get; set; }
+
+        [Display(Name = "количество въехавших туристов в страну")]
+        public double InTurist { get; set; }
+
+        [Display(Name = "количество выехавших туристов")]
+        public double OutTurist { get; set; }
+
+        [Display(Name = "объем услуг на экспорт")]
+        public double VolumeOfServicesForExport { get; set; }
+
+        [Display(Name = "объем услуг на импорт")]
+        public double VolumeOfServicesForImport { get; set; }
+
+        [Display(Name = "сумма инвестиций из бюджета")]
+        public double SummOfInvestFromBudget { get; set; }
+
+        [Display(Name = "сумма частных внутренних  инвестиций")]
+        public double SummOfPrivateDomesticInvest { get; set; }
+
+        [Display(Name = "сумма   иностранных инвестиций")]
+        public double SummOfForeignInvest { get; set; }
+
+        [Display(Name = "среднемесячная зарплата по отрасли")]
+        public double AverageMonthSalary { get; set; }
+
+
+    }
 }
