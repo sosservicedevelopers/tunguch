@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace AisMKIT.Areas.Media.Controllers
 {
@@ -14,10 +16,12 @@ namespace AisMKIT.Areas.Media.Controllers
     public class ListOfControlMediasController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ListOfControlMediasController(ApplicationDbContext context)
+        public ListOfControlMediasController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET: Media/ListOfControlMedias
@@ -57,12 +61,20 @@ namespace AisMKIT.Areas.Media.Controllers
             ViewData["DictMediaControlResultId"] = new SelectList(_context.DictMediaControlResult, "Id", "NameRus");
             ViewData["DictMediaSuitPermId"] = new SelectList(_context.DictMediaSuitPerm, "Id", "NameRus");
             ViewData["ListOfMediaId"] = new SelectList(_context.ListOfMedia, "Id", "Name");
+            
             string name = "0";
+            
             if (HttpContext.Request.Cookies.ContainsKey("ListOfMediaId"))
                 name = HttpContext.Request.Cookies["ListOfMediaId"];
+
+
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
             ListOfControlMedia model = new ListOfControlMedia();
             model.ListOfMediaId = int.Parse(name);
             model.CreateDate = DateTime.Now;
+            model.ApplicationUserId = uid;
+            
             return View(model);
             
         }
@@ -72,7 +84,7 @@ namespace AisMKIT.Areas.Media.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ListOfMediaId,DictControlTypeId,StartDate,EndDate,StartDatePeriod,EndDatePeriod,LastName,FirstName,PatronicName,ActDateControl,NumberOfAct,DictMediaControlResultId,NumberOfWarning,WarningDate,WarningEndDate,WarningRemovalDate,DateOfPenalty,DocNumPenalty,PenaltySum,DateOfPenaltyPay,AnulmentDate,NumberOfAnulment,DateOfSuit,NumberOfSuit,DateOfSuitPerm,NumberOfSuitPerm,DictMediaSuitPermId")] ListOfControlMedia listOfControlMedia)
+        public async Task<IActionResult> Create([Bind("Id,ListOfMediaId,DictControlTypeId,StartDate,EndDate,StartDatePeriod,EndDatePeriod,LastName,FirstName,PatronicName,ActDateControl,NumberOfAct,DictMediaControlResultId,NumberOfWarning,WarningDate,WarningEndDate,WarningRemovalDate,DateOfPenalty,DocNumPenalty,PenaltySum,DateOfPenaltyPay,AnulmentDate,NumberOfAnulment,DateOfSuit,NumberOfSuit,DateOfSuitPerm,NumberOfSuitPerm,DictMediaSuitPermId, ApplicationUserId")] ListOfControlMedia listOfControlMedia)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +124,7 @@ namespace AisMKIT.Areas.Media.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ListOfMediaId,DictControlTypeId,StartDate,EndDate,StartDatePeriod,EndDatePeriod,LastName,FirstName,PatronicName,ActDateControl,NumberOfAct,DictMediaControlResultId,NumberOfWarning,WarningDate,WarningEndDate,WarningRemovalDate,DateOfPenalty,DocNumPenalty,PenaltySum,DateOfPenaltyPay,AnulmentDate,NumberOfAnulment,DateOfSuit,NumberOfSuit,DateOfSuitPerm,NumberOfSuitPerm,DictMediaSuitPermId")] ListOfControlMedia listOfControlMedia)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ListOfMediaId,DictControlTypeId,StartDate,EndDate,StartDatePeriod,EndDatePeriod,LastName,FirstName,PatronicName,ActDateControl,NumberOfAct,DictMediaControlResultId,NumberOfWarning,WarningDate,WarningEndDate,WarningRemovalDate,DateOfPenalty,DocNumPenalty,PenaltySum,DateOfPenaltyPay,AnulmentDate,NumberOfAnulment,DateOfSuit,NumberOfSuit,DateOfSuitPerm,NumberOfSuitPerm,DictMediaSuitPermId, ApplicationUserId")] ListOfControlMedia listOfControlMedia)
         {
             if (id != listOfControlMedia.Id)
             {

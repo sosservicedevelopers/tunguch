@@ -16,6 +16,7 @@
                 <input type="hidden" asp-for="CreateDate" />
                 <input type="hidden" asp-for="NameKyrg" />
                 <input type="hidden" asp-for="AddressKyrg" />
+                <input type="hidden" asp-for="ApplicationUserId" />
                 <div class="form-group">
                     <label asp-for="NameRus" class="control-label"></label>
                     <input asp-for="NameRus" class="form-control" />
@@ -67,10 +68,10 @@
                     <span asp-validation-for="AddressRus" class="text-danger"></span>
                 </div>
                 @*<div class="form-group">
-                    <label asp-for="AddressKyrg" class="control-label"></label>
-                    <input asp-for="AddressKyrg" class="form-control" />
-                    <span asp-validation-for="AddressKyrg" class="text-danger"></span>
-                </div>*@
+            <label asp-for="AddressKyrg" class="control-label"></label>
+            <input asp-for="AddressKyrg" class="form-control" />
+            <span asp-validation-for="AddressKyrg" class="text-danger"></span>
+        </div>*@
                 <div class="form-group">
                     <label asp-for="DictMediaFreqReleaseId" class="control-label"></label>
                     <select asp-for="DictMediaFreqReleaseId" class="form-control" asp-items="ViewBag.DictMediaFreqReleaseId"></select>

@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
 using AisMKIT.Areas.Media.Models;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace AisMKIT.Areas.Media.Controllers
 {
@@ -15,10 +17,12 @@ namespace AisMKIT.Areas.Media.Controllers
     public class ListOfMediasController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ListOfMediasController(ApplicationDbContext context)
+        public ListOfMediasController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<IActionResult> History(int id=0)
@@ -131,6 +135,7 @@ namespace AisMKIT.Areas.Media.Controllers
                 .Include(l => l.DictMediaLangType)
                 .Include(l => l.DictMediaType)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (listOfMedia == null)
             {
                 return NotFound();
@@ -147,10 +152,16 @@ namespace AisMKIT.Areas.Media.Controllers
             ViewData["DictMediaFreqReleaseId"] = new SelectList(_context.DictMediaFreqRelease, "Id", "NameRus");
             ViewData["DictMediaLangTypeId"] = new SelectList(_context.DictMediaLangType, "Id", "NameRus");
             ViewData["DictMediaTypeId"] = new SelectList(_context.DictMediaType, "Id", "NameRus");
+
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
             ListOfMedia model = new ListOfMedia();
             model.CreateDate = DateTime.Now;
             model.NameKyrg = "NULL";
             model.AddressKyrg = "NULL";
+            model.ApplicationUserId = uid;
+
+
             return View(model);
         }
 
@@ -159,7 +170,7 @@ namespace AisMKIT.Areas.Media.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,RegistrationDate,Name,Territoryy,DictMediaLangTypeId,DictMediaTypeId,AddressRus,AddressKyrg,DictMediaFreqReleaseId,DictFinSourceId,ReregistrationDate,EliminationDate,CreateDate")] ListOfMedia listOfMedia)
+        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,RegistrationDate,Name,Territoryy,DictMediaLangTypeId,DictMediaTypeId,AddressRus,AddressKyrg,DictMediaFreqReleaseId,DictFinSourceId,ReregistrationDate,EliminationDate,CreateDate, ApplicationUserId")] ListOfMedia listOfMedia)
         {
             if (ModelState.IsValid)
             {
@@ -168,11 +179,13 @@ namespace AisMKIT.Areas.Media.Controllers
                 HistoryInsert(listOfMedia);
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["DictFinSourceId"] = new SelectList(_context.DictFinSource, "Id", "NameRus", listOfMedia.DictFinSourceId);
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus", listOfMedia.DictLegalFormId);
             ViewData["DictMediaFreqReleaseId"] = new SelectList(_context.DictMediaFreqRelease, "Id", "NameRus", listOfMedia.DictMediaFreqReleaseId);
             ViewData["DictMediaLangTypeId"] = new SelectList(_context.DictMediaLangType, "Id", "NameRus", listOfMedia.DictMediaLangTypeId);
             ViewData["DictMediaTypeId"] = new SelectList(_context.DictMediaType, "Id", "NameRus", listOfMedia.DictMediaTypeId);
+            
             return View(listOfMedia);
         }
 
@@ -189,11 +202,13 @@ namespace AisMKIT.Areas.Media.Controllers
             {
                 return NotFound();
             }
+            
             ViewData["DictFinSourceId"] = new SelectList(_context.DictFinSource, "Id", "NameRus", listOfMedia.DictFinSourceId);
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus", listOfMedia.DictLegalFormId);
             ViewData["DictMediaFreqReleaseId"] = new SelectList(_context.DictMediaFreqRelease, "Id", "NameRus", listOfMedia.DictMediaFreqReleaseId);
             ViewData["DictMediaLangTypeId"] = new SelectList(_context.DictMediaLangType, "Id", "NameRus", listOfMedia.DictMediaLangTypeId);
             ViewData["DictMediaTypeId"] = new SelectList(_context.DictMediaType, "Id", "NameRus", listOfMedia.DictMediaTypeId);
+            
             return View(listOfMedia);
         }
 
@@ -202,7 +217,7 @@ namespace AisMKIT.Areas.Media.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,RegistrationDate,Name,Territoryy,DictMediaLangTypeId,DictMediaTypeId,AddressRus,AddressKyrg,DictMediaFreqReleaseId,DictFinSourceId,ReregistrationDate,EliminationDate,CreateDate")] ListOfMedia listOfMedia, string SubmitButton="")
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,RegistrationDate,Name,Territoryy,DictMediaLangTypeId,DictMediaTypeId,AddressRus,AddressKyrg,DictMediaFreqReleaseId,DictFinSourceId,ReregistrationDate,EliminationDate,CreateDate, ApplicationUserId")] ListOfMedia listOfMedia, string SubmitButton="")
         {
             if (id != listOfMedia.Id)
             {

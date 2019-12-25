@@ -62,12 +62,25 @@ namespace AisMKIT.Areas.Cinematography.Controllers
             ViewData["DictFinSourceId"] = new SelectList(_context.DictFinSource, "Id", "NameRus");
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus");
             ViewData["FactDistrictId"] = new SelectList(_context.DictDistrict, "NameRus", "NameRus");
-            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            ListOfCinematography model = new ListOfCinematography();
-            model.CreateDate = DateTime.Now;
-            model.NameKyrg = "NULL";
-            model.ApplicationUserId = uid;
-            return View(model);
+
+            try
+            {
+                string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+                ListOfCinematography model = new ListOfCinematography();
+
+                model.CreateDate = DateTime.Now;
+                model.NameKyrg = "NULL";
+                model.ApplicationUserId = uid;
+
+                return View(model);
+            }
+            catch
+            {
+
+            }
+
+            return Redirect("/Identity/Account/Login");
         }
 
         // POST: Cinematography/ListOfCinematographies/Create
@@ -77,6 +90,7 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictFinSourceId,DictDistrictId,LegalAddress,FactDistrictId,LegalFactAddress,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate,ApplicationUserId")] ListOfCinematography listOfCinematography)
         {
+            
             if (ModelState.IsValid)
             {
                 _context.Add(listOfCinematography);
@@ -84,10 +98,12 @@ namespace AisMKIT.Areas.Cinematography.Controllers
                 HistorySaved(listOfCinematography);
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["DictDistrictId"] = new SelectList(_context.DictDistrict, "Id", "NameRus", listOfCinematography.DictDistrictId);
             ViewData["DictFinSourceId"] = new SelectList(_context.DictFinSource, "Id", "NameRus", listOfCinematography.DictFinSourceId);
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus", listOfCinematography.DictLegalFormId);
             ViewData["FactDistrictId"] = new SelectList(_context.DictDistrict, "NameRus", "NameRus", listOfCinematography.FactDistrictId);
+            
             return View(listOfCinematography);
         }
 
@@ -124,14 +140,17 @@ namespace AisMKIT.Areas.Cinematography.Controllers
             }
 
             var listOfCinematography = await _context.ListOfCinematography.FindAsync(id);
+            
             if (listOfCinematography == null)
             {
                 return NotFound();
             }
+
             ViewData["DictDistrictId"] = new SelectList(_context.DictDistrict, "Id", "NameRus", listOfCinematography.DictDistrictId);
             ViewData["DictFinSourceId"] = new SelectList(_context.DictFinSource, "Id", "NameRus", listOfCinematography.DictFinSourceId);
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus", listOfCinematography.DictLegalFormId);
             ViewData["FactDistrictId"] = new SelectList(_context.DictDistrict, "NameRus", "NameRus", listOfCinematography.FactDistrictId);
+           
             return View(listOfCinematography);
         }
 
@@ -170,10 +189,12 @@ namespace AisMKIT.Areas.Cinematography.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+           
             ViewData["DictDistrictId"] = new SelectList(_context.DictDistrict, "Id", "NameRus", listOfCinematography.DictDistrictId);
             ViewData["DictFinSourceId"] = new SelectList(_context.DictFinSource, "Id", "NameRus", listOfCinematography.DictFinSourceId);
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus", listOfCinematography.DictLegalFormId);
             ViewData["FactDistrictId"] = new SelectList(_context.DictDistrict, "NameRus", "NameRus", listOfCinematography.FactDistrictId);
+           
             return View(listOfCinematography);
         }
 

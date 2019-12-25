@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace AisMKIT.Areas.Media.Controllers
 {
@@ -14,10 +16,12 @@ namespace AisMKIT.Areas.Media.Controllers
     public class ListOfTeleRadiosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ListOfTeleRadiosController(ApplicationDbContext context)
+        public ListOfTeleRadiosController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET: Media/ListOfTeleRadios
@@ -53,12 +57,19 @@ namespace AisMKIT.Areas.Media.Controllers
         public IActionResult Create()
         {
             ViewData["DictAgencyPermId"] = new SelectList(_context.DictAgencyPerm, "Id", "NameRus");
+            
             string name = "0";
+            
             if (HttpContext.Request.Cookies.ContainsKey("ListOfMediaId"))
                 name = HttpContext.Request.Cookies["ListOfMediaId"];
+
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
             ListOfTeleRadio model = new ListOfTeleRadio();
             model.ListOfMediaId = int.Parse(name);
             model.CreateDate = DateTime.Now;
+            model.ApplicationUserId = uid;
+            
             return View(model);
         }
 
@@ -67,7 +78,7 @@ namespace AisMKIT.Areas.Media.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ListOfMediaId,CreateDate,NumberOfPermission,PermissionDate,DictAgencyPermId,DateOfPay,NumOfPermGas,PermGASDate,PermElimGASDate")] ListOfTeleRadio listOfTeleRadio)
+        public async Task<IActionResult> Create([Bind("Id,ListOfMediaId,CreateDate,NumberOfPermission,PermissionDate,DictAgencyPermId,DateOfPay,NumOfPermGas,PermGASDate,PermElimGASDate, ApplicationUserId")] ListOfTeleRadio listOfTeleRadio)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +112,7 @@ namespace AisMKIT.Areas.Media.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ListOfMediaId,CreateDate,NumberOfPermission,PermissionDate,DictAgencyPermId,DateOfPay,NumOfPermGas,PermGASDate,PermElimGASDate")] ListOfTeleRadio listOfTeleRadio)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ListOfMediaId,CreateDate,NumberOfPermission,PermissionDate,DictAgencyPermId,DateOfPay,NumOfPermGas,PermGASDate,PermElimGASDate, ApplicationUserId")] ListOfTeleRadio listOfTeleRadio)
         {
             if (id != listOfTeleRadio.Id)
             {

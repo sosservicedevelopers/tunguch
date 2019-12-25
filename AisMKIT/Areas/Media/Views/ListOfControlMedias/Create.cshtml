@@ -14,6 +14,8 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="CreateDate" />
                 <input type="hidden" asp-for="ListOfMediaId" />
+                <input type="hidden" asp-for="ApplicationUserId" />
+
                 <div class="form-group">
                     <label asp-for="DictControlTypeId" class="control-label"></label>
                     <select asp-for="DictControlTypeId" class="form-control" asp-items="ViewBag.DictControlTypeId"></select>
@@ -140,7 +142,7 @@
                 <div class="form-group">
                     <label asp-for="DictMediaSuitPermId" class="control-label"></label>
                     <select asp-for="DictMediaSuitPermId" class="form-control" asp-items="ViewBag.DictMediaSuitPermId">
-                        <option disabled selected>--- Выбрать ---</option>                    
+                        <option disabled selected>--- Выбрать ---</option>
                     </select>
                 </div>
                 <div class="form-group">

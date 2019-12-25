@@ -15,7 +15,9 @@
                 <input type="hidden" asp-for="Id" />
                 <input type="hidden" asp-for="CreateDate" />
                 <input type="hidden" asp-for="ListOfMediaId" />
-                 <div class="form-group">
+                <input type="hidden" asp-for="ApplicationUserId" />
+
+                <div class="form-group">
                     <label asp-for="DictControlTypeId" class="control-label"></label>
                     <select asp-for="DictControlTypeId" class="form-control" asp-items="ViewBag.DictControlTypeId"></select>
                     <span asp-validation-for="DictControlTypeId" class="text-danger"></span>
