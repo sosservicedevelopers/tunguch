@@ -26,11 +26,14 @@
     <Folder Include="Areas\Account\Models\" />
     <Folder Include="Areas\GlobalDicts\Data\" />
     <Folder Include="Areas\GlobalDicts\Models\" />
+    <Folder Include="Areas\Library\Data\" />
+    <Folder Include="Areas\Library\Models\" />
     <Folder Include="Areas\Media\Data\" />
     <Folder Include="Areas\Monuments\Data\" />
     <Folder Include="Areas\Monuments\Models\" />
     <Folder Include="Areas\Theatrical\Data\" />
     <Folder Include="Areas\Theatrical\Models\" />
+    <Folder Include="Areas\Новая папка\" />
   </ItemGroup>
 
 
