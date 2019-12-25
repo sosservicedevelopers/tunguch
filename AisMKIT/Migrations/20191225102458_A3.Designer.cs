@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AisMKIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191225085937_A1")]
-    partial class A1
+    [Migration("20191225102458_A3")]
+    partial class A3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1681,6 +1681,48 @@ namespace AisMKIT.Migrations
                     b.HasIndex("ListOfTourismId");
 
                     b.ToTable("ListOfTourismServices");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.TourismIndicator", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("AverageMonthSalary")
+                        .HasColumnType("float");
+
+                    b.Property<string>("GDP")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("InTurist")
+                        .HasColumnType("float");
+
+                    b.Property<double>("OutTurist")
+                        .HasColumnType("float");
+
+                    b.Property<double>("SummOfForeignInvest")
+                        .HasColumnType("float");
+
+                    b.Property<double>("SummOfInvestFromBudget")
+                        .HasColumnType("float");
+
+                    b.Property<double>("SummOfPrivateDomesticInvest")
+                        .HasColumnType("float");
+
+                    b.Property<double>("VolumeOfServicesForExport")
+                        .HasColumnType("float");
+
+                    b.Property<double>("VolumeOfServicesForImport")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Year")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TourismIndicator");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

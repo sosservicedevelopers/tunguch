@@ -188,8 +188,11 @@ namespace AisMKIT.Models
         public DictStatus DictStatus { get; set; }
         public DateTime CreateDate { get; set; }
     }
+
     public class TourismIndicator
     {
+        public int Id { get; set; }
+
         [Display(Name = "год")]
         public string Year { get; set; }
 
@@ -219,7 +222,6 @@ namespace AisMKIT.Models
 
         [Display(Name = "среднемесячная зарплата по отрасли")]
         public double AverageMonthSalary { get; set; }
-
-
     }
+
 }

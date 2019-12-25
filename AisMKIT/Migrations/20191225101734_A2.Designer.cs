@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AisMKIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191225072237_A1")]
-    partial class A1
+    [Migration("20191225101734_A2")]
+    partial class A2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

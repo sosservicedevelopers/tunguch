@@ -2,7 +2,7 @@
 
 namespace AisMKIT.Migrations
 {
-    public partial class A1 : Migration
+    public partial class A2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
