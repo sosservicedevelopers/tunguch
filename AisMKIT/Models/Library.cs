@@ -11,7 +11,7 @@ namespace AisMKIT.Models
         public int Id { get; set; }
 
         [Display(Name = "Наименов б - ки")]
-        public string LibraryName { get; set; }//название библиотеки
+        public string LibraryName { get; set; } //название библиотеки
 
         [Display(Name = "Адресные данные БГЦБС")]
         public string AddressData { get; set; }// Адресные данные БГЦБС
@@ -66,5 +66,8 @@ namespace AisMKIT.Models
 
         [Display(Name = "Образ  чел")]
         public string DegEducation { get; set; }//образ чел
+
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

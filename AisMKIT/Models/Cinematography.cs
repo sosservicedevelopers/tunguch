@@ -257,6 +257,7 @@ namespace AisMKIT.Models
         [Display(Name = "Отчество")]
         public string Patronic { get; set; }
 
+        public string FullName { get { return LastName + " " + FirstName; } set { } }
     }
 
     public class DictDuration

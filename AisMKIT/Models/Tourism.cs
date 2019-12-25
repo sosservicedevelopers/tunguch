@@ -222,6 +222,9 @@ namespace AisMKIT.Models
 
         [Display(Name = "среднемесячная зарплата по отрасли")]
         public double AverageMonthSalary { get; set; }
+
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 
 }

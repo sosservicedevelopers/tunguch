@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AisMKIT.Models.ListOfCinematographyCertificates>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="container overflow-auto">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameRus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DictCountry)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Years)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DictRegiser)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DictDuration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DictAgeRestrictions)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RegistrationDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameRus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictCountry.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Years)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictRegiser.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictDuration.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictAgeRestrictions.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegistrationDate)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

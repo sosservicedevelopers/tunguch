@@ -1,0 +1,64 @@
+﻿@model AisMKIT.Models.ListOfCinematographyCertificates
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ListOfCinematographyCertificates</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CreateDate" />
+            <input type="hidden" asp-for="NameKyrg" />
+            <input type="hidden" asp-for="ApplicationUserId" />
+            <div class="form-group">
+                <label asp-for="NameRus" class="control-label"></label>
+                <input asp-for="NameRus" class="form-control" />
+                <span asp-validation-for="NameRus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DictCountryId" class="control-label"></label>
+                <select asp-for="DictCountryId" class="form-control" asp-items="ViewBag.DictCountryId"></select>
+                <span asp-validation-for="DictCountryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Years" class="control-label"></label>
+                <input asp-for="Years" class="form-control" />
+                <span asp-validation-for="Years" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DictRegiserId" class="control-label"></label>
+                <select asp-for="DictRegiserId" class="form-control" asp-items="ViewBag.DictRegiserId"></select>
+                <span asp-validation-for="DictRegiserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DictDurationId" class="control-label"></label>
+                <select asp-for="DictDurationId" class="form-control" asp-items="ViewBag.DictDurationId"></select>
+                <span asp-validation-for="DictDurationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DictAgeRestrictionsId" class="control-label"></label>
+                <select asp-for="DictAgeRestrictionsId" class="form-control" asp-items="ViewBag.DictAgeRestrictionsId"></select>
+                <span asp-validation-for="DictAgeRestrictionsId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegistrationDate" class="control-label"></label>
+                <input asp-for="RegistrationDate" class="form-control" />
+                <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

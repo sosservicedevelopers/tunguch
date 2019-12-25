@@ -86,6 +86,12 @@ namespace AisMKIT.Data
         public DbSet<DictMonumentTypologicalType> DictMonumentTypologicalType { get; set; }
         #endregion
 
+        #region Library
+        public DbSet<ListOfLibraryIndicators> ListOfLibraryIndicators { get; set; }
+        #endregion
+
+
+
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
         //    modelBuilder.Seed();

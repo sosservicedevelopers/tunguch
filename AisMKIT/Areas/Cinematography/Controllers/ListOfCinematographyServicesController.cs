@@ -9,6 +9,7 @@ using AisMKIT.Data;
 using AisMKIT.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AisMKIT.Areas.Cinematography.Controllers
 {
@@ -58,6 +59,7 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         }
 
         // GET: Cinematography/ListOfCinematographyServices/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["DictCinematographyServicesId"] = new SelectList(_context.DictCinematographyServices, "Id", "NameRus");

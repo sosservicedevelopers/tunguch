@@ -170,7 +170,7 @@ namespace AisMKIT.Areas.Media.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,RegistrationDate,Name,Territoryy,DictMediaLangTypeId,DictMediaTypeId,AddressRus,AddressKyrg,DictMediaFreqReleaseId,DictFinSourceId,ReregistrationDate,EliminationDate,CreateDate, ApplicationUserId")] ListOfMedia listOfMedia)
+        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,RegistrationDate,Name,Territoryy,DictMediaLangTypeId,DictMediaTypeId,AddressRus,AddressKyrg,DictMediaFreqReleaseId,DictFinSourceId,ReregistrationDate,EliminationDate,CreateDate,ApplicationUserId")] ListOfMedia listOfMedia)
         {
             if (ModelState.IsValid)
             {

@@ -9,6 +9,7 @@ using AisMKIT.Data;
 using AisMKIT.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AisMKIT.Areas.Cinematography.Controllers
 {
@@ -55,7 +56,9 @@ namespace AisMKIT.Areas.Cinematography.Controllers
             return View(listOfCinematography);
         }
 
+        
         // GET: Cinematography/ListOfCinematographies/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["DictDistrictId"] = new SelectList(_context.DictDistrict, "Id", "NameRus");
@@ -63,24 +66,15 @@ namespace AisMKIT.Areas.Cinematography.Controllers
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus");
             ViewData["FactDistrictId"] = new SelectList(_context.DictDistrict, "NameRus", "NameRus");
 
-            try
-            {
-                string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                ListOfCinematography model = new ListOfCinematography();
+            ListOfCinematography model = new ListOfCinematography();
 
-                model.CreateDate = DateTime.Now;
-                model.NameKyrg = "NULL";
-                model.ApplicationUserId = uid;
+            model.CreateDate = DateTime.Now;
+            model.NameKyrg = "NULL";
+            model.ApplicationUserId = uid;
 
-                return View(model);
-            }
-            catch
-            {
-
-            }
-
-            return Redirect("/Identity/Account/Login");
+            return View(model);
         }
 
         // POST: Cinematography/ListOfCinematographies/Create
