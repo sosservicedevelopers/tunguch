@@ -57,6 +57,7 @@ namespace AisMKIT.Data
 
         #region Tourizm
         public DbSet<ListOfTourism> ListOfTourism { get; set; }
+        public DbSet<ListOfTourismIndicator> ListOfTourismIndicator { get; set; }
         public DbSet<ListOfTourismHistory> ListOfTourismHistory { get; set; }
         public DbSet<ListOfTourismServices> ListOfTourismServices { get; set; }
         public DbSet<DictTourismServices> DictTourismServices { get; set; }
@@ -68,6 +69,12 @@ namespace AisMKIT.Data
         public DbSet<ListOfCinematographyHistory> ListOfCinematographyHistory { get; set; }
         public DbSet<ListOfCinematographyServices> ListOfCinematographyServices { get; set; }
         public DbSet<DictCinematographyServices> DictCinematographyServices { get; set; }
+
+        public DbSet<DictCountry> DictCountry { get; set; }
+        public DbSet<ListOfCinematographyCertificates> ListOfCinematographyCertificates { get; set; }
+        public DbSet<DictAgeRestrictions> DictAgeRestrictions { get; set; }
+        public DbSet<DictRegiser> DictRegiser { get; set; }
+         public DbSet<DictDuration> DictDuration { get; set; }
 
         #endregion
 
@@ -97,9 +104,7 @@ namespace AisMKIT.Data
 
         }
         //Для postgresql
-        public DbSet<AisMKIT.Models.ListOfLibraryIndicators> ListOfLibraryIndicators { get; set; }
-        //Для postgresql
-        //Для postgresql
+        
         //Для postgresql
          
     }

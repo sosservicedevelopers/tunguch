@@ -189,7 +189,7 @@ namespace AisMKIT.Models
         public DateTime CreateDate { get; set; }
     }
 
-    public class TourismIndicator
+    public class ListOfTourismIndicator
     {
         public int Id { get; set; }
 

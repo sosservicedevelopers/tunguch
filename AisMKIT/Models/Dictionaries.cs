@@ -335,8 +335,14 @@ namespace AisMKIT.Models
 
     #endregion
 
-  
-    
+    public class DictCountry
+    {
+        public int Id { get; set; }
+
+        [Display(Name = "Страна")]
+        public string Name { get; set; }
+
+    }
     
     public class Dictionaries
     {
