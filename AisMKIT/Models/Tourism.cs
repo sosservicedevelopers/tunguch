@@ -200,28 +200,28 @@ namespace AisMKIT.Models
         public string GDP { get; set; }
 
         [Display(Name = "количество въехавших туристов в страну")]
-        public double InTurist { get; set; }
+        public string InTurist { get; set; }
 
         [Display(Name = "количество выехавших туристов")]
-        public double OutTurist { get; set; }
+        public string OutTurist { get; set; }
 
         [Display(Name = "объем услуг на экспорт")]
-        public double VolumeOfServicesForExport { get; set; }
+        public string VolumeOfServicesForExport { get; set; }
 
         [Display(Name = "объем услуг на импорт")]
-        public double VolumeOfServicesForImport { get; set; }
+        public string VolumeOfServicesForImport { get; set; }
 
         [Display(Name = "сумма инвестиций из бюджета")]
-        public double SummOfInvestFromBudget { get; set; }
+        public string SummOfInvestFromBudget { get; set; }
 
         [Display(Name = "сумма частных внутренних  инвестиций")]
-        public double SummOfPrivateDomesticInvest { get; set; }
+        public string SummOfPrivateDomesticInvest { get; set; }
 
         [Display(Name = "сумма   иностранных инвестиций")]
-        public double SummOfForeignInvest { get; set; }
+        public string SummOfForeignInvest { get; set; }
 
         [Display(Name = "среднемесячная зарплата по отрасли")]
-        public double AverageMonthSalary { get; set; }
+        public string AverageMonthSalary { get; set; }
 
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
