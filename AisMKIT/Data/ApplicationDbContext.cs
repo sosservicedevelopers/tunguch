@@ -97,7 +97,9 @@ namespace AisMKIT.Data
 
         }
         //Для postgresql
-        public DbSet<AisMKIT.Models.TourismIndicator> TourismIndicator { get; set; }
+        public DbSet<AisMKIT.Models.ListOfLibraryIndicators> ListOfLibraryIndicators { get; set; }
+        //Для postgresql
+        //Для postgresql
         //Для postgresql
          
     }

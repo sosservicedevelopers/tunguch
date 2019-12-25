@@ -4,14 +4,16 @@ using AisMKIT.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AisMKIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191225113631_A4")]
+    partial class A4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -630,6 +632,75 @@ namespace AisMKIT.Migrations
                     b.ToTable("DictTourismServices");
                 });
 
+            modelBuilder.Entity("AisMKIT.Models.LibraryIndicators", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AddressData")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Computers")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ComputersForUsers")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CopKyrg")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DegEducation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmerCapLib")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EventsLib")
+                        .HasColumnType("int");
+
+                    b.Property<int>("InternetConnection")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Librarians")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LibraryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OverhaulMade")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RecRetTotal")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Redecorated")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SeatLanding")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SpecAdapLib")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("TotalArea")
+                        .HasColumnType("real");
+
+                    b.Property<int>("TotalNumOfEx")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserConnection")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsersLib")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LibraryIndicators");
+                });
+
             modelBuilder.Entity("AisMKIT.Models.ListOfCinematography", b =>
                 {
                     b.Property<int>("Id")
@@ -1071,75 +1142,6 @@ namespace AisMKIT.Migrations
                     b.HasIndex("ListOfTheatricalId");
 
                     b.ToTable("ListOfEventsTheatrical");
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.ListOfLibraryIndicators", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AddressData")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Computers")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ComputersForUsers")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CopKyrg")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DegEducation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmerCapLib")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EventsLib")
-                        .HasColumnType("int");
-
-                    b.Property<int>("InternetConnection")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Librarians")
-                        .HasColumnType("int");
-
-                    b.Property<string>("LibraryName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OverhaulMade")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RecRetTotal")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Redecorated")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SeatLanding")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecAdapLib")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("TotalArea")
-                        .HasColumnType("real");
-
-                    b.Property<int>("TotalNumOfEx")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserConnection")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsersLib")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ListOfLibraryIndicators");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.ListOfMedia", b =>
@@ -1748,6 +1750,48 @@ namespace AisMKIT.Migrations
                     b.HasIndex("ListOfTourismId");
 
                     b.ToTable("ListOfTourismServices");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.TourismIndicator", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("AverageMonthSalary")
+                        .HasColumnType("float");
+
+                    b.Property<string>("GDP")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("InTurist")
+                        .HasColumnType("float");
+
+                    b.Property<double>("OutTurist")
+                        .HasColumnType("float");
+
+                    b.Property<double>("SummOfForeignInvest")
+                        .HasColumnType("float");
+
+                    b.Property<double>("SummOfInvestFromBudget")
+                        .HasColumnType("float");
+
+                    b.Property<double>("SummOfPrivateDomesticInvest")
+                        .HasColumnType("float");
+
+                    b.Property<double>("VolumeOfServicesForExport")
+                        .HasColumnType("float");
+
+                    b.Property<double>("VolumeOfServicesForImport")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Year")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TourismIndicator");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

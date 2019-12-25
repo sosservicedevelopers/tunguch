@@ -8,25 +8,25 @@ using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
 
-namespace AisMKIT.Areas.Tourism.Controllers
+namespace AisMKIT.Areas.Library.Controllers
 {
-    [Area("Tourism")]
-    public class TourismIndicatorsController : Controller
+    [Area("Library")]
+    public class ListOfLibraryIndicatorsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public TourismIndicatorsController(ApplicationDbContext context)
+        public ListOfLibraryIndicatorsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Tourism/TourismIndicators
+        // GET: Library/ListOfLibraryIndicators
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TourismIndicator.ToListAsync());
+            return View(await _context.ListOfLibraryIndicators.ToListAsync());
         }
 
-        // GET: Tourism/TourismIndicators/Details/5
+        // GET: Library/ListOfLibraryIndicators/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,39 +34,39 @@ namespace AisMKIT.Areas.Tourism.Controllers
                 return NotFound();
             }
 
-            var tourismIndicator = await _context.TourismIndicator
+            var listOfLibraryIndicators = await _context.ListOfLibraryIndicators
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (tourismIndicator == null)
+            if (listOfLibraryIndicators == null)
             {
                 return NotFound();
             }
 
-            return View(tourismIndicator);
+            return View(listOfLibraryIndicators);
         }
 
-        // GET: Tourism/TourismIndicators/Create
+        // GET: Library/ListOfLibraryIndicators/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Tourism/TourismIndicators/Create
+        // POST: Library/ListOfLibraryIndicators/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Year,GDP,InTurist,OutTurist,VolumeOfServicesForExport,VolumeOfServicesForImport,SummOfInvestFromBudget,SummOfPrivateDomesticInvest,SummOfForeignInvest,AverageMonthSalary")] TourismIndicator tourismIndicator)
+        public async Task<IActionResult> Create([Bind("Id,LibraryName,AddressData,TotalArea,SeatLanding,EmerCapLib,SpecAdapLib,OverhaulMade,Redecorated,Computers,InternetConnection,ComputersForUsers,UserConnection,UsersLib,RecRetTotal,TotalNumOfEx,CopKyrg,EventsLib,Librarians,DegEducation")] ListOfLibraryIndicators listOfLibraryIndicators)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(tourismIndicator);
+                _context.Add(listOfLibraryIndicators);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(tourismIndicator);
+            return View(listOfLibraryIndicators);
         }
 
-        // GET: Tourism/TourismIndicators/Edit/5
+        // GET: Library/ListOfLibraryIndicators/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,22 +74,22 @@ namespace AisMKIT.Areas.Tourism.Controllers
                 return NotFound();
             }
 
-            var tourismIndicator = await _context.TourismIndicator.FindAsync(id);
-            if (tourismIndicator == null)
+            var listOfLibraryIndicators = await _context.ListOfLibraryIndicators.FindAsync(id);
+            if (listOfLibraryIndicators == null)
             {
                 return NotFound();
             }
-            return View(tourismIndicator);
+            return View(listOfLibraryIndicators);
         }
 
-        // POST: Tourism/TourismIndicators/Edit/5
+        // POST: Library/ListOfLibraryIndicators/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Year,GDP,InTurist,OutTurist,VolumeOfServicesForExport,VolumeOfServicesForImport,SummOfInvestFromBudget,SummOfPrivateDomesticInvest,SummOfForeignInvest,AverageMonthSalary")] TourismIndicator tourismIndicator)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,LibraryName,AddressData,TotalArea,SeatLanding,EmerCapLib,SpecAdapLib,OverhaulMade,Redecorated,Computers,InternetConnection,ComputersForUsers,UserConnection,UsersLib,RecRetTotal,TotalNumOfEx,CopKyrg,EventsLib,Librarians,DegEducation")] ListOfLibraryIndicators listOfLibraryIndicators)
         {
-            if (id != tourismIndicator.Id)
+            if (id != listOfLibraryIndicators.Id)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace AisMKIT.Areas.Tourism.Controllers
             {
                 try
                 {
-                    _context.Update(tourismIndicator);
+                    _context.Update(listOfLibraryIndicators);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TourismIndicatorExists(tourismIndicator.Id))
+                    if (!ListOfLibraryIndicatorsExists(listOfLibraryIndicators.Id))
                     {
                         return NotFound();
                     }
@@ -114,10 +114,10 @@ namespace AisMKIT.Areas.Tourism.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(tourismIndicator);
+            return View(listOfLibraryIndicators);
         }
 
-        // GET: Tourism/TourismIndicators/Delete/5
+        // GET: Library/ListOfLibraryIndicators/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -125,30 +125,30 @@ namespace AisMKIT.Areas.Tourism.Controllers
                 return NotFound();
             }
 
-            var tourismIndicator = await _context.TourismIndicator
+            var listOfLibraryIndicators = await _context.ListOfLibraryIndicators
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (tourismIndicator == null)
+            if (listOfLibraryIndicators == null)
             {
                 return NotFound();
             }
 
-            return View(tourismIndicator);
+            return View(listOfLibraryIndicators);
         }
 
-        // POST: Tourism/TourismIndicators/Delete/5
+        // POST: Library/ListOfLibraryIndicators/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var tourismIndicator = await _context.TourismIndicator.FindAsync(id);
-            _context.TourismIndicator.Remove(tourismIndicator);
+            var listOfLibraryIndicators = await _context.ListOfLibraryIndicators.FindAsync(id);
+            _context.ListOfLibraryIndicators.Remove(listOfLibraryIndicators);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TourismIndicatorExists(int id)
+        private bool ListOfLibraryIndicatorsExists(int id)
         {
-            return _context.TourismIndicator.Any(e => e.Id == id);
+            return _context.ListOfLibraryIndicators.Any(e => e.Id == id);
         }
     }
 }
