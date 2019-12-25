@@ -1,0 +1,81 @@
+﻿@model AisMKIT.Models.ListOfTourismIndicator
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Удаление</h1>
+
+<h3>Вы увервены, что хотите удалить это?</h3>
+<div>
+    <h4>Индикатор туризма</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GDP)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GDP)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InTurist)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InTurist)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OutTurist)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OutTurist)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VolumeOfServicesForExport)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VolumeOfServicesForExport)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VolumeOfServicesForImport)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VolumeOfServicesForImport)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SummOfInvestFromBudget)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SummOfInvestFromBudget)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SummOfPrivateDomesticInvest)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SummOfPrivateDomesticInvest)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SummOfForeignInvest)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SummOfForeignInvest)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AverageMonthSalary)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AverageMonthSalary)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>
