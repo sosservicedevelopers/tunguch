@@ -35,6 +35,7 @@ namespace AisMKIT.Data
         private UserManager<ApplicationUser> userManager;
         public static void SeedCountries(ApplicationDbContext context)
         {
+
             if (!context.Departments.Any())
             {
                 context.Departments.Add(new Departments { Address = "", Contacts = "", Name = "IT", Phone = "XXX" });
@@ -223,7 +224,20 @@ namespace AisMKIT.Data
 
             }
 
-            
+            //if (!context.Users.Any())
+            //{
+            //    string user1 = "editor1@example.com";
+            //    ApplicationUser editor1 = new ApplicationUser { Email = user1, UserName = user1 }; ;
+
+            //    IdentityResult result = userManager.CreateAsync(editor1, "ASDfgh1!");
+
+            //    if (result.Succeeded)
+            //    {
+            //        userManager.AddToRoleAsync(editor1, "АДМИНИСТРАТОР");
+            //    }
+            //}
+
+
             //if (!context.DictMediaControlResult.Any())
             //{
             //    context.DictMediaControlResult.Add(new DictMediaControlResult() { NameKyrg = "", NameRus = "", DictStatusId = 1, CreateDate = DateTime.Now });

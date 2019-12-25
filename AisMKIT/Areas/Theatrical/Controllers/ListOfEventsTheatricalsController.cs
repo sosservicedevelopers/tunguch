@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace AisMKIT.Areas.Theatrical.Controllers
 {
@@ -14,10 +16,12 @@ namespace AisMKIT.Areas.Theatrical.Controllers
     public class ListOfEventsTheatricalsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ListOfEventsTheatricalsController(ApplicationDbContext context)
+        public ListOfEventsTheatricalsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET: Theatrical/ListOfEventsTheatricals
@@ -54,9 +58,15 @@ namespace AisMKIT.Areas.Theatrical.Controllers
             string name = "0";
             if (HttpContext.Request.Cookies.ContainsKey("ListTheatricalsId"))
                 name = HttpContext.Request.Cookies["ListTheatricalsId"];
+
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+
             ListOfEventsTheatrical model = new ListOfEventsTheatrical();
             model.ListOfTheatricalId = int.Parse(name);
             model.CreateDate = DateTime.Now;
+            model.ApplicationUserId = uid;
+
 
             ViewData["DictTheatricalHallId"] = new SelectList(_context.DictTheatricalHall, "Id", "NameRus");
             ViewData["ListOfTheatricalId"] = new SelectList(_context.ListOfTheatrical, "Id", "NameRus");
@@ -68,7 +78,7 @@ namespace AisMKIT.Areas.Theatrical.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ListOfTheatricalId,Year,Month,DayOfMonth,Time,NameOfEvent,DictTheatricalHallId,CreateDate")] ListOfEventsTheatrical listOfEventsTheatrical)
+        public async Task<IActionResult> Create([Bind("Id,ListOfTheatricalId,Year,Month,DayOfMonth,Time,NameOfEvent,DictTheatricalHallId,CreateDate,ApplicationUserId")] ListOfEventsTheatrical listOfEventsTheatrical)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +114,7 @@ namespace AisMKIT.Areas.Theatrical.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ListOfTheatricalId,Year,Month,DayOfMonth,Time,NameOfEvent,DictTheatricalHallId,CreateDate")] ListOfEventsTheatrical listOfEventsTheatrical)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ListOfTheatricalId,Year,Month,DayOfMonth,Time,NameOfEvent,DictTheatricalHallId,CreateDate,ApplicationUserId")] ListOfEventsTheatrical listOfEventsTheatrical)
         {
             if (id != listOfEventsTheatrical.Id)
             {
@@ -115,6 +125,9 @@ namespace AisMKIT.Areas.Theatrical.Controllers
             {
                 try
                 {
+                    string uid = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfEventsTheatrical.ApplicationUserId = uid;
+
                     _context.Update(listOfEventsTheatrical);
                     await _context.SaveChangesAsync();
                 }

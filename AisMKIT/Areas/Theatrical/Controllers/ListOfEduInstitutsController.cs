@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace AisMKIT.Areas.Theatrical.Controllers
 {
@@ -14,10 +16,12 @@ namespace AisMKIT.Areas.Theatrical.Controllers
     public class ListOfEduInstitutsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ListOfEduInstitutsController(ApplicationDbContext context)
+        public ListOfEduInstitutsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET: Theatrical/ListOfEduInstituts
@@ -57,9 +61,14 @@ namespace AisMKIT.Areas.Theatrical.Controllers
             ViewData["DictEduInstTypeId"] = new SelectList(_context.DictEduInstType, "Id", "NameRus");
             ViewData["DictFinSourceId"] = new SelectList(_context.DictFinSource, "Id", "NameRus");
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus");
+            
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            
             ListOfEduInstituts model = new ListOfEduInstituts();
             model.CreateDate = DateTime.Now;
             model.NameKyrg = "NULL";
+            model.ApplicationUserId = uid;
+
             return View(model);
         }
 
@@ -68,7 +77,7 @@ namespace AisMKIT.Areas.Theatrical.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictEduInstTypeId,DictFinSourceId,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate")] ListOfEduInstituts listOfEduInstituts)
+        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictEduInstTypeId,DictFinSourceId,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate,ApplicationUserId")] ListOfEduInstituts listOfEduInstituts)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +115,7 @@ namespace AisMKIT.Areas.Theatrical.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictEduInstTypeId,DictFinSourceId,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate")] ListOfEduInstituts listOfEduInstituts)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictEduInstTypeId,DictFinSourceId,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate,ApplicationUserId")] ListOfEduInstituts listOfEduInstituts)
         {
             if (id != listOfEduInstituts.Id)
             {
@@ -117,6 +126,9 @@ namespace AisMKIT.Areas.Theatrical.Controllers
             {
                 try
                 {
+                    string uid = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfEduInstituts.ApplicationUserId = uid;
+
                     _context.Update(listOfEduInstituts);
                     await _context.SaveChangesAsync();
                 }

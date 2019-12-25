@@ -31,7 +31,6 @@ namespace AisMKIT.Areas.Cinematography.Controllers
             if (id != 0)
                 applicationDbContext = _context.ListOfCinematographyServices.Where(x => x.ListOfCinematographyId == id & x.DeactivateStatus == null).Include(l => l.DictCinematographyServices).Include(l => l.DictStatus).Include(l => l.ListOfCinematography);
             
-            
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -48,6 +47,8 @@ namespace AisMKIT.Areas.Cinematography.Controllers
                 .Include(l => l.DictStatus)
                 .Include(l => l.ListOfCinematography)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
+
             if (listOfCinematographyServices == null)
             {
                 return NotFound();
@@ -62,14 +63,20 @@ namespace AisMKIT.Areas.Cinematography.Controllers
             ViewData["DictCinematographyServicesId"] = new SelectList(_context.DictCinematographyServices, "Id", "NameRus");
             ViewData["DictStatusId"] = new SelectList(_context.DictStatus, "Id", "Name");
             ViewData["ListOfCinematographyId"] = new SelectList(_context.ListOfCinematography, "Id", "NameRus");
+            
             string name = "0";
+            
             if (HttpContext.Request.Cookies.ContainsKey("ListOfCinemotograpy"))
                 name = HttpContext.Request.Cookies["ListOfCinemotograpy"];
+            
             string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            
             ListOfCinematographyServices model = new ListOfCinematographyServices();
+            
             model.ListOfCinematographyId = int.Parse(name);
             model.CreateDate = DateTime.Now;
             model.ApplicationUserId = uid;
+
             return View(model);
             
         }
@@ -81,15 +88,18 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,DictCinematographyServicesId,ListOfCinematographyId,DictStatusId,DeactivateStatus,CreateDate,ApplicationUserId")] ListOfCinematographyServices listOfCinematographyServices)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Add(listOfCinematographyServices);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["DictCinematographyServicesId"] = new SelectList(_context.DictCinematographyServices, "Id", "NameRus", listOfCinematographyServices.DictCinematographyServicesId);
             ViewData["DictStatusId"] = new SelectList(_context.DictStatus, "Id", "Name", listOfCinematographyServices.DictStatusId);
             ViewData["ListOfCinematographyId"] = new SelectList(_context.ListOfCinematography, "Id", "NameRus", listOfCinematographyServices.ListOfCinematographyId);
+            
             return View(listOfCinematographyServices);
         }
 

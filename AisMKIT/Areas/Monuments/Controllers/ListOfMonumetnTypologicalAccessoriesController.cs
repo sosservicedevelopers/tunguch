@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace AisMKIT.Areas.Monuments.Controllers
 {
@@ -14,10 +16,12 @@ namespace AisMKIT.Areas.Monuments.Controllers
     public class ListOfMonumetnTypologicalAccessoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ListOfMonumetnTypologicalAccessoriesController(ApplicationDbContext context)
+        public ListOfMonumetnTypologicalAccessoriesController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET: Monuments/ListOfMonumetnTypologicalAccessories
@@ -57,9 +61,14 @@ namespace AisMKIT.Areas.Monuments.Controllers
             string name = "0";
             if (HttpContext.Request.Cookies.ContainsKey("ListTheatricalsId"))
                 name = HttpContext.Request.Cookies["ListTheatricalsId"];
+
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
             ListOfMonumetnTypologicalAccessory model = new ListOfMonumetnTypologicalAccessory();
             model.CreateDate = DateTime.Now;
             model.ListOfMonumentsId = int.Parse(name);
+            model.ApplicationUserId = uid;
+
             return View(model);
         }
 
@@ -68,7 +77,7 @@ namespace AisMKIT.Areas.Monuments.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ListOfMonumentsId,DictMonumentTypologicalTypeId,CreateDate")] ListOfMonumetnTypologicalAccessory listOfMonumetnTypologicalAccessory)
+        public async Task<IActionResult> Create([Bind("Id,ListOfMonumentsId,DictMonumentTypologicalTypeId,CreateDate,ApplicationUserId")] ListOfMonumetnTypologicalAccessory listOfMonumetnTypologicalAccessory)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +113,7 @@ namespace AisMKIT.Areas.Monuments.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ListOfMonumentsId,DictMonumentTypologicalTypeId,CreateDate")] ListOfMonumetnTypologicalAccessory listOfMonumetnTypologicalAccessory)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ListOfMonumentsId,DictMonumentTypologicalTypeId,CreateDate,ApplicationUserId")] ListOfMonumetnTypologicalAccessory listOfMonumetnTypologicalAccessory)
         {
             if (id != listOfMonumetnTypologicalAccessory.Id)
             {
@@ -115,6 +124,9 @@ namespace AisMKIT.Areas.Monuments.Controllers
             {
                 try
                 {
+                    string uid = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfMonumetnTypologicalAccessory.ApplicationUserId = uid;
+
                     _context.Update(listOfMonumetnTypologicalAccessory);
                     await _context.SaveChangesAsync();
                 }
