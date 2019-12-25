@@ -26,11 +26,11 @@ namespace AisMKIT
         public void ConfigureServices(IServiceCollection services)
         {
             //Äëÿ Postgresql
-             services.AddDbContext<ApplicationDbContext>();
+            //  services.AddDbContext<ApplicationDbContext>();
 
-            //services.AddDbContext<ApplicationDbContext>(options => //options.UsePostgreSql(Configuration.GetConnectionString("DefaultConnection")));
-            //options.UseSqlServer(
-            //    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => //options.UsePostgreSql(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(
+                Configuration.GetConnectionString("DefaultConnection")));
 
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddRoles<IdentityRole>() // <--------                
@@ -123,7 +123,7 @@ namespace AisMKIT
                 // logger.LogInformation("Processing request {0}", endpoints. context.Request.Path);
             });
 
-           // SeedData.Initialize(app.ApplicationServices);
+            SeedData.Initialize(app.ApplicationServices);
 
         }
     }

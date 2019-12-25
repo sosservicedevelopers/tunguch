@@ -23,10 +23,6 @@
   <ItemGroup>
     <Folder Include="Areas\Account\Data\" />
     <Folder Include="Areas\Account\Models\" />
-    <Folder Include="Areas\CityDistrictCulturalOffices\Controllers\" />
-    <Folder Include="Areas\CityDistrictCulturalOffices\Views\" />
-    <Folder Include="Areas\EducationalInstitutions\Controllers\" />
-    <Folder Include="Areas\EducationalInstitutions\Views\" />
     <Folder Include="Areas\GlobalDicts\Data\" />
     <Folder Include="Areas\GlobalDicts\Models\" />
     <Folder Include="Areas\Media\Data\" />

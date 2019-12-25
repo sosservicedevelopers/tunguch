@@ -79,14 +79,7 @@ namespace AisMKIT.Data
         public DbSet<DictMonumentTypologicalType> DictMonumentTypologicalType { get; set; }
         #endregion
 
-        public DbSet<ClOKNTypes> ClOKNTypes { get; set; }
-        public DbSet<ClServices> ClServices { get; set; }
-        public DbSet<ClUchZavedCategory> ClUchZavedCategory { get; set; }
-        public DbSet<ClObjProizIskusCategory> ClObjProizIskusCategory { get; set; }
-        public DbSet<ClObjProizIskusTypes> ClObjProizIskusTypes { get; set; }
-        public DbSet<ClNagradTypes> ClNagradTypes { get; set; }
-        public DbSet<ListOfEducations> ListOfEducations { get; set; }
-        public DbSet<ListOfKinomotografie> ListOfKinomotografie { get; set; }
+        
         
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -96,7 +89,7 @@ namespace AisMKIT.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // optionsBuilder.UseNpgsql("Host=192.168.145.130;Port=5432;Database=AisMKIT;Username=postgres;Password=admin");
-             optionsBuilder.UseNpgsql("Host=212.112.106.181;Port=5432;Database=aismkitdb;Username=postgres;Password=dbPwdAdmin");
+            // optionsBuilder.UseNpgsql("Host=212.112.106.181;Port=5432;Database=aismkitdb;Username=postgres;Password=dbPwdAdmin");
            // optionsBuilder.UseNpgsql("Host=127.0.0.1;Port=5432;Database=aismkitdb;Username=postgres;Password=dbPwdAdmin");
 
         }

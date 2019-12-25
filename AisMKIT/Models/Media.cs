@@ -115,6 +115,8 @@ namespace AisMKIT.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? PermElimGASDate { get; set; }
 
+        public int ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 
     // Реестр СМИ
@@ -187,7 +189,8 @@ namespace AisMKIT.Models
         public DateTime? EliminationDate { get; set; }
 
         public DateTime CreateDate { get; set; }
- 
+        public int ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
     }
 
@@ -233,8 +236,9 @@ namespace AisMKIT.Models
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? PermElimGASDate { get; set; }
-      
-        
+
+        public int ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 
     //История, дата перерегистрации=дата создания записи
@@ -308,6 +312,8 @@ namespace AisMKIT.Models
         public DateTime? EliminationDate { get; set; }
 
         public DateTime CreateDate { get; set; }
+        public int ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
         
 
@@ -433,8 +439,9 @@ namespace AisMKIT.Models
         [Display(Name = "Судебное решение")]
         public int? DictMediaSuitPermId { get; set; }
         public DictMediaSuitPerm DictMediaSuitPerm { get; set; }
-
         public DateTime CreateDate { get; set; }
+        public int ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
     }
 

@@ -69,8 +69,9 @@ namespace AisMKIT.Models
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? DeactiveDate { get; set; }
-
         public DateTime CreateDate { get; set; }
+        public int ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
     }
 
@@ -138,9 +139,10 @@ namespace AisMKIT.Models
         [Display(Name = "Дата ликвидации")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-        public DateTime? DeactiveDate { get; set; }
-
+        public DateTime? DeactiveDate { get; set; } 
         public DateTime CreateDate { get; set; }
+        public int ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
     }
 
@@ -164,6 +166,8 @@ namespace AisMKIT.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? DeactivateStatus { get; set; }
         public DateTime CreateDate { get; set; }
+        public int ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
     }
 
@@ -177,6 +181,11 @@ namespace AisMKIT.Models
         [Display(Name = "Наименование (Русск)")]
         public string NameRus { get; set; }
 
+
+        [Display(Name = "Статус")]
+        public int? DictStatusId { get; set; }
+        [Display(Name = "Статус")]
+        public DictStatus DictStatus { get; set; }
         public DateTime CreateDate { get; set; }
     }
     
