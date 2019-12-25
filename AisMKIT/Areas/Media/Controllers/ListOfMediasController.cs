@@ -228,6 +228,9 @@ namespace AisMKIT.Areas.Media.Controllers
             {
                 try
                 {
+                    string uid = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfMedia.ApplicationUserId = uid;
+
                     if (SubmitButton == "Перерегистрация")
                     {
                         HistoryInsert(listOfMedia);

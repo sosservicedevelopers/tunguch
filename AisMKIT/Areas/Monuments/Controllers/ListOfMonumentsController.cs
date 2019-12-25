@@ -7,18 +7,24 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace AisMKIT.Areas.Monuments.Controllers
 {
     [Area("Monuments")]
     public class ListOfMonumentsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; 
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ListOfMonumentsController(ApplicationDbContext context)
+
+        public ListOfMonumentsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
+
 
         // GET: Monuments/ListOfMonuments
         public async Task<IActionResult> Index(int Id = 0)
@@ -61,9 +67,14 @@ namespace AisMKIT.Areas.Monuments.Controllers
             ViewData["DictFinSourceId"] = new SelectList(_context.DictFinSource, "Id", "NameRus");
             ViewData["DictMonumemtSignOfLossId"] = new SelectList(_context.DictMonumemtSignOfLoss, "Id", "NameRus");
             ViewData["DictMonumentTypeId"] = new SelectList(_context.DictMonumentType, "Id", "NameRus");
+
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
             ListOfMonuments model = new ListOfMonuments();
             model.CreateDate = DateTime.Now;
             model.NameKyrg = "NULL";
+            model.ApplicationUserId = uid;
+
             return View(model);
         }
 
@@ -72,7 +83,7 @@ namespace AisMKIT.Areas.Monuments.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DatingOfMonument,DictDistrictId,LegalAddress,DictFinSourceId,DictMonumentTypeId,DictMonumemtSignOfLossId,CreateDate")] ListOfMonuments listOfMonuments)
+        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DatingOfMonument,DictDistrictId,LegalAddress,DictFinSourceId,DictMonumentTypeId,DictMonumemtSignOfLossId,CreateDate,ApplicationUserId")] ListOfMonuments listOfMonuments)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +123,7 @@ namespace AisMKIT.Areas.Monuments.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DatingOfMonument,DictDistrictId,LegalAddress,DictFinSourceId,DictMonumentTypeId,DictMonumemtSignOfLossId,CreateDate")] ListOfMonuments listOfMonuments)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DatingOfMonument,DictDistrictId,LegalAddress,DictFinSourceId,DictMonumentTypeId,DictMonumemtSignOfLossId,CreateDate,ApplicationUserId")] ListOfMonuments listOfMonuments)
         {
             if (id != listOfMonuments.Id)
             {
@@ -123,6 +134,9 @@ namespace AisMKIT.Areas.Monuments.Controllers
             {
                 try
                 {
+                    string uid = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfMonuments.ApplicationUserId = uid;
+
                     _context.Update(listOfMonuments);
                     await _context.SaveChangesAsync();
                 }

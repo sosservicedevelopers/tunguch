@@ -135,6 +135,9 @@ namespace AisMKIT.Areas.Media.Controllers
             {
                 try
                 {
+                    string uid = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfControlMedia.ApplicationUserId = uid;
+
                     _context.Update(listOfControlMedia);
                     await _context.SaveChangesAsync();
                 }

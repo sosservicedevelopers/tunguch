@@ -123,6 +123,10 @@ namespace AisMKIT.Areas.Media.Controllers
             {
                 try
                 {
+                    string uid = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfTeleRadio.ApplicationUserId = uid;
+
+
                     _context.Update(listOfTeleRadio);
                     await _context.SaveChangesAsync();
                 }
