@@ -1073,6 +1073,75 @@ namespace AisMKIT.Migrations
                     b.ToTable("ListOfEventsTheatrical");
                 });
 
+            modelBuilder.Entity("AisMKIT.Models.ListOfLibraryIndicators", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AddressData")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Computers")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ComputersForUsers")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CopKyrg")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DegEducation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmerCapLib")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EventsLib")
+                        .HasColumnType("int");
+
+                    b.Property<int>("InternetConnection")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Librarians")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LibraryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OverhaulMade")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RecRetTotal")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Redecorated")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SeatLanding")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SpecAdapLib")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("TotalArea")
+                        .HasColumnType("real");
+
+                    b.Property<int>("TotalNumOfEx")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserConnection")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsersLib")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ListOfLibraryIndicators");
+                });
+
             modelBuilder.Entity("AisMKIT.Models.ListOfMedia", b =>
                 {
                     b.Property<int>("Id")
@@ -1643,7 +1712,45 @@ namespace AisMKIT.Migrations
                     b.ToTable("ListOfTourismHistory");
                 });
 
-            modelBuilder.Entity("AisMKIT.Models.ListOfTourismIndicator", b =>
+            modelBuilder.Entity("AisMKIT.Models.ListOfTourismServices", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeactivateStatus")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DictStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DictTourismServicesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ListOfTourismId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("DictStatusId");
+
+                    b.HasIndex("DictTourismServicesId");
+
+                    b.HasIndex("ListOfTourismId");
+
+                    b.ToTable("ListOfTourismServices");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.TourismIndicator", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1682,45 +1789,7 @@ namespace AisMKIT.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ListOfTourismIndicator");
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.ListOfTourismServices", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeactivateStatus")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("DictStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DictTourismServicesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ListOfTourismId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("DictStatusId");
-
-                    b.HasIndex("DictTourismServicesId");
-
-                    b.HasIndex("ListOfTourismId");
-
-                    b.ToTable("ListOfTourismServices");
+                    b.ToTable("TourismIndicator");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
