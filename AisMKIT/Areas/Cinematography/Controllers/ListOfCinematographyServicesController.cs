@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace AisMKIT.Areas.Cinematography.Controllers
 {
@@ -14,10 +16,11 @@ namespace AisMKIT.Areas.Cinematography.Controllers
     public class ListOfCinematographyServicesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public ListOfCinematographyServicesController(ApplicationDbContext context)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public ListOfCinematographyServicesController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET: Cinematography/ListOfCinematographyServices
@@ -62,9 +65,11 @@ namespace AisMKIT.Areas.Cinematography.Controllers
             string name = "0";
             if (HttpContext.Request.Cookies.ContainsKey("ListOfCinemotograpy"))
                 name = HttpContext.Request.Cookies["ListOfCinemotograpy"];
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             ListOfCinematographyServices model = new ListOfCinematographyServices();
             model.ListOfCinematographyId = int.Parse(name);
             model.CreateDate = DateTime.Now;
+            model.ApplicationUserId = uid;
             return View(model);
             
         }
@@ -74,7 +79,7 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DictCinematographyServicesId,ListOfCinematographyId,DictStatusId,DeactivateStatus,CreateDate")] ListOfCinematographyServices listOfCinematographyServices)
+        public async Task<IActionResult> Create([Bind("Id,DictCinematographyServicesId,ListOfCinematographyId,DictStatusId,DeactivateStatus,CreateDate,ApplicationUserId")] ListOfCinematographyServices listOfCinematographyServices)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +117,7 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DictCinematographyServicesId,ListOfCinematographyId,DictStatusId,DeactivateStatus,CreateDate")] ListOfCinematographyServices listOfCinematographyServices)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DictCinematographyServicesId,ListOfCinematographyId,DictStatusId,DeactivateStatus,CreateDate,ApplicationUserId")] ListOfCinematographyServices listOfCinematographyServices)
         {
             if (id != listOfCinematographyServices.Id)
             {
@@ -123,6 +128,8 @@ namespace AisMKIT.Areas.Cinematography.Controllers
             {
                 try
                 {
+                    string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfCinematographyServices.ApplicationUserId = uid;
                     _context.Update(listOfCinematographyServices);
                     await _context.SaveChangesAsync();
                 }

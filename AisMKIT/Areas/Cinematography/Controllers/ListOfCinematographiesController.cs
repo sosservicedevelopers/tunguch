@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace AisMKIT.Areas.Cinematography.Controllers
 {
@@ -15,10 +16,11 @@ namespace AisMKIT.Areas.Cinematography.Controllers
     public class ListOfCinematographiesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public ListOfCinematographiesController(ApplicationDbContext context)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public ListOfCinematographiesController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET: Cinematography/ListOfCinematographies
@@ -60,7 +62,7 @@ namespace AisMKIT.Areas.Cinematography.Controllers
             ViewData["DictFinSourceId"] = new SelectList(_context.DictFinSource, "Id", "NameRus");
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus");
             ViewData["FactDistrictId"] = new SelectList(_context.DictDistrict, "NameRus", "NameRus");
-            string uid = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             ListOfCinematography model = new ListOfCinematography();
             model.CreateDate = DateTime.Now;
             model.NameKyrg = "NULL";
@@ -73,7 +75,7 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictFinSourceId,DictDistrictId,LegalAddress,FactDistrictId,LegalFactAddress,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate")] ListOfCinematography listOfCinematography)
+        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictFinSourceId,DictDistrictId,LegalAddress,FactDistrictId,LegalFactAddress,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate,ApplicationUserId")] ListOfCinematography listOfCinematography)
         {
             if (ModelState.IsValid)
             {
@@ -138,7 +140,7 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictFinSourceId,DictDistrictId,LegalAddress,FactDistrictId,LegalFactAddress,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate")] ListOfCinematography listOfCinematography,string SubmitButton="")
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictFinSourceId,DictDistrictId,LegalAddress,FactDistrictId,LegalFactAddress,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate,ApplicationUserId")] ListOfCinematography listOfCinematography,string SubmitButton="")
         {
             if (id != listOfCinematography.Id)
             {
@@ -149,6 +151,8 @@ namespace AisMKIT.Areas.Cinematography.Controllers
             {
                 try
                 {
+                    string uid = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfCinematography.ApplicationUserId = uid;
                     _context.Update(listOfCinematography);
                     await _context.SaveChangesAsync();
                     if (SubmitButton == "Перерегистрировать") HistorySaved(listOfCinematography);
