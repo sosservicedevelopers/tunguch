@@ -57,6 +57,7 @@ namespace AisMKIT.Data
 
         #region Tourizm
         public DbSet<ListOfTourism> ListOfTourism { get; set; }
+        public DbSet<ListOfTourismIndicator> ListOfTourismIndicator { get; set; }
         public DbSet<ListOfTourismHistory> ListOfTourismHistory { get; set; }
         public DbSet<ListOfTourismServices> ListOfTourismServices { get; set; }
         public DbSet<DictTourismServices> DictTourismServices { get; set; }
@@ -97,7 +98,7 @@ namespace AisMKIT.Data
 
         }
         //Для postgresql
-        public DbSet<AisMKIT.Models.TourismIndicator> TourismIndicator { get; set; }
+        
         //Для postgresql
          
     }
