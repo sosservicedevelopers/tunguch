@@ -79,8 +79,11 @@ namespace AisMKIT.Data
         public DbSet<DictMonumentTypologicalType> DictMonumentTypologicalType { get; set; }
         #endregion
 
-        
-        
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Seed();
+        //}
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

@@ -85,7 +85,7 @@ namespace AisMKIT
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, ApplicationDbContext db)
         {
             //loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
             //var logger = loggerFactory.CreateLogger("FileLogger");
@@ -123,7 +123,7 @@ namespace AisMKIT
                 // logger.LogInformation("Processing request {0}", endpoints. context.Request.Path);
             });
 
-            SeedData.Initialize(app.ApplicationServices);
+            DataSeeder.SeedCountries(db);
 
         }
     }
