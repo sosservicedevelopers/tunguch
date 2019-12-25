@@ -70,6 +70,12 @@ namespace AisMKIT.Data
         public DbSet<ListOfCinematographyServices> ListOfCinematographyServices { get; set; }
         public DbSet<DictCinematographyServices> DictCinematographyServices { get; set; }
 
+        public DbSet<DictCountry> DictCountry { get; set; }
+        public DbSet<ListOfCinematographyCertificates> ListOfCinematographyCertificates { get; set; }
+        public DbSet<DictAgeRestrictions> DictAgeRestrictions { get; set; }
+        public DbSet<DictRegiser> DictRegiser { get; set; }
+         public DbSet<DictDuration> DictDuration { get; set; }
+
         #endregion
 
         #region Monumetns
