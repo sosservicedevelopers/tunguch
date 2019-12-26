@@ -97,6 +97,26 @@ namespace AisMKIT.Data
         public DbSet<DictCultAndArtType> DictCultAndArtType { get; set; }
         #endregion
 
+
+
+        #region StateAwards
+
+        public DbSet<ListOfStateAwards> ListOfStateAwards { get; set; }
+        public DbSet<DictStateAwardsType> DictStateAwardsType { get; set; }
+        public DbSet<DictAwardsPosition> DictAwardsPosition { get; set; }
+        public DbSet<DictAwardsReason> DictAwardsReason { get; set; }
+
+        #endregion
+
+        #region Rent
+
+        public DbSet<ListOfRentsHistory> ListOfRentsHistory { get; set; }
+        public DbSet<ListOfRents> ListOfRents { get; set; }
+        public DbSet<DictRentObjectType> DictRentObjectType { get; set; }
+        public DbSet<DictUnitOfMeasure> DictUnitOfMeasure { get; set; }
+
+        #endregion
+
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
         //    modelBuilder.Seed();

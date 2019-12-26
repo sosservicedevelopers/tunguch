@@ -9,42 +9,25 @@ namespace AisMKIT.Models
 
     public class ListOfRentsHistory
     {
-        public int Id { get; set; }
+        public int Id { get; set; }       
 
-        [Display(Name = "Фамилия")]
-        public string LastNameDirector { get; set; }
+        [Display(Name = "Объект")]
+        public int ListOfRentsId { get; set; }
+        [Display(Name = "Объект")]
+        public ListOfRents ListOfRents { get; set; }
+         
 
-        [Display(Name = "Имя")]
-        public string FirstNameDirector { get; set; }
-
-        [Display(Name = "Отчество")]
-        public string PatronicNameDirector { get; set; }
-
-
-        [Display(Name = "Наименование награды")]
-        public int DictStateAwardsTypeId { get; set; }
-        [Display(Name = "Наименование награды")]
-        public DictStateAwardsType DictStateAwardsType { get; set; }
-
-
-        [Display(Name = "Должность награжденного")]
-        public int? DictAwardsPositionId { get; set; }
-
-        [Display(Name = "Основание")]
-        public DictAwardsPosition DictAwardsPosition { get; set; }
-
-        [Display(Name = "Основание")]
-        public int? DictAwardsReasonId { get; set; }
-
-        [Display(Name = "Должность награжденного")]
-        public DictAwardsReason DictAwardsReason { get; set; }
-
-
-        [Display(Name = "Дата присуждения")]
+        [Display(Name = "Дата начала")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-        public DateTime? RegistrationDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
+        [Display(Name = "Дата конец")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime? EndDate { get; set; }
+        [Display(Name = "Стоимость")]
+        public decimal Cost { get; set; }
 
         public DateTime CreateDate { get; set; }
         public string ApplicationUserId { get; set; }
