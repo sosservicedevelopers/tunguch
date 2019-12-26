@@ -68,22 +68,33 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-success" asp-area="Media" asp-controller="Main" asp-action="Index">Департамент информации и массовых коммуникаций</a>
+                            <a class="nav-link text-success" asp-area="Media" asp-controller="ListOfMedias" asp-action="Index">Реестр средств массовой информации</a>
+
+                            @*<a class="nav-link text-success" asp-area="Media" asp-controller="Main" asp-action="Index">Департамент информации и массовых коммуникаций</a>*@
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Справочники</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-area="Media" asp-controller="DictMediaTypes" asp-action="Index">Виды</a>
-                                <a class="dropdown-item" asp-area="Media" asp-controller="DictLegalForms" asp-action="Index">Организационно-правовые формы</a>
-                                <a class="dropdown-item" asp-area="Media" asp-controller="DictDistribTerritoryMedias" asp-action="Index">Территории распределения продукции</a>
-                                <a class="dropdown-item" asp-area="Media" asp-controller="DictLangMediaTypes" asp-action="Index">Языки вещания</a>
-                                <a class="dropdown-item" asp-area="Media" asp-controller="DictMediaFreqReleases" asp-action="Index">Периодичности выпуска</a>
-                                <a class="dropdown-item" asp-area="Media" asp-controller="DictMediaFinSources" asp-action="Index">Источники финансирования</a>
-                                <a class="dropdown-item" asp-area="Media" asp-controller="DictAgencyPerms" asp-action="Index">Органы выдающие разрешение</a>
-                                <a class="dropdown-item" asp-area="Media" asp-controller="DictControlTypes" asp-action="Index">Виды проверок</a>
-                                <a class="dropdown-item" asp-area="Media" asp-controller="DictMediaControlResults" asp-action="Index">Результаты проверок</a>
-                                <a class="dropdown-item" asp-area="Media" asp-controller="DictMediaSuitPerms" asp-action="Index">Судебные решения</a>
+                                <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMediaTypes" asp-action="Index">Типы СМИ</a>
+                                <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMediaLangTypes" asp-action="Index">Язык вещания СМИ</a>
+                                <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMediaFreqReleases" asp-action="Index">Периодичность выпуска СМИ</a>
+                                <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictAgencyPerms" asp-action="Index">Орган выдающий разрещения</a>
+
+                                <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMediaControlResults" asp-action="Index">Результаты проверки СМИ</a>
+                                <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictControlTypes" asp-action="Index">Вид проверки СМИ</a>
+                                <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMediaSuitPerms" asp-action="Index">Судебное решение</a>
+
+                                @*<a class="dropdown-item" asp-area="Media" asp-controller="DictMediaTypes" asp-action="Index">Виды</a>
+        <a class="dropdown-item" asp-area="Media" asp-controller="DictLegalForms" asp-action="Index">Организационно-правовые формы</a>
+        <a class="dropdown-item" asp-area="Media" asp-controller="DictDistribTerritoryMedias" asp-action="Index">Территории распределения продукции</a>
+        <a class="dropdown-item" asp-area="Media" asp-controller="DictLangMediaTypes" asp-action="Index">Языки вещания</a>
+        <a class="dropdown-item" asp-area="Media" asp-controller="DictMediaFreqReleases" asp-action="Index">Периодичности выпуска</a>
+        <a class="dropdown-item" asp-area="Media" asp-controller="DictMediaFinSources" asp-action="Index">Источники финансирования</a>
+        <a class="dropdown-item" asp-area="Media" asp-controller="DictAgencyPerms" asp-action="Index">Органы выдающие разрешение</a>
+        <a class="dropdown-item" asp-area="Media" asp-controller="DictControlTypes" asp-action="Index">Виды проверок</a>
+        <a class="dropdown-item" asp-area="Media" asp-controller="DictMediaControlResults" asp-action="Index">Результаты проверок</a>
+        <a class="dropdown-item" asp-area="Media" asp-controller="DictMediaSuitPerms" asp-action="Index">Судебные решения</a>*@
 
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"></a>
@@ -94,8 +105,18 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Реестр</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-area="Media" asp-controller="ListOfMedias" asp-action="Index">Реестр СМИ</a>
-                                <a class="dropdown-item" asp-area="Media" asp-controller="ListOfControlMedias" asp-action="Index">Проверки СМИ и вынесенные решения</a>
+
+                                <form asp-action="PermissionsMedia">
+                                    <input class="dropdown-item" type="submit" value="Перечень выданных разрешений на телерадиоканалы"/>
+                                </form>
+
+                                <form asp-action="PermissionsDepartment">
+                                    <input class="dropdown-item" type="submit" value="Подведомственные учреждения СМИ"/>
+                                </form>
+
+                                @*<a class="dropdown-item" asp-area="Media" asp-controller="ListOfMedias" asp-action="Index">Реестр СМИ</a>
+                                <a class="dropdown-item" asp-area="Media" asp-controller="ListOfControlMedias" asp-action="Index">Проверки СМИ и вынесенные решения</a>*@
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"></a>
                             </div>

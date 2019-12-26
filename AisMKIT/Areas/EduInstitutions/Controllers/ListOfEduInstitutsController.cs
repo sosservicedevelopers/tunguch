@@ -10,9 +10,9 @@ using AisMKIT.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 
-namespace AisMKIT.Areas.Theatrical.Controllers
+namespace AisMKIT.Areas.EduInstitutions.Controllers
 {
-    [Area("Theatrical")]
+    [Area("EduInstitutions")]
     public class ListOfEduInstitutsController : Controller
     {
         private readonly ApplicationDbContext _context;

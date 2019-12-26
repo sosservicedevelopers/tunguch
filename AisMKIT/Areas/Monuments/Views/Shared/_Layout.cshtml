@@ -68,21 +68,18 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-success" asp-area="Theatrical" asp-controller="ListOfTheatricals" asp-action="Index">Реестр театрально-зрелищных учреждений</a>
-
-                            @*<a class="nav-link text-success" asp-area="Theatrical" asp-controller="Main" asp-action="Index">Театрально-зрелищные учреждения</a>*@
+                            <a class="nav-link text-success" asp-area="Monuments" asp-controller="ListOfMonuments" asp-action="Index">Реестр памятников</a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Справочники</a>
                             <div class="dropdown-menu">
+                                @*<a class="dropdown-item" asp-area="GlobalDicts" asp-controller="" asp-action="Index">-</a>*@
 
-                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictTheatricalHalls" asp-action="Index">Залы для ТЗУ</a>
-                                    @*<a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictEduInstTypes" asp-action="Index">Вид учебного заведения</a>*@
-                                    @*<a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMediaSuitPerms" asp-action="Index">Судебное решение</a>*@
 
-                                @*<a class="dropdown-item" asp-area="Theatrical" asp-controller="DictTheatricalLegalForms" asp-action="Index">Организационно-правовые формы</a>
-                                   <a class="dropdown-item" asp-area="Theatrical" asp-controller="DictTheatricalFinSources" asp-action="Index">Источник финансирования</a>*@
+                                <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMonumemtSignOfLosses" asp-action="Index">Признаки утраты</a>
+                                <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMonumentTypes" asp-action="Index">Типы объектов</a>
+                                <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMonumentTypologicalTypes" asp-action="Index">Типы типологической принадлежность</a>
 
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"></a>
@@ -93,20 +90,15 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Реестр</a>
                             <div class="dropdown-menu">
-                                @*<a class="dropdown-item" asp-area="Theatrical" asp-controller="ListOfTheatricals" asp-action="Index">Реестр теотрально-зрелищных учреждений</a>
 
-        <a class="dropdown-item" asp-area="Theatrical" asp-controller="ListOfEduInstituts" asp-action="Index">Реестр учебных заведений</a>*@
+                                <a class="dropdown-item" asp-area="Monuments" asp-controller="ListOfMonumetnTypologicalAccessories" asp-action="Index">Типологическая принадлежность</a>
 
-                                <a class="dropdown-item" asp-area="Theatrical" asp-controller="ListOfEventsTheatricals" asp-action="Index">Репертуары</a>
-                                @*<a asp-area="GlobalDicts" asp-controller="DictTheatricalHalls" asp-action="Index">Залы для ТЗУ</a>*@
-
-                                @*<a class="dropdown-item" asp-area="Theatrical" asp-controller="ListOfTheatricals" asp-action="Index">Реестр ТЗУ</a>
-        <a class="dropdown-item" asp-area="Theatrical" asp-controller="ListOfCouncilTheatricals" asp-action="Index">Члены художественного совета</a>
-        <a class="dropdown-item" asp-area="Theatrical" asp-controller="ListOfEventsTheatricals" asp-action="Index">Репартуары</a>*@
+                                @*<a class="dropdown-item" asp-area="Library" asp-controller="" asp-action="Index">-</a>*@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"></a>
                             </div>
                         </li>
+
 
                     </ul>
                 </div>

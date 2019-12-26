@@ -26,6 +26,8 @@
     <Folder Include="Areas\Account\Models\" />
     <Folder Include="Areas\CultAndArt\Data\" />
     <Folder Include="Areas\CultAndArt\Models\" />
+    <Folder Include="Areas\EduInstitutions\Data\" />
+    <Folder Include="Areas\EduInstitutions\Models\" />
     <Folder Include="Areas\GlobalDicts\Data\" />
     <Folder Include="Areas\GlobalDicts\Models\" />
     <Folder Include="Areas\Library\Data\" />
