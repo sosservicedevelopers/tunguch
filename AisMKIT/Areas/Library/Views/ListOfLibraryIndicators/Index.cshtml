@@ -4,176 +4,181 @@
     ViewData["Title"] = "Реестр библиотек КР";
 }
 
-    <h2>Реестр библиотек КР</h2>
+    <h1>Реестр библиотек КР</h1>
 
 <p>
-    <a asp-action="Create">Добавить новый</a>
+    <a asp-action="Create">Добавить</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.LibraryName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataSozdania)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CountOfBook)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CountOfReaders)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CountOfEmp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Knigovydacha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AddressData)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalArea)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SeatLanding)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmerCapLib)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SpecAdapLib)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OverhaulMade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Redecorated)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Computers)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InternetConnection)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ComputersForUsers)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserConnection)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UsersLib)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RecRetTotal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalNumOfEx)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CopKyrg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EventsLib)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Librarians)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DegEducation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ApplicationUser)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.LibraryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataSozdania)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountOfBook)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountOfReaders)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountOfEmp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Knigovydacha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddressData)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalArea)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SeatLanding)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmerCapLib)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpecAdapLib)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OverhaulMade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Redecorated)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Computers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InternetConnection)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComputersForUsers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserConnection)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UsersLib)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecRetTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalNumOfEx)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CopKyrg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventsLib)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Librarians)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DegEducation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApplicationUser.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="container overflow-auto">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LibraryName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataSozdania)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CountOfBook)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CountOfReaders)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CountOfEmp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Knigovydacha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddressData)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalArea)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeatLanding)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmerCapLib)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SpecAdapLib)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OverhaulMade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Redecorated)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Computers)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InternetConnection)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ComputersForUsers)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserConnection)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UsersLib)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RecRetTotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalNumOfEx)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CopKyrg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventsLib)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Librarians)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DegEducation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PravaUstanavDoc)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LibraryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataSozdania)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountOfBook)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountOfReaders)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountOfEmp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Knigovydacha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressData)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalArea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeatLanding)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmerCapLib)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpecAdapLib)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OverhaulMade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Redecorated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Computers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InternetConnection)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ComputersForUsers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserConnection)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsersLib)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecRetTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalNumOfEx)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CopKyrg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventsLib)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Librarians)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DegEducation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PravaUstanavDoc)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -44,7 +44,16 @@ namespace AisMKIT.Data
             {
                 IdentityRole role = new IdentityRole("Администратор");
                 context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор", NormalizedName = "АДМИНИСТРАТОР" });
-                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Пользователь", NormalizedName = "ПОЛЬЗОВАТЕЛЬ" });
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор-СМИ", NormalizedName = "АДМИНИСТРАТОР-СМИ" });
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор-Памятники", NormalizedName = "АДМИНИСТРАТОР-ПАМЯТНИКИ" });
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор-Кинематография", NormalizedName = "АДМИНИСТРАТОР-КИНЕМАТОГРАФИЯ" });
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор-ТЗУ", NormalizedName = "АДМИНИСТРАТОР-ТЗУ" });
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор-УчебЗаведения", NormalizedName = "АДМИНИСТРАТОР-УЧЕБЗАВЕДЕНИЯ" });
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор-Туризм", NormalizedName = "АДМИНИСТРАТОР-ТУРИЗМ" });
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор-Библиотека", NormalizedName = "АДМИНИСТРАТОР-БИБЛИОТЕКА" });
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор-Культура", NormalizedName = "АДМИНИСТРАТОР-КУЛЬТУРА" });
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор-ПредоставЗалов", NormalizedName = "АДМИНИСТРАТОР-ПРЕДОСТАВЗАЛОВ" });
+                context.Roles.Add(new IdentityRole { ConcurrencyStamp = (new Guid()).ToString(), Name = "Администратор-Награды", NormalizedName = "АДМИНИСТРАТОР-НАГРАДЫ" });
                 context.SaveChanges();
             }
 
