@@ -4,14 +4,16 @@ using AisMKIT.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AisMKIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191226084015_A2123")]
+    partial class A2123
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -398,21 +400,6 @@ namespace AisMKIT.Migrations
                     b.ToTable("DictFinSource");
                 });
 
-            modelBuilder.Entity("AisMKIT.Models.DictInitiatorOfProj", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DictInitiatorOfProj");
-                });
-
             modelBuilder.Entity("AisMKIT.Models.DictLegalForm", b =>
                 {
                     b.Property<int>("Id")
@@ -440,21 +427,6 @@ namespace AisMKIT.Migrations
                     b.HasIndex("DictStatusId");
 
                     b.ToTable("DictLegalForm");
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.DictLoc", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DictLoc");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.DictMediaControlResult", b =>
@@ -862,21 +834,6 @@ namespace AisMKIT.Migrations
                     b.HasIndex("DictStatusId");
 
                     b.ToTable("DictTourismServices");
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.DictTypeOfKMM", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DictTypeOfKMM");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.DictUnitOfMeasure", b =>
@@ -1361,42 +1318,6 @@ namespace AisMKIT.Migrations
                     b.HasIndex("DictLegalFormId");
 
                     b.ToTable("ListOfCultAndArt");
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.ListOfCultEvents", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("DictInitiatorOfProjId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DictTypeOfKMMId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DistLocId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("EndDateTime")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EventTopic")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StartDateTime")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DictInitiatorOfProjId");
-
-                    b.HasIndex("DictTypeOfKMMId");
-
-                    b.HasIndex("DistLocId");
-
-                    b.ToTable("ListOfCultEvents");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.ListOfEduInstituts", b =>
@@ -2826,27 +2747,6 @@ namespace AisMKIT.Migrations
                     b.HasOne("AisMKIT.Models.DictLegalForm", "DictLegalForm")
                         .WithMany()
                         .HasForeignKey("DictLegalFormId");
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.ListOfCultEvents", b =>
-                {
-                    b.HasOne("AisMKIT.Models.DictInitiatorOfProj", "DictInitiatorOfProj")
-                        .WithMany()
-                        .HasForeignKey("DictInitiatorOfProjId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AisMKIT.Models.DictTypeOfKMM", "DictTypeOfKMM")
-                        .WithMany()
-                        .HasForeignKey("DictTypeOfKMMId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AisMKIT.Models.DictLoc", "DistLoc")
-                        .WithMany()
-                        .HasForeignKey("DistLocId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("AisMKIT.Models.ListOfEduInstituts", b =>

@@ -1,0 +1,55 @@
+﻿@model AisMKIT.Models.ListOfCultEvents
+
+        @{
+        ViewData["Title"] = "Добавление";
+        }
+        
+        <h1>Добавление</h1>
+        
+        <h4>Мероприятие</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="DictTypeOfKMMId" class="control-label"></label>
+                                    <select asp-for="DictTypeOfKMMId" class="form-control" asp-items="ViewBag.DictTypeOfKMMId"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="DistLocId" class="control-label"></label>
+                                    <select asp-for="DistLocId" class="form-control" asp-items="ViewBag.DistLocId"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="EventTopic" class="control-label"></label>
+                                    <input asp-for="EventTopic" class="form-control" />
+                                    <span asp-validation-for="EventTopic" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="StartDateTime" class="control-label"></label>
+                                    <input asp-for="StartDateTime" class="form-control" />
+                                    <span asp-validation-for="StartDateTime" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="EndDateTime" class="control-label"></label>
+                                    <input asp-for="EndDateTime" class="form-control" />
+                                    <span asp-validation-for="EndDateTime" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="DictInitiatorOfProjId" class="control-label"></label>
+                                    <select asp-for="DictInitiatorOfProjId" class="form-control" asp-items="ViewBag.DictInitiatorOfProjId"></select>
+                                </div>
+<div class="form-group">
+    <input type="submit" value="Добавить" class="btn btn-primary" />
+</div>
+</form>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+        @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }

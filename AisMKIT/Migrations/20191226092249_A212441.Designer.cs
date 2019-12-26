@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AisMKIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191226065051_A3")]
-    partial class A3
+    [Migration("20191226092249_A212441")]
+    partial class A212441
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -400,6 +400,21 @@ namespace AisMKIT.Migrations
                     b.ToTable("DictFinSource");
                 });
 
+            modelBuilder.Entity("AisMKIT.Models.DictInitiatorOfProj", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DictInitiatorOfProj");
+                });
+
             modelBuilder.Entity("AisMKIT.Models.DictLegalForm", b =>
                 {
                     b.Property<int>("Id")
@@ -427,6 +442,21 @@ namespace AisMKIT.Migrations
                     b.HasIndex("DictStatusId");
 
                     b.ToTable("DictLegalForm");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.DictLoc", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DictLoc");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.DictMediaControlResult", b =>
@@ -834,6 +864,21 @@ namespace AisMKIT.Migrations
                     b.HasIndex("DictStatusId");
 
                     b.ToTable("DictTourismServices");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.DictTypeOfKMM", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DictTypeOfKMM");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.DictUnitOfMeasure", b =>
@@ -1320,6 +1365,42 @@ namespace AisMKIT.Migrations
                     b.ToTable("ListOfCultAndArt");
                 });
 
+            modelBuilder.Entity("AisMKIT.Models.ListOfCultEvents", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DictInitiatorOfProjId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DictTypeOfKMMId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DistLocId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EndDateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EventTopic")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StartDateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DictInitiatorOfProjId");
+
+                    b.HasIndex("DictTypeOfKMMId");
+
+                    b.HasIndex("DistLocId");
+
+                    b.ToTable("ListOfCultEvents");
+                });
+
             modelBuilder.Entity("AisMKIT.Models.ListOfEduInstituts", b =>
                 {
                     b.Property<int>("Id")
@@ -1440,23 +1521,23 @@ namespace AisMKIT.Migrations
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Computers")
-                        .HasColumnType("int");
+                    b.Property<string>("Computers")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ComputersForUsers")
-                        .HasColumnType("int");
+                    b.Property<string>("ComputersForUsers")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CopKyrg")
-                        .HasColumnType("int");
+                    b.Property<string>("CopKyrg")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CountOfBook")
-                        .HasColumnType("int");
+                    b.Property<string>("CountOfBook")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CountOfEmp")
-                        .HasColumnType("int");
+                    b.Property<string>("CountOfEmp")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CountOfReaders")
-                        .HasColumnType("int");
+                    b.Property<string>("CountOfReaders")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DataSozdania")
                         .HasColumnType("datetime2");
@@ -1467,17 +1548,17 @@ namespace AisMKIT.Migrations
                     b.Property<string>("EmerCapLib")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EventsLib")
-                        .HasColumnType("int");
+                    b.Property<string>("EventsLib")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("InternetConnection")
-                        .HasColumnType("int");
+                    b.Property<string>("InternetConnection")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Knigovydacha")
-                        .HasColumnType("int");
+                    b.Property<string>("Knigovydacha")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Librarians")
-                        .HasColumnType("int");
+                    b.Property<string>("Librarians")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LibraryName")
                         .HasColumnType("nvarchar(max)");
@@ -1485,8 +1566,11 @@ namespace AisMKIT.Migrations
                     b.Property<string>("OverhaulMade")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RecRetTotal")
-                        .HasColumnType("int");
+                    b.Property<string>("PravaUstanavDoc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RecRetTotal")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Redecorated")
                         .HasColumnType("nvarchar(max)");
@@ -1497,17 +1581,17 @@ namespace AisMKIT.Migrations
                     b.Property<string>("SpecAdapLib")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("TotalArea")
-                        .HasColumnType("real");
+                    b.Property<string>("TotalArea")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TotalNumOfEx")
-                        .HasColumnType("int");
+                    b.Property<string>("TotalNumOfEx")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserConnection")
-                        .HasColumnType("int");
+                    b.Property<string>("UserConnection")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UsersLib")
-                        .HasColumnType("int");
+                    b.Property<string>("UsersLib")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -2744,6 +2828,27 @@ namespace AisMKIT.Migrations
                     b.HasOne("AisMKIT.Models.DictLegalForm", "DictLegalForm")
                         .WithMany()
                         .HasForeignKey("DictLegalFormId");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.ListOfCultEvents", b =>
+                {
+                    b.HasOne("AisMKIT.Models.DictInitiatorOfProj", "DictInitiatorOfProj")
+                        .WithMany()
+                        .HasForeignKey("DictInitiatorOfProjId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AisMKIT.Models.DictTypeOfKMM", "DictTypeOfKMM")
+                        .WithMany()
+                        .HasForeignKey("DictTypeOfKMMId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AisMKIT.Models.DictLoc", "DistLoc")
+                        .WithMany()
+                        .HasForeignKey("DistLocId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("AisMKIT.Models.ListOfEduInstituts", b =>

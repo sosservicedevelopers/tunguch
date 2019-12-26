@@ -135,6 +135,14 @@ namespace AisMKIT.Data
 
         }
         //Для postgresql
+        public DbSet<AisMKIT.Models.DictTypeOfKMM> DictTypeOfKMM { get; set; }
+        //Для postgresql
+        public DbSet<AisMKIT.Models.DictLoc> DictLoc { get; set; }
+        //Для postgresql
+        public DbSet<AisMKIT.Models.DictInitiatorOfProj> DictInitiatorOfProj { get; set; }
+        //Для postgresql
+        public DbSet<AisMKIT.Models.ListOfCultEvents> ListOfCultEvents { get; set; }
+        //Для postgresql
         
         //Для postgresql
          

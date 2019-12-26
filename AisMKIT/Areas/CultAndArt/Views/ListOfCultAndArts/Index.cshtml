@@ -4,11 +4,16 @@
     ViewData["Title"] = "Реестр объектов произведений культуры и исскуства";
 }
 
-    <h2>Реестр объектов произведений культуры и исскуства</h2>
+<h2>Реестр объектов произведений культуры и исскуства</h2>
 
 <p>
     <a asp-action="Create">Добавить новый</a>
 </p>
+
+<p>
+    <a asp-controller="ListOfCultEvents" asp-action="Create">Список мероприятий</a>
+</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -72,9 +77,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.NameRus)
             </td>
-            @*@<td>
+            <td>
                 @Html.DisplayFor(modelItem => item.NameKyrg)
-            </td>*@
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DictLegalForm.Id)
             </td>
