@@ -48,6 +48,8 @@
     <Folder Include="Areas\Media\Data\" />
     <Folder Include="Areas\Monuments\Data\" />
     <Folder Include="Areas\Monuments\Models\" />
+    <Folder Include="Areas\Rents\Data\" />
+    <Folder Include="Areas\Rents\Models\" />
     <Folder Include="Areas\StateAwards\Data\" />
     <Folder Include="Areas\StateAwards\Models\" />
     <Folder Include="Areas\Theatrical\Data\" />
