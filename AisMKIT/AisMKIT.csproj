@@ -41,12 +41,4 @@
     <Folder Include="Areas\Theatrical\Models\" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Content Update="Areas\Cinematography\Views\_ViewStart.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>

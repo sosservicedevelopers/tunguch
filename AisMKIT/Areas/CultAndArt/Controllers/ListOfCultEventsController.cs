@@ -11,6 +11,7 @@ using AisMKIT.Models;
 namespace AisMKIT.Areas.CultAndArt.Controllers
 {
     [Area("CultAndArt")]
+
     public class ListOfCultEventsController : Controller
     {
         private readonly ApplicationDbContext _context;
