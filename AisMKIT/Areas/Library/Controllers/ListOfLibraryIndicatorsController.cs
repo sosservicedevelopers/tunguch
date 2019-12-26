@@ -23,7 +23,8 @@ namespace AisMKIT.Areas.Library.Controllers
         // GET: Library/ListOfLibraryIndicators
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ListOfLibraryIndicators.ToListAsync());
+            var applicationDbContext = _context.ListOfLibraryIndicators.Include(l => l.ApplicationUser);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Library/ListOfLibraryIndicators/Details/5
@@ -35,6 +36,7 @@ namespace AisMKIT.Areas.Library.Controllers
             }
 
             var listOfLibraryIndicators = await _context.ListOfLibraryIndicators
+                .Include(l => l.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (listOfLibraryIndicators == null)
             {
@@ -47,6 +49,7 @@ namespace AisMKIT.Areas.Library.Controllers
         // GET: Library/ListOfLibraryIndicators/Create
         public IActionResult Create()
         {
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
@@ -55,7 +58,7 @@ namespace AisMKIT.Areas.Library.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,LibraryName,AddressData,TotalArea,SeatLanding,EmerCapLib,SpecAdapLib,OverhaulMade,Redecorated,Computers,InternetConnection,ComputersForUsers,UserConnection,UsersLib,RecRetTotal,TotalNumOfEx,CopKyrg,EventsLib,Librarians,DegEducation")] ListOfLibraryIndicators listOfLibraryIndicators)
+        public async Task<IActionResult> Create([Bind("Id,LibraryName,DataSozdania,CountOfBook,CountOfReaders,CountOfEmp,Knigovydacha,AddressData,TotalArea,SeatLanding,EmerCapLib,SpecAdapLib,OverhaulMade,Redecorated,Computers,InternetConnection,ComputersForUsers,UserConnection,UsersLib,RecRetTotal,TotalNumOfEx,CopKyrg,EventsLib,Librarians,DegEducation,ApplicationUserId")] ListOfLibraryIndicators listOfLibraryIndicators)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +66,7 @@ namespace AisMKIT.Areas.Library.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", listOfLibraryIndicators.ApplicationUserId);
             return View(listOfLibraryIndicators);
         }
 
@@ -79,6 +83,7 @@ namespace AisMKIT.Areas.Library.Controllers
             {
                 return NotFound();
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", listOfLibraryIndicators.ApplicationUserId);
             return View(listOfLibraryIndicators);
         }
 
@@ -87,7 +92,7 @@ namespace AisMKIT.Areas.Library.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,LibraryName,AddressData,TotalArea,SeatLanding,EmerCapLib,SpecAdapLib,OverhaulMade,Redecorated,Computers,InternetConnection,ComputersForUsers,UserConnection,UsersLib,RecRetTotal,TotalNumOfEx,CopKyrg,EventsLib,Librarians,DegEducation")] ListOfLibraryIndicators listOfLibraryIndicators)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,LibraryName,DataSozdania,CountOfBook,CountOfReaders,CountOfEmp,Knigovydacha,AddressData,TotalArea,SeatLanding,EmerCapLib,SpecAdapLib,OverhaulMade,Redecorated,Computers,InternetConnection,ComputersForUsers,UserConnection,UsersLib,RecRetTotal,TotalNumOfEx,CopKyrg,EventsLib,Librarians,DegEducation,ApplicationUserId")] ListOfLibraryIndicators listOfLibraryIndicators)
         {
             if (id != listOfLibraryIndicators.Id)
             {
@@ -114,6 +119,7 @@ namespace AisMKIT.Areas.Library.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", listOfLibraryIndicators.ApplicationUserId);
             return View(listOfLibraryIndicators);
         }
 
@@ -126,6 +132,7 @@ namespace AisMKIT.Areas.Library.Controllers
             }
 
             var listOfLibraryIndicators = await _context.ListOfLibraryIndicators
+                .Include(l => l.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (listOfLibraryIndicators == null)
             {

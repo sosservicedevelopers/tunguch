@@ -5,6 +5,13 @@
     <UserSecretsId>aspnet-AisMKIT-EC9171DB-F1E9-4695-9486-217CB70A8137</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Areas\Новая папка\**" />
+    <Content Remove="Areas\Новая папка\**" />
+    <EmbeddedResource Remove="Areas\Новая папка\**" />
+    <None Remove="Areas\Новая папка\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
@@ -33,7 +40,6 @@
     <Folder Include="Areas\Monuments\Models\" />
     <Folder Include="Areas\Theatrical\Data\" />
     <Folder Include="Areas\Theatrical\Models\" />
-    <Folder Include="Areas\Новая папка\" />
   </ItemGroup>
 
 

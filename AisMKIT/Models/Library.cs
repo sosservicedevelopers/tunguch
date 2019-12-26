@@ -12,6 +12,17 @@ namespace AisMKIT.Models
 
         [Display(Name = "Наименов б - ки")]
         public string LibraryName { get; set; } //название библиотеки
+        [Display(Name = "Дата создания")]
+        public DateTime DataSozdania { get; set; }
+        [Display(Name = "Общий книжный фонд")]
+        public int CountOfBook { get; set; }
+        [Display(Name = "Кол-во читателей")]
+        public int CountOfReaders { get; set; }
+        [Display(Name = "Кол-во работников")]
+        public int CountOfEmp { get; set; }
+
+        [Display(Name = "Книговыдача")]
+        public int Knigovydacha { get; set; }
 
         [Display(Name = "Адресные данные БГЦБС")]
         public string AddressData { get; set; }// Адресные данные БГЦБС
