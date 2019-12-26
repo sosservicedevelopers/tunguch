@@ -31,8 +31,7 @@ namespace AisMKIT.Data
 
     public class DataSeeder
     {
-        RoleManager<IdentityRole> roleManager;
-        private UserManager<ApplicationUser> userManager;
+         
         public static void SeedCountries(ApplicationDbContext context)
         {
 
@@ -104,8 +103,7 @@ namespace AisMKIT.Data
                 context.DictMediaControlResult.Add(new DictMediaControlResult() { NameKyrg = "Отзыв разрешения", NameRus = "Отзыв разрешения", DictStatusId = 1, CreateDate = DateTime.Now });
                 context.SaveChanges();
             }
-           
-
+      
             if (!context.DictLegalForm.Any())
             {
                 context.DictLegalForm.Add(new DictLegalForm() { NameRus = "Муниципальное (коммунальное) предприятие", NameKyrg = "Муниципальное (коммунальное) предприятие", DictStatusId = 1, CreateDate = DateTime.Now });
@@ -143,7 +141,6 @@ namespace AisMKIT.Data
                 context.DictMediaType.Add(new DictMediaType() { NameKyrg = "Оператор радиовещания", NameRus = "Оператор радиовещания", CreateDate = DateTime.Now, DictStatusId = 1 });
                 context.SaveChanges();
             }
-
 
             if (!context.DictMediaFreqRelease.Any())
             {
@@ -223,6 +220,72 @@ namespace AisMKIT.Data
                 context.SaveChanges();
 
             }
+
+            if (!context.DictAgeRestrictions.Any())
+            {
+                context.DictAgeRestrictions.Add(new DictAgeRestrictions() {Name="Д" });
+                context.DictAgeRestrictions.Add(new DictAgeRestrictions() { Name = "16+" });
+                context.DictAgeRestrictions.Add(new DictAgeRestrictions() { Name = "12" });
+                context.DictAgeRestrictions.Add(new DictAgeRestrictions() { Name = "12+" });
+                context.DictAgeRestrictions.Add(new DictAgeRestrictions() { Name = "16" });
+                context.DictAgeRestrictions.Add(new DictAgeRestrictions() { Name = "Л" });
+                context.DictAgeRestrictions.Add(new DictAgeRestrictions() { Name = "18+" });
+                context.SaveChanges();
+
+            }
+
+            if (!context.DictDuration.Any())
+            {
+                context.DictDuration.Add(new DictDuration() { Name = "53 мин" });
+                context.DictDuration.Add(new DictDuration() { Name = "1ч 40м" });
+                context.DictDuration.Add(new DictDuration() { Name = "1 ч 30 мин" });
+                context.DictDuration.Add(new DictDuration() { Name = "60 мин" });
+                context.DictDuration.Add(new DictDuration() { Name = "15 ч 33 м" });
+                context.SaveChanges();
+
+            }
+            if (!context.DictEduInstType.Any())
+            {
+                context.DictEduInstType.Add(new DictEduInstType() { NameRus= "Высшее учебное заведение", NameKyrg= "Высшее учебное заведение" });
+                context.DictEduInstType.Add(new DictEduInstType() {NameKyrg= "Cреднее профессиональное учебное заведения", NameRus= "Cреднее профессиональное учебное заведения" });
+                context.DictEduInstType.Add(new DictEduInstType() { NameKyrg = "Школа", NameRus = "Школа" });
+                context.DictEduInstType.Add(new DictEduInstType() { NameKyrg = "Студия", NameRus = "Студия" });
+                
+                context.SaveChanges();
+
+            }
+
+            if (!context.DictMediaDistribTerritory.Any())
+            {
+                context.DictMediaDistribTerritory.Add(new DictMediaDistribTerritory() { NameRus = "Вся республика", NameKyrg = "Вся республика" });
+                context.DictMediaDistribTerritory.Add(new DictMediaDistribTerritory() { NameRus = "Область", NameKyrg = "Область" });
+                context.DictMediaDistribTerritory.Add(new DictMediaDistribTerritory() { NameRus = "Район", NameKyrg = "Район" });
+
+                context.SaveChanges();
+            }
+
+            if (!context.DictRegiser.Any())
+            {
+                context.DictRegiser.Add(new DictRegiser() { LastName= "Асанов ", FirstName="Н", Patronic="",FullName="" });
+                context.DictRegiser.Add(new DictRegiser() { LastName = "Турдумамбетов", FirstName = "Эльдар", Patronic = "", FullName = "" });
+
+                context.SaveChanges();
+            }
+            if (!context.DictMediaDistribTerritory.Any())
+            {
+                context.DictMediaDistribTerritory.Add(new DictMediaDistribTerritory() { NameRus = "", NameKyrg = "" });
+                context.DictMediaDistribTerritory.Add(new DictMediaDistribTerritory() { NameRus = "", NameKyrg = "" });
+
+                context.SaveChanges();
+            }
+            if (!context.DictMediaDistribTerritory.Any())
+            {
+                context.DictMediaDistribTerritory.Add(new DictMediaDistribTerritory() { NameRus = "", NameKyrg = "" });
+                context.DictMediaDistribTerritory.Add(new DictMediaDistribTerritory() { NameRus = "", NameKyrg = "" });
+
+                context.SaveChanges();
+            }
+
 
             //if (!context.Users.Any())
             //{

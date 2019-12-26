@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AisMKIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191226065051_A3")]
-    partial class A3
+    [Migration("20191226084534_update")]
+    partial class update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1352,6 +1352,9 @@ namespace AisMKIT.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastNameDirector")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LegalDocuments")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameKyrg")

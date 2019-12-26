@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AisMKIT.Migrations
 {
-    public partial class A1 : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -255,7 +255,7 @@ namespace AisMKIT.Migrations
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
-                    CreateDate = table.Column<DateTime>(nullable: false)
+                    CreateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -277,7 +277,7 @@ namespace AisMKIT.Migrations
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
-                    CreateDate = table.Column<DateTime>(nullable: false)
+                    CreateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -593,7 +593,7 @@ namespace AisMKIT.Migrations
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
-                    CreateDate = table.Column<DateTime>(nullable: false)
+                    CreateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
