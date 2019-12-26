@@ -4,14 +4,16 @@ using AisMKIT.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AisMKIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191226010826_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,32 +232,6 @@ namespace AisMKIT.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DictCountry");
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.DictCultAndArtType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("DictStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NameKyrg")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameRus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DictStatusId");
-
-                    b.ToTable("DictCultAndArtType");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.DictDistrict", b =>
@@ -1111,76 +1087,6 @@ namespace AisMKIT.Migrations
                     b.HasIndex("ListOfTheatricalId");
 
                     b.ToTable("ListOfCouncilTheatrical");
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.ListOfCultAndArt", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeactiveDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("DictCultAndArtTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DictDistrictId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DictFinSourceId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DictLegalFormId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FirstNameDirector")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("INN")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastNameDirector")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LegalAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameKyrg")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameRus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PatronicNameDirector")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("RegistrationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("ReregistrationDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("DictCultAndArtTypeId");
-
-                    b.HasIndex("DictDistrictId");
-
-                    b.HasIndex("DictFinSourceId");
-
-                    b.HasIndex("DictLegalFormId");
-
-                    b.ToTable("ListOfCultAndArt");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.ListOfEduInstituts", b =>
@@ -2199,13 +2105,6 @@ namespace AisMKIT.Migrations
                         .HasForeignKey("DictStatusId");
                 });
 
-            modelBuilder.Entity("AisMKIT.Models.DictCultAndArtType", b =>
-                {
-                    b.HasOne("AisMKIT.Models.DictStatus", "DictStatus")
-                        .WithMany()
-                        .HasForeignKey("DictStatusId");
-                });
-
             modelBuilder.Entity("AisMKIT.Models.DictDistrict", b =>
                 {
                     b.HasOne("AisMKIT.Models.DictRegion", "DictRegion")
@@ -2431,31 +2330,6 @@ namespace AisMKIT.Migrations
                         .HasForeignKey("ListOfTheatricalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.ListOfCultAndArt", b =>
-                {
-                    b.HasOne("AisMKIT.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId");
-
-                    b.HasOne("AisMKIT.Models.DictCultAndArtType", "DictCultAndArtType")
-                        .WithMany()
-                        .HasForeignKey("DictCultAndArtTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AisMKIT.Models.DictDistrict", "DictDistrict")
-                        .WithMany()
-                        .HasForeignKey("DictDistrictId");
-
-                    b.HasOne("AisMKIT.Models.DictFinSource", "DictFinSource")
-                        .WithMany()
-                        .HasForeignKey("DictFinSourceId");
-
-                    b.HasOne("AisMKIT.Models.DictLegalForm", "DictLegalForm")
-                        .WithMany()
-                        .HasForeignKey("DictLegalFormId");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.ListOfEduInstituts", b =>

@@ -56,7 +56,7 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         }
 
         // GET: Cinematography/ListOfCinematographyCertificates/Create
-        [Authorize]
+        //[Authorize]
         public IActionResult Create()
         {
             ViewData["DictAgeRestrictionsId"] = new SelectList(_context.DictAgeRestrictions, "Id", "Name");

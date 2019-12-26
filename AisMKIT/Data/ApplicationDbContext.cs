@@ -91,6 +91,11 @@ namespace AisMKIT.Data
         #endregion
 
 
+        #region CultAndArts
+
+        public DbSet<ListOfCultAndArt> ListOfCultAndArt { get; set; }
+        public DbSet<DictCultAndArtType> DictCultAndArtType { get; set; }
+        #endregion
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

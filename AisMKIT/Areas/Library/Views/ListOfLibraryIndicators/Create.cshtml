@@ -1,123 +1,152 @@
 ﻿@model AisMKIT.Models.ListOfLibraryIndicators
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Реестр библиотек КР";
 }
 
-<h1>Create</h1>
+<h1>Добавление</h1>
 
-<h4>ListOfLibraryIndicators</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="LibraryName" class="control-label"></label>
-                <input asp-for="LibraryName" class="form-control" />
-                <span asp-validation-for="LibraryName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AddressData" class="control-label"></label>
-                <input asp-for="AddressData" class="form-control" />
-                <span asp-validation-for="AddressData" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalArea" class="control-label"></label>
-                <input asp-for="TotalArea" class="form-control" />
-                <span asp-validation-for="TotalArea" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SeatLanding" class="control-label"></label>
-                <input asp-for="SeatLanding" class="form-control" />
-                <span asp-validation-for="SeatLanding" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EmerCapLib" class="control-label"></label>
-                <input asp-for="EmerCapLib" class="form-control" />
-                <span asp-validation-for="EmerCapLib" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SpecAdapLib" class="control-label"></label>
-                <input asp-for="SpecAdapLib" class="form-control" />
-                <span asp-validation-for="SpecAdapLib" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OverhaulMade" class="control-label"></label>
-                <input asp-for="OverhaulMade" class="form-control" />
-                <span asp-validation-for="OverhaulMade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Redecorated" class="control-label"></label>
-                <input asp-for="Redecorated" class="form-control" />
-                <span asp-validation-for="Redecorated" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Computers" class="control-label"></label>
-                <input asp-for="Computers" class="form-control" />
-                <span asp-validation-for="Computers" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="InternetConnection" class="control-label"></label>
-                <input asp-for="InternetConnection" class="form-control" />
-                <span asp-validation-for="InternetConnection" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ComputersForUsers" class="control-label"></label>
-                <input asp-for="ComputersForUsers" class="form-control" />
-                <span asp-validation-for="ComputersForUsers" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserConnection" class="control-label"></label>
-                <input asp-for="UserConnection" class="form-control" />
-                <span asp-validation-for="UserConnection" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UsersLib" class="control-label"></label>
-                <input asp-for="UsersLib" class="form-control" />
-                <span asp-validation-for="UsersLib" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RecRetTotal" class="control-label"></label>
-                <input asp-for="RecRetTotal" class="form-control" />
-                <span asp-validation-for="RecRetTotal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalNumOfEx" class="control-label"></label>
-                <input asp-for="TotalNumOfEx" class="form-control" />
-                <span asp-validation-for="TotalNumOfEx" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CopKyrg" class="control-label"></label>
-                <input asp-for="CopKyrg" class="form-control" />
-                <span asp-validation-for="CopKyrg" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EventsLib" class="control-label"></label>
-                <input asp-for="EventsLib" class="form-control" />
-                <span asp-validation-for="EventsLib" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Librarians" class="control-label"></label>
-                <input asp-for="Librarians" class="form-control" />
-                <span asp-validation-for="Librarians" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DegEducation" class="control-label"></label>
-                <input asp-for="DegEducation" class="form-control" />
-                <span asp-validation-for="DegEducation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+    <h4>Реестр библиотек КР</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="LibraryName" class="control-label"></label>
+                    <input asp-for="LibraryName" class="form-control" />
+                    <span asp-validation-for="LibraryName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DataSozdania" class="control-label"></label>
+                    <input asp-for="DataSozdania" class="form-control" />
+                    <span asp-validation-for="DataSozdania" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CountOfBook" class="control-label"></label>
+                    <input asp-for="CountOfBook" class="form-control" />
+                    <span asp-validation-for="CountOfBook" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CountOfReaders" class="control-label"></label>
+                    <input asp-for="CountOfReaders" class="form-control" />
+                    <span asp-validation-for="CountOfReaders" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CountOfEmp" class="control-label"></label>
+                    <input asp-for="CountOfEmp" class="form-control" />
+                    <span asp-validation-for="CountOfEmp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Knigovydacha" class="control-label"></label>
+                    <input asp-for="Knigovydacha" class="form-control" />
+                    <span asp-validation-for="Knigovydacha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AddressData" class="control-label"></label>
+                    <input asp-for="AddressData" class="form-control" />
+                    <span asp-validation-for="AddressData" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TotalArea" class="control-label"></label>
+                    <input asp-for="TotalArea" class="form-control" />
+                    <span asp-validation-for="TotalArea" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SeatLanding" class="control-label"></label>
+                    <input asp-for="SeatLanding" class="form-control" />
+                    <span asp-validation-for="SeatLanding" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EmerCapLib" class="control-label"></label>
+                    <input asp-for="EmerCapLib" class="form-control" />
+                    <span asp-validation-for="EmerCapLib" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SpecAdapLib" class="control-label"></label>
+                    <input asp-for="SpecAdapLib" class="form-control" />
+                    <span asp-validation-for="SpecAdapLib" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OverhaulMade" class="control-label"></label>
+                    <input asp-for="OverhaulMade" class="form-control" />
+                    <span asp-validation-for="OverhaulMade" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Redecorated" class="control-label"></label>
+                    <input asp-for="Redecorated" class="form-control" />
+                    <span asp-validation-for="Redecorated" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Computers" class="control-label"></label>
+                    <input asp-for="Computers" class="form-control" />
+                    <span asp-validation-for="Computers" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="InternetConnection" class="control-label"></label>
+                    <input asp-for="InternetConnection" class="form-control" />
+                    <span asp-validation-for="InternetConnection" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ComputersForUsers" class="control-label"></label>
+                    <input asp-for="ComputersForUsers" class="form-control" />
+                    <span asp-validation-for="ComputersForUsers" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserConnection" class="control-label"></label>
+                    <input asp-for="UserConnection" class="form-control" />
+                    <span asp-validation-for="UserConnection" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UsersLib" class="control-label"></label>
+                    <input asp-for="UsersLib" class="form-control" />
+                    <span asp-validation-for="UsersLib" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RecRetTotal" class="control-label"></label>
+                    <input asp-for="RecRetTotal" class="form-control" />
+                    <span asp-validation-for="RecRetTotal" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TotalNumOfEx" class="control-label"></label>
+                    <input asp-for="TotalNumOfEx" class="form-control" />
+                    <span asp-validation-for="TotalNumOfEx" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CopKyrg" class="control-label"></label>
+                    <input asp-for="CopKyrg" class="form-control" />
+                    <span asp-validation-for="CopKyrg" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EventsLib" class="control-label"></label>
+                    <input asp-for="EventsLib" class="form-control" />
+                    <span asp-validation-for="EventsLib" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Librarians" class="control-label"></label>
+                    <input asp-for="Librarians" class="form-control" />
+                    <span asp-validation-for="Librarians" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DegEducation" class="control-label"></label>
+                    <input asp-for="DegEducation" class="form-control" />
+                    <span asp-validation-for="DegEducation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ApplicationUserId" class="control-label"></label>
+                    <select asp-for="ApplicationUserId" class="form-control" asp-items="ViewBag.ApplicationUserId"></select>
+                </div>
+<div class="form-group">
+    <input type="submit" value="Добавить" class="btn btn-primary" />
+</div>
+</form>
+</div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад</a>
 </div>
 
-@section Scripts {
+    @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    }
