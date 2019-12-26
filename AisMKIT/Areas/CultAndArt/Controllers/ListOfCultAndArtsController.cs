@@ -63,7 +63,7 @@ namespace AisMKIT.Areas.CultAndArt.Controllers
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus");
             string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            ListOfMonuments model = new ListOfMonuments();
+            ListOfCultAndArt model = new ListOfCultAndArt();
             model.CreateDate = DateTime.Now;
             model.NameKyrg = "NULL";
             model.ApplicationUserId = uid;

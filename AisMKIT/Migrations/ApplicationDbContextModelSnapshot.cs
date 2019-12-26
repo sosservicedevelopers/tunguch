@@ -1433,6 +1433,9 @@ namespace AisMKIT.Migrations
                     b.Property<string>("LastNameDirector")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("LegalDocuments")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NameKyrg")
                         .HasColumnType("nvarchar(max)");
 

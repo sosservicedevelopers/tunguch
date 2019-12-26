@@ -280,7 +280,8 @@ namespace AisMKIT.Models
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? DeactiveDate { get; set; }
-
+        [Display(Name = "Правоустанавливающие документы")]
+        public string LegalDocuments { get; set; }
         public DateTime CreateDate { get; set; }
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }

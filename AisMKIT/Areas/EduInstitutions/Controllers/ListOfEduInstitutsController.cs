@@ -77,7 +77,7 @@ namespace AisMKIT.Areas.EduInstitutions.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictEduInstTypeId,DictFinSourceId,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate,ApplicationUserId")] ListOfEduInstituts listOfEduInstituts)
+        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictEduInstTypeId,DictFinSourceId,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate,ApplicationUserId,LegalDocuments")] ListOfEduInstituts listOfEduInstituts)
         {
             if (ModelState.IsValid)
             {
@@ -115,7 +115,7 @@ namespace AisMKIT.Areas.EduInstitutions.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictEduInstTypeId,DictFinSourceId,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate,ApplicationUserId")] ListOfEduInstituts listOfEduInstituts)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictEduInstTypeId,DictFinSourceId,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate,ApplicationUserId,LegalDocuments")] ListOfEduInstituts listOfEduInstituts)
         {
             if (id != listOfEduInstituts.Id)
             {
