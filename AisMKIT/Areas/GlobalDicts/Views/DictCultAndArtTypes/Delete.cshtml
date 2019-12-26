@@ -1,0 +1,44 @@
+﻿@model AisMKIT.Models.DictCultAndArtType
+
+@{
+    ViewData["Title"] = "Типы объектов произведений культуры и исскуства";
+}
+
+<h1>Удаление</h1>
+
+<h3>Вы хотите удалить эту запись?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameKyrg)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameKyrg)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameRus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameRus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DictStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DictStatus.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>
