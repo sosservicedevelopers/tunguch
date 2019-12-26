@@ -7,13 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
-using System.Security.Claims;
+using System.Security.Claims;   
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 
 namespace AisMKIT.Areas.Cinematography.Controllers
 {
     [Area("Cinematography")]
+    [Authorize(Roles = "Администратор-Кинематография")]
     public class ListOfCinematographyServicesController : Controller
     {
         private readonly ApplicationDbContext _context;
