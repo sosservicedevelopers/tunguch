@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AisMKIT.Migrations
 {
-    public partial class A1 : Migration
+    public partial class A122 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -255,7 +255,7 @@ namespace AisMKIT.Migrations
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
-                    CreateDate = table.Column<DateTime>(nullable: false)
+                    CreateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -277,7 +277,7 @@ namespace AisMKIT.Migrations
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
-                    CreateDate = table.Column<DateTime>(nullable: false)
+                    CreateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -593,7 +593,7 @@ namespace AisMKIT.Migrations
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
-                    CreateDate = table.Column<DateTime>(nullable: false)
+                    CreateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -817,27 +817,27 @@ namespace AisMKIT.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LibraryName = table.Column<string>(nullable: true),
                     DataSozdania = table.Column<DateTime>(nullable: false),
-                    CountOfBook = table.Column<int>(nullable: false),
-                    CountOfReaders = table.Column<int>(nullable: false),
-                    CountOfEmp = table.Column<int>(nullable: false),
-                    Knigovydacha = table.Column<int>(nullable: false),
+                    CountOfBook = table.Column<string>(nullable: true),
+                    CountOfReaders = table.Column<string>(nullable: true),
+                    CountOfEmp = table.Column<string>(nullable: true),
+                    Knigovydacha = table.Column<string>(nullable: true),
                     AddressData = table.Column<string>(nullable: true),
-                    TotalArea = table.Column<float>(nullable: false),
+                    TotalArea = table.Column<string>(nullable: true),
                     SeatLanding = table.Column<string>(nullable: true),
                     EmerCapLib = table.Column<string>(nullable: true),
                     SpecAdapLib = table.Column<string>(nullable: true),
                     OverhaulMade = table.Column<string>(nullable: true),
                     Redecorated = table.Column<string>(nullable: true),
-                    Computers = table.Column<int>(nullable: false),
-                    InternetConnection = table.Column<int>(nullable: false),
-                    ComputersForUsers = table.Column<int>(nullable: false),
-                    UserConnection = table.Column<int>(nullable: false),
-                    UsersLib = table.Column<int>(nullable: false),
-                    RecRetTotal = table.Column<int>(nullable: false),
-                    TotalNumOfEx = table.Column<int>(nullable: false),
-                    CopKyrg = table.Column<int>(nullable: false),
-                    EventsLib = table.Column<int>(nullable: false),
-                    Librarians = table.Column<int>(nullable: false),
+                    Computers = table.Column<string>(nullable: true),
+                    InternetConnection = table.Column<string>(nullable: true),
+                    ComputersForUsers = table.Column<string>(nullable: true),
+                    UserConnection = table.Column<string>(nullable: true),
+                    UsersLib = table.Column<string>(nullable: true),
+                    RecRetTotal = table.Column<string>(nullable: true),
+                    TotalNumOfEx = table.Column<string>(nullable: true),
+                    CopKyrg = table.Column<string>(nullable: true),
+                    EventsLib = table.Column<string>(nullable: true),
+                    Librarians = table.Column<string>(nullable: true),
                     DegEducation = table.Column<string>(nullable: true),
                     ApplicationUserId = table.Column<string>(nullable: true)
                 },

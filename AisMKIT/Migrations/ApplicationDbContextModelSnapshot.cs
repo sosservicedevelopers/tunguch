@@ -169,58 +169,6 @@ namespace AisMKIT.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("DictStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NameKyrg")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameRus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DictStatusId");
-
-                    b.ToTable("DictAwardsPosition");
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.DictAwardsReason", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("DictStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NameKyrg")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameRus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DictStatusId");
-
-                    b.ToTable("DictAwardsReason");
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.DictAwardsPosition", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<DateTime?>("CreateDate")
                         .HasColumnType("datetime2");
 
@@ -760,6 +708,63 @@ namespace AisMKIT.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DictRegiser");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.DictRentObjectType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DictStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DictUnitOfMeasureId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NameKyrg")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameRus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DictStatusId");
+
+                    b.HasIndex("DictUnitOfMeasureId");
+
+                    b.ToTable("DictRentObjectType");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.DictStateAwardsType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DictStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NameKyrg")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameRus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DictStatusId");
+
+                    b.ToTable("DictStateAwardsType");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.DictStatus", b =>
@@ -1433,23 +1438,23 @@ namespace AisMKIT.Migrations
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Computers")
-                        .HasColumnType("int");
+                    b.Property<string>("Computers")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ComputersForUsers")
-                        .HasColumnType("int");
+                    b.Property<string>("ComputersForUsers")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CopKyrg")
-                        .HasColumnType("int");
+                    b.Property<string>("CopKyrg")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CountOfBook")
-                        .HasColumnType("int");
+                    b.Property<string>("CountOfBook")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CountOfEmp")
-                        .HasColumnType("int");
+                    b.Property<string>("CountOfEmp")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CountOfReaders")
-                        .HasColumnType("int");
+                    b.Property<string>("CountOfReaders")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DataSozdania")
                         .HasColumnType("datetime2");
@@ -1460,17 +1465,17 @@ namespace AisMKIT.Migrations
                     b.Property<string>("EmerCapLib")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EventsLib")
-                        .HasColumnType("int");
+                    b.Property<string>("EventsLib")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("InternetConnection")
-                        .HasColumnType("int");
+                    b.Property<string>("InternetConnection")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Knigovydacha")
-                        .HasColumnType("int");
+                    b.Property<string>("Knigovydacha")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Librarians")
-                        .HasColumnType("int");
+                    b.Property<string>("Librarians")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LibraryName")
                         .HasColumnType("nvarchar(max)");
@@ -1478,8 +1483,11 @@ namespace AisMKIT.Migrations
                     b.Property<string>("OverhaulMade")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RecRetTotal")
-                        .HasColumnType("int");
+                    b.Property<string>("PravaUstanavDoc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RecRetTotal")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Redecorated")
                         .HasColumnType("nvarchar(max)");
@@ -1490,17 +1498,17 @@ namespace AisMKIT.Migrations
                     b.Property<string>("SpecAdapLib")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("TotalArea")
-                        .HasColumnType("real");
+                    b.Property<string>("TotalArea")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TotalNumOfEx")
-                        .HasColumnType("int");
+                    b.Property<string>("TotalNumOfEx")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserConnection")
-                        .HasColumnType("int");
+                    b.Property<string>("UserConnection")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UsersLib")
-                        .HasColumnType("int");
+                    b.Property<string>("UsersLib")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
