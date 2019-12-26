@@ -67,7 +67,7 @@ namespace AisMKIT.Models
         public int? DictStatusId { get; set; }
         [Display(Name = "Статус")]
         public DictStatus DictStatus { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
     }
 
     public class DictAwardsPosition
@@ -85,7 +85,7 @@ namespace AisMKIT.Models
         public int? DictStatusId { get; set; }
         [Display(Name = "Статус")]
         public DictStatus DictStatus { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
     }
 
     public class DictAwardsReason
@@ -103,7 +103,7 @@ namespace AisMKIT.Models
         public int? DictStatusId { get; set; }
         [Display(Name = "Статус")]
         public DictStatus DictStatus { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
     }
 
 }

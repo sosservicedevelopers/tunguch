@@ -1,0 +1,66 @@
+﻿@model AisMKIT.Models.ListOfStateAwards
+
+@{
+    ViewData["Title"] = "Редактирование";
+}
+
+<h1>Редактирование</h1>
+
+<h4>ListOfStateAwards</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CreateDate" />
+            <input type="hidden" asp-for="ApplicationUserId" />
+            <div class="form-group">
+                <label asp-for="LastNameDirector" class="control-label"></label>
+                <input asp-for="LastNameDirector" class="form-control" />
+                <span asp-validation-for="LastNameDirector" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstNameDirector" class="control-label"></label>
+                <input asp-for="FirstNameDirector" class="form-control" />
+                <span asp-validation-for="FirstNameDirector" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatronicNameDirector" class="control-label"></label>
+                <input asp-for="PatronicNameDirector" class="form-control" />
+                <span asp-validation-for="PatronicNameDirector" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DictStateAwardsTypeId" class="control-label"></label>
+                <select asp-for="DictStateAwardsTypeId" class="form-control" asp-items="ViewBag.DictStateAwardsTypeId"></select>
+                <span asp-validation-for="DictStateAwardsTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DictAwardsPositionId" class="control-label"></label>
+                <select asp-for="DictAwardsPositionId" class="form-control" asp-items="ViewBag.DictAwardsPositionId"></select>
+                <span asp-validation-for="DictAwardsPositionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DictAwardsReasonId" class="control-label"></label>
+                <select asp-for="DictAwardsReasonId" class="form-control" asp-items="ViewBag.DictAwardsReasonId"></select>
+                <span asp-validation-for="DictAwardsReasonId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegistrationDate" class="control-label"></label>
+                <input asp-for="RegistrationDate" class="form-control" />
+                <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

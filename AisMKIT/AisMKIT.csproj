@@ -6,10 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Areas\Новая папка\**" />
-    <Content Remove="Areas\Новая папка\**" />
-    <EmbeddedResource Remove="Areas\Новая папка\**" />
-    <None Remove="Areas\Новая папка\**" />
+    <Compile Remove="Migrations\**" />
+    <Content Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Migrations\20191226062225_A1.cs" />
+    <Compile Include="Migrations\20191226062225_A1.Designer.cs" />
+    <Compile Include="Migrations\20191226065051_A3.cs" />
+    <Compile Include="Migrations\20191226065051_A3.Designer.cs" />
+    <Compile Include="Migrations\ApplicationDbContextModelSnapshot.cs" />
   </ItemGroup>
 
 
@@ -40,6 +48,8 @@
     <Folder Include="Areas\Media\Data\" />
     <Folder Include="Areas\Monuments\Data\" />
     <Folder Include="Areas\Monuments\Models\" />
+    <Folder Include="Areas\StateAwards\Data\" />
+    <Folder Include="Areas\StateAwards\Models\" />
     <Folder Include="Areas\Theatrical\Data\" />
     <Folder Include="Areas\Theatrical\Models\" />
   </ItemGroup>

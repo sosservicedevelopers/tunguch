@@ -247,6 +247,50 @@ namespace AisMKIT.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DictAwardsPosition",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameKyrg = table.Column<string>(nullable: true),
+                    NameRus = table.Column<string>(nullable: true),
+                    DictStatusId = table.Column<int>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DictAwardsPosition", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DictAwardsPosition_DictStatus_DictStatusId",
+                        column: x => x.DictStatusId,
+                        principalTable: "DictStatus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DictAwardsReason",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameKyrg = table.Column<string>(nullable: true),
+                    NameRus = table.Column<string>(nullable: true),
+                    DictStatusId = table.Column<int>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DictAwardsReason", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DictAwardsReason_DictStatus_DictStatusId",
+                        column: x => x.DictStatusId,
+                        principalTable: "DictStatus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DictCinematographyServices",
                 columns: table => new
                 {
@@ -285,6 +329,28 @@ namespace AisMKIT.Migrations
                     table.PrimaryKey("PK_DictControlType", x => x.Id);
                     table.ForeignKey(
                         name: "FK_DictControlType_DictStatus_DictStatusId",
+                        column: x => x.DictStatusId,
+                        principalTable: "DictStatus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DictCultAndArtType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameKyrg = table.Column<string>(nullable: true),
+                    NameRus = table.Column<string>(nullable: true),
+                    DictStatusId = table.Column<int>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DictCultAndArtType", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DictCultAndArtType_DictStatus_DictStatusId",
                         column: x => x.DictStatusId,
                         principalTable: "DictStatus",
                         principalColumn: "Id",
@@ -519,6 +585,28 @@ namespace AisMKIT.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DictStateAwardsType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameKyrg = table.Column<string>(nullable: true),
+                    NameRus = table.Column<string>(nullable: true),
+                    DictStatusId = table.Column<int>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DictStateAwardsType", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DictStateAwardsType_DictStatus_DictStatusId",
+                        column: x => x.DictStatusId,
+                        principalTable: "DictStatus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DictTheatricalHall",
                 columns: table => new
                 {
@@ -556,6 +644,28 @@ namespace AisMKIT.Migrations
                     table.PrimaryKey("PK_DictTourismServices", x => x.Id);
                     table.ForeignKey(
                         name: "FK_DictTourismServices_DictStatus_DictStatusId",
+                        column: x => x.DictStatusId,
+                        principalTable: "DictStatus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DictUnitOfMeasure",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameKyrg = table.Column<string>(nullable: true),
+                    NameRus = table.Column<string>(nullable: true),
+                    DictStatusId = table.Column<int>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DictUnitOfMeasure", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DictUnitOfMeasure_DictStatus_DictStatusId",
                         column: x => x.DictStatusId,
                         principalTable: "DictStatus",
                         principalColumn: "Id",
@@ -706,6 +816,11 @@ namespace AisMKIT.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LibraryName = table.Column<string>(nullable: true),
+                    DataSozdania = table.Column<DateTime>(nullable: false),
+                    CountOfBook = table.Column<int>(nullable: false),
+                    CountOfReaders = table.Column<int>(nullable: false),
+                    CountOfEmp = table.Column<int>(nullable: false),
+                    Knigovydacha = table.Column<int>(nullable: false),
                     AddressData = table.Column<string>(nullable: true),
                     TotalArea = table.Column<float>(nullable: false),
                     SeatLanding = table.Column<string>(nullable: true),
@@ -813,6 +928,64 @@ namespace AisMKIT.Migrations
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ListOfCinematography_DictLegalForm_DictLegalFormId",
+                        column: x => x.DictLegalFormId,
+                        principalTable: "DictLegalForm",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ListOfCultAndArt",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DictCultAndArtTypeId = table.Column<int>(nullable: false),
+                    NameRus = table.Column<string>(nullable: true),
+                    NameKyrg = table.Column<string>(nullable: true),
+                    DictLegalFormId = table.Column<int>(nullable: true),
+                    INN = table.Column<string>(nullable: true),
+                    LastNameDirector = table.Column<string>(nullable: true),
+                    FirstNameDirector = table.Column<string>(nullable: true),
+                    PatronicNameDirector = table.Column<string>(nullable: true),
+                    DictFinSourceId = table.Column<int>(nullable: true),
+                    DictDistrictId = table.Column<int>(nullable: true),
+                    LegalAddress = table.Column<string>(nullable: true),
+                    RegistrationDate = table.Column<DateTime>(nullable: true),
+                    ReregistrationDate = table.Column<DateTime>(nullable: true),
+                    DeactiveDate = table.Column<DateTime>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListOfCultAndArt", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ListOfCultAndArt_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ListOfCultAndArt_DictCultAndArtType_DictCultAndArtTypeId",
+                        column: x => x.DictCultAndArtTypeId,
+                        principalTable: "DictCultAndArtType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ListOfCultAndArt_DictDistrict_DictDistrictId",
+                        column: x => x.DictDistrictId,
+                        principalTable: "DictDistrict",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ListOfCultAndArt_DictFinSource_DictFinSourceId",
+                        column: x => x.DictFinSourceId,
+                        principalTable: "DictFinSource",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ListOfCultAndArt_DictLegalForm_DictLegalFormId",
                         column: x => x.DictLegalFormId,
                         principalTable: "DictLegalForm",
                         principalColumn: "Id",
@@ -1130,6 +1303,80 @@ namespace AisMKIT.Migrations
                         principalTable: "DictMonumentType",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ListOfStateAwards",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LastNameDirector = table.Column<string>(nullable: true),
+                    FirstNameDirector = table.Column<string>(nullable: true),
+                    PatronicNameDirector = table.Column<string>(nullable: true),
+                    DictStateAwardsTypeId = table.Column<int>(nullable: false),
+                    DictAwardsPositionId = table.Column<int>(nullable: true),
+                    DictAwardsReasonId = table.Column<int>(nullable: true),
+                    RegistrationDate = table.Column<DateTime>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListOfStateAwards", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ListOfStateAwards_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ListOfStateAwards_DictAwardsPosition_DictAwardsPositionId",
+                        column: x => x.DictAwardsPositionId,
+                        principalTable: "DictAwardsPosition",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ListOfStateAwards_DictAwardsReason_DictAwardsReasonId",
+                        column: x => x.DictAwardsReasonId,
+                        principalTable: "DictAwardsReason",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ListOfStateAwards_DictStateAwardsType_DictStateAwardsTypeId",
+                        column: x => x.DictStateAwardsTypeId,
+                        principalTable: "DictStateAwardsType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DictRentObjectType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameKyrg = table.Column<string>(nullable: true),
+                    NameRus = table.Column<string>(nullable: true),
+                    DictUnitOfMeasureId = table.Column<int>(nullable: true),
+                    DictStatusId = table.Column<int>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DictRentObjectType", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DictRentObjectType_DictStatus_DictStatusId",
+                        column: x => x.DictStatusId,
+                        principalTable: "DictStatus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_DictRentObjectType_DictUnitOfMeasure_DictUnitOfMeasureId",
+                        column: x => x.DictUnitOfMeasureId,
+                        principalTable: "DictUnitOfMeasure",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -1625,6 +1872,65 @@ namespace AisMKIT.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ListOfRents",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameRus = table.Column<string>(nullable: true),
+                    NameKyrg = table.Column<string>(nullable: true),
+                    DictRentObjectTypeId = table.Column<int>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListOfRents", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ListOfRents_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ListOfRents_DictRentObjectType_DictRentObjectTypeId",
+                        column: x => x.DictRentObjectTypeId,
+                        principalTable: "DictRentObjectType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ListOfRentsHistory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ListOfRentsId = table.Column<int>(nullable: false),
+                    StartDate = table.Column<DateTime>(nullable: true),
+                    EndDate = table.Column<DateTime>(nullable: true),
+                    Cost = table.Column<decimal>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListOfRentsHistory", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ListOfRentsHistory_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ListOfRentsHistory_ListOfRents_ListOfRentsId",
+                        column: x => x.ListOfRentsId,
+                        principalTable: "ListOfRents",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -1675,6 +1981,16 @@ namespace AisMKIT.Migrations
                 column: "DictStatusId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DictAwardsPosition_DictStatusId",
+                table: "DictAwardsPosition",
+                column: "DictStatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DictAwardsReason_DictStatusId",
+                table: "DictAwardsReason",
+                column: "DictStatusId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DictCinematographyServices_DictStatusId",
                 table: "DictCinematographyServices",
                 column: "DictStatusId");
@@ -1682,6 +1998,11 @@ namespace AisMKIT.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_DictControlType_DictStatusId",
                 table: "DictControlType",
+                column: "DictStatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DictCultAndArtType_DictStatusId",
+                table: "DictCultAndArtType",
                 column: "DictStatusId");
 
             migrationBuilder.CreateIndex(
@@ -1740,6 +2061,21 @@ namespace AisMKIT.Migrations
                 column: "DictStatusId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DictRentObjectType_DictStatusId",
+                table: "DictRentObjectType",
+                column: "DictStatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DictRentObjectType_DictUnitOfMeasureId",
+                table: "DictRentObjectType",
+                column: "DictUnitOfMeasureId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DictStateAwardsType_DictStatusId",
+                table: "DictStateAwardsType",
+                column: "DictStatusId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DictTheatricalHall_DictStatusId",
                 table: "DictTheatricalHall",
                 column: "DictStatusId");
@@ -1747,6 +2083,11 @@ namespace AisMKIT.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_DictTourismServices_DictStatusId",
                 table: "DictTourismServices",
+                column: "DictStatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DictUnitOfMeasure_DictStatusId",
+                table: "DictUnitOfMeasure",
                 column: "DictStatusId");
 
             migrationBuilder.CreateIndex(
@@ -1873,6 +2214,31 @@ namespace AisMKIT.Migrations
                 name: "IX_ListOfCouncilTheatrical_ListOfTheatricalId",
                 table: "ListOfCouncilTheatrical",
                 column: "ListOfTheatricalId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfCultAndArt_ApplicationUserId",
+                table: "ListOfCultAndArt",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfCultAndArt_DictCultAndArtTypeId",
+                table: "ListOfCultAndArt",
+                column: "DictCultAndArtTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfCultAndArt_DictDistrictId",
+                table: "ListOfCultAndArt",
+                column: "DictDistrictId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfCultAndArt_DictFinSourceId",
+                table: "ListOfCultAndArt",
+                column: "DictFinSourceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfCultAndArt_DictLegalFormId",
+                table: "ListOfCultAndArt",
+                column: "DictLegalFormId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ListOfEduInstituts_ApplicationUserId",
@@ -2018,6 +2384,46 @@ namespace AisMKIT.Migrations
                 name: "IX_ListOfMonumetnTypologicalAccessory_ListOfMonumentsId",
                 table: "ListOfMonumetnTypologicalAccessory",
                 column: "ListOfMonumentsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfRents_ApplicationUserId",
+                table: "ListOfRents",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfRents_DictRentObjectTypeId",
+                table: "ListOfRents",
+                column: "DictRentObjectTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfRentsHistory_ApplicationUserId",
+                table: "ListOfRentsHistory",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfRentsHistory_ListOfRentsId",
+                table: "ListOfRentsHistory",
+                column: "ListOfRentsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfStateAwards_ApplicationUserId",
+                table: "ListOfStateAwards",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfStateAwards_DictAwardsPositionId",
+                table: "ListOfStateAwards",
+                column: "DictAwardsPositionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfStateAwards_DictAwardsReasonId",
+                table: "ListOfStateAwards",
+                column: "DictAwardsReasonId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfStateAwards_DictStateAwardsTypeId",
+                table: "ListOfStateAwards",
+                column: "DictStateAwardsTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ListOfTeleRadio_ApplicationUserId",
@@ -2171,6 +2577,9 @@ namespace AisMKIT.Migrations
                 name: "ListOfCouncilTheatrical");
 
             migrationBuilder.DropTable(
+                name: "ListOfCultAndArt");
+
+            migrationBuilder.DropTable(
                 name: "ListOfEduInstituts");
 
             migrationBuilder.DropTable(
@@ -2184,6 +2593,12 @@ namespace AisMKIT.Migrations
 
             migrationBuilder.DropTable(
                 name: "ListOfMonumetnTypologicalAccessory");
+
+            migrationBuilder.DropTable(
+                name: "ListOfRentsHistory");
+
+            migrationBuilder.DropTable(
+                name: "ListOfStateAwards");
 
             migrationBuilder.DropTable(
                 name: "ListOfTeleRadio");
@@ -2231,6 +2646,9 @@ namespace AisMKIT.Migrations
                 name: "DictMediaSuitPerm");
 
             migrationBuilder.DropTable(
+                name: "DictCultAndArtType");
+
+            migrationBuilder.DropTable(
                 name: "DictEduInstType");
 
             migrationBuilder.DropTable(
@@ -2244,6 +2662,18 @@ namespace AisMKIT.Migrations
 
             migrationBuilder.DropTable(
                 name: "ListOfMonuments");
+
+            migrationBuilder.DropTable(
+                name: "ListOfRents");
+
+            migrationBuilder.DropTable(
+                name: "DictAwardsPosition");
+
+            migrationBuilder.DropTable(
+                name: "DictAwardsReason");
+
+            migrationBuilder.DropTable(
+                name: "DictStateAwardsType");
 
             migrationBuilder.DropTable(
                 name: "DictAgencyPerm");
@@ -2262,6 +2692,9 @@ namespace AisMKIT.Migrations
 
             migrationBuilder.DropTable(
                 name: "DictMonumentType");
+
+            migrationBuilder.DropTable(
+                name: "DictRentObjectType");
 
             migrationBuilder.DropTable(
                 name: "DictMediaFreqRelease");
@@ -2283,6 +2716,9 @@ namespace AisMKIT.Migrations
 
             migrationBuilder.DropTable(
                 name: "DictLegalForm");
+
+            migrationBuilder.DropTable(
+                name: "DictUnitOfMeasure");
 
             migrationBuilder.DropTable(
                 name: "Departments");
