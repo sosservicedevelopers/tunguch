@@ -40,6 +40,8 @@
     <Folder Include="Areas\Media\Data\" />
     <Folder Include="Areas\Monuments\Data\" />
     <Folder Include="Areas\Monuments\Models\" />
+    <Folder Include="Areas\Rents\Data\" />
+    <Folder Include="Areas\Rents\Models\" />
     <Folder Include="Areas\Theatrical\Data\" />
     <Folder Include="Areas\Theatrical\Models\" />
   </ItemGroup>
