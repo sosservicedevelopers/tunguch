@@ -1,0 +1,42 @@
+﻿@model AisMKIT.Models.ListOfCinematographyDocuments
+
+@{
+    ViewData["Title"] = "Реестр о перечене документов";
+}
+
+<h1>Добавление</h1>
+
+    <h4>Реестр о перечене документов</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CreateDate" />
+                <input type="hidden" asp-for="ApplicationUserId" />
+
+                <div class="form-group">
+                    <label asp-for="NameRus" class="control-label"></label>
+                    <input asp-for="NameRus" class="form-control" />
+                    <span asp-validation-for="NameRus" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RegistrationDate" class="control-label"></label>
+                    <input asp-for="RegistrationDate" class="form-control" />
+                    <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Добавить" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

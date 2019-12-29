@@ -7,17 +7,24 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AisMKIT.Areas.Library.Controllers
 {
     [Area("Library")]
+    [Authorize(Roles = "Администратор,Администратор-Библиотека")]
     public class ListOfLibraryIndicatorsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ListOfLibraryIndicatorsController(ApplicationDbContext context)
+
+        public ListOfLibraryIndicatorsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET: Library/ListOfLibraryIndicators
@@ -49,7 +56,14 @@ namespace AisMKIT.Areas.Library.Controllers
         // GET: Library/ListOfLibraryIndicators/Create
         public IActionResult Create()
         {
-            return View();
+
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            ListOfLibraryIndicators model = new ListOfLibraryIndicators();
+            model.CreateDate = DateTime.Now;            
+            model.ApplicationUserId = uid;
+
+            return View(model);
         }
 
         // POST: Library/ListOfLibraryIndicators/Create
@@ -57,7 +71,7 @@ namespace AisMKIT.Areas.Library.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,LibraryName,DataSozdania,CountOfBook,CountOfReaders,CountOfEmp,Knigovydacha,AddressData,TotalArea,SeatLanding,EmerCapLib,SpecAdapLib,OverhaulMade,Redecorated,Computers,InternetConnection,ComputersForUsers,UserConnection,UsersLib,RecRetTotal,TotalNumOfEx,CopKyrg,EventsLib,Librarians,DegEducation,ApplicationUserId,PravaUstanavDoc")] ListOfLibraryIndicators listOfLibraryIndicators)
+        public async Task<IActionResult> Create([Bind("Id,LibraryName,DataSozdania,CountOfBook,CountOfReaders,CountOfEmp,Knigovydacha,AddressData,TotalArea,SeatLanding,EmerCapLib,SpecAdapLib,OverhaulMade,Redecorated,Computers,InternetConnection,ComputersForUsers,UserConnection,UsersLib,RecRetTotal,TotalNumOfEx,CopKyrg,EventsLib,Librarians,DegEducation,ApplicationUserId,PravaUstanavDoc,CreateDate")] ListOfLibraryIndicators listOfLibraryIndicators)
         {
             if (ModelState.IsValid)
             {
@@ -100,6 +114,8 @@ namespace AisMKIT.Areas.Library.Controllers
             {
                 try
                 {
+                    string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfLibraryIndicators.ApplicationUserId = uid;
                     _context.Update(listOfLibraryIndicators);
                     await _context.SaveChangesAsync();
                 }

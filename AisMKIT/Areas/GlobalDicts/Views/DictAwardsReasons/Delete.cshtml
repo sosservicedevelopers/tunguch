@@ -1,22 +1,16 @@
 ﻿@model AisMKIT.Models.DictAwardsReason
 
 @{
-    ViewData["Title"] = "Удаление";
+    ViewData["Title"] = "Причины награждения";
 }
 
-    <h1>Удаление</h1>
+<h1>Удаление</h1>
 
-      <h3>Вы уверены, что хотите удалить это?</h3>
+<h3>Вы хотите удалить эту запись?</h3>
 <div>
-    <h4>DictAwardsReason</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NameKyrg)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NameKyrg)
-        </dd>
+        
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.NameRus)
         </dt>
@@ -29,6 +23,7 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DictStatus.Name)
         </dd class>
+        
     </dl>
     
     <form asp-action="Delete">

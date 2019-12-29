@@ -118,21 +118,6 @@ namespace AisMKIT.Migrations
                     b.ToTable("Departments");
                 });
 
-            modelBuilder.Entity("AisMKIT.Models.DictAgeRestrictions", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DictAgeRestrictions");
-                });
-
             modelBuilder.Entity("AisMKIT.Models.DictAgencyPerm", b =>
                 {
                     b.Property<int>("Id")
@@ -214,6 +199,60 @@ namespace AisMKIT.Migrations
                     b.ToTable("DictAwardsReason");
                 });
 
+            modelBuilder.Entity("AisMKIT.Models.DictCinemaAgeRestrictions", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DictCinemaAgeRestrictions");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.DictCinemaDuration", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DictCinemaDuration");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.DictCinemaRegiser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Patronic")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DictCinemaRegiser");
+                });
+
             modelBuilder.Entity("AisMKIT.Models.DictCinematographyServices", b =>
                 {
                     b.Property<int>("Id")
@@ -276,6 +315,27 @@ namespace AisMKIT.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Alpha2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Alpha3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("English")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ISO")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LocationPrecise")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -334,21 +394,6 @@ namespace AisMKIT.Migrations
                     b.HasIndex("DictRegionId");
 
                     b.ToTable("DictDistrict");
-                });
-
-            modelBuilder.Entity("AisMKIT.Models.DictDuration", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DictDuration");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.DictEduInstType", b =>
@@ -716,30 +761,6 @@ namespace AisMKIT.Migrations
                     b.ToTable("DictRegion");
                 });
 
-            modelBuilder.Entity("AisMKIT.Models.DictRegiser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Patronic")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DictRegiser");
-                });
-
             modelBuilder.Entity("AisMKIT.Models.DictRentObjectType", b =>
                 {
                     b.Property<int>("Id")
@@ -989,16 +1010,16 @@ namespace AisMKIT.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DictAgeRestrictionsId")
+                    b.Property<int?>("DictCinemaAgeRestrictionsId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DictCinemaDurationId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DictCinemaRegiserId")
                         .HasColumnType("int");
 
                     b.Property<int?>("DictCountryId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DictDurationId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DictRegiserId")
                         .HasColumnType("int");
 
                     b.Property<string>("NameKyrg")
@@ -1017,15 +1038,41 @@ namespace AisMKIT.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("DictAgeRestrictionsId");
+                    b.HasIndex("DictCinemaAgeRestrictionsId");
+
+                    b.HasIndex("DictCinemaDurationId");
+
+                    b.HasIndex("DictCinemaRegiserId");
 
                     b.HasIndex("DictCountryId");
 
-                    b.HasIndex("DictDurationId");
-
-                    b.HasIndex("DictRegiserId");
-
                     b.ToTable("ListOfCinematographyCertificates");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.ListOfCinematographyDocuments", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NameRus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RegistrationDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("ListOfCinematographyDocuments");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.ListOfCinematographyHistory", b =>
@@ -1464,6 +1511,50 @@ namespace AisMKIT.Migrations
                     b.ToTable("ListOfEduInstituts");
                 });
 
+            modelBuilder.Entity("AisMKIT.Models.ListOfEvents", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DictInitiatorOfProjId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DictTypeOfKMMId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DistLocId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EndDateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EventTopic")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StartDateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("DictInitiatorOfProjId");
+
+                    b.HasIndex("DictTypeOfKMMId");
+
+                    b.HasIndex("DistLocId");
+
+                    b.ToTable("ListOfEvents");
+                });
+
             modelBuilder.Entity("AisMKIT.Models.ListOfEventsTheatrical", b =>
                 {
                     b.Property<int>("Id")
@@ -1539,6 +1630,9 @@ namespace AisMKIT.Migrations
 
                     b.Property<string>("CountOfReaders")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataSozdania")
                         .HasColumnType("datetime2");
@@ -1809,6 +1903,66 @@ namespace AisMKIT.Migrations
                     b.HasIndex("DictMonumentTypeId");
 
                     b.ToTable("ListOfMonuments");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.ListOfMonumentsProtObjects", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Contacts")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CurrentStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DictDistrictId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DictFinSourceId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstNameDirector")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastNameDirector")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LegalAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LegalDocs")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameKyrg")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameRus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PatronicNameDirector")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ploshad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("DictDistrictId");
+
+                    b.HasIndex("DictFinSourceId");
+
+                    b.ToTable("ListOfMonumentsProtObjects");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.ListOfMonumetnTypologicalAccessory", b =>
@@ -2296,6 +2450,9 @@ namespace AisMKIT.Migrations
                     b.Property<string>("AverageMonthSalary")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("GDP")
                         .HasColumnType("nvarchar(max)");
 
@@ -2699,21 +2856,28 @@ namespace AisMKIT.Migrations
                         .WithMany()
                         .HasForeignKey("ApplicationUserId");
 
-                    b.HasOne("AisMKIT.Models.DictAgeRestrictions", "DictAgeRestrictions")
+                    b.HasOne("AisMKIT.Models.DictCinemaAgeRestrictions", "DictCinemaAgeRestrictions")
                         .WithMany()
-                        .HasForeignKey("DictAgeRestrictionsId");
+                        .HasForeignKey("DictCinemaAgeRestrictionsId");
+
+                    b.HasOne("AisMKIT.Models.DictCinemaDuration", "DictCinemaDuration")
+                        .WithMany()
+                        .HasForeignKey("DictCinemaDurationId");
+
+                    b.HasOne("AisMKIT.Models.DictCinemaRegiser", "DictCinemaRegiser")
+                        .WithMany()
+                        .HasForeignKey("DictCinemaRegiserId");
 
                     b.HasOne("AisMKIT.Models.DictCountry", "DictCountry")
                         .WithMany()
                         .HasForeignKey("DictCountryId");
+                });
 
-                    b.HasOne("AisMKIT.Models.DictDuration", "DictDuration")
+            modelBuilder.Entity("AisMKIT.Models.ListOfCinematographyDocuments", b =>
+                {
+                    b.HasOne("AisMKIT.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()
-                        .HasForeignKey("DictDurationId");
-
-                    b.HasOne("AisMKIT.Models.DictRegiser", "DictRegiser")
-                        .WithMany()
-                        .HasForeignKey("DictRegiserId");
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.ListOfCinematographyHistory", b =>
@@ -2873,6 +3037,31 @@ namespace AisMKIT.Migrations
                         .HasForeignKey("DictLegalFormId");
                 });
 
+            modelBuilder.Entity("AisMKIT.Models.ListOfEvents", b =>
+                {
+                    b.HasOne("AisMKIT.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("AisMKIT.Models.DictInitiatorOfProj", "DictInitiatorOfProj")
+                        .WithMany()
+                        .HasForeignKey("DictInitiatorOfProjId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AisMKIT.Models.DictTypeOfKMM", "DictTypeOfKMM")
+                        .WithMany()
+                        .HasForeignKey("DictTypeOfKMMId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AisMKIT.Models.DictLoc", "DistLoc")
+                        .WithMany()
+                        .HasForeignKey("DistLocId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("AisMKIT.Models.ListOfEventsTheatrical", b =>
                 {
                     b.HasOne("AisMKIT.Models.ApplicationUser", "ApplicationUser")
@@ -2984,6 +3173,21 @@ namespace AisMKIT.Migrations
                         .HasForeignKey("DictMonumentTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.ListOfMonumentsProtObjects", b =>
+                {
+                    b.HasOne("AisMKIT.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("AisMKIT.Models.DictDistrict", "DictDistrict")
+                        .WithMany()
+                        .HasForeignKey("DictDistrictId");
+
+                    b.HasOne("AisMKIT.Models.DictFinSource", "DictFinSource")
+                        .WithMany()
+                        .HasForeignKey("DictFinSourceId");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.ListOfMonumetnTypologicalAccessory", b =>

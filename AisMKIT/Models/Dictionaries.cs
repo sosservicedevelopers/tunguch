@@ -341,6 +341,13 @@ namespace AisMKIT.Models
 
         [Display(Name = "Страна")]
         public string Name { get; set; }
+        public string FullName { get; set; }
+        public string English { get; set; }
+        public string Alpha2 { get; set; }
+        public string Alpha3 { get; set; }
+        public string ISO { get; set; }
+        public string Location { get; set; }
+        public string LocationPrecise { get; set; }
 
     }
     

@@ -13,11 +13,13 @@
             <form asp-action="Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" />
-                <div class="form-group">
-                    <label asp-for="NameKyrg" class="control-label"></label>
-                    <input asp-for="NameKyrg" class="form-control" />
-                    <span asp-validation-for="NameKyrg" class="text-danger"></span>
-                </div>
+                <input type="hidden" asp-for="NameKyrg" />
+                <input type="hidden" asp-for="CreateDate" />
+                @*<div class="form-group">
+            <label asp-for="NameKyrg" class="control-label"></label>
+            <input asp-for="NameKyrg" class="form-control" />
+            <span asp-validation-for="NameKyrg" class="text-danger"></span>
+        </div>*@
                 <div class="form-group">
                     <label asp-for="NameRus" class="control-label"></label>
                     <input asp-for="NameRus" class="form-control" />
@@ -28,15 +30,15 @@
                     <select asp-for="DictStatusId" class="form-control" asp-items="ViewBag.DictStatusId"></select>
                     <span asp-validation-for="DictStatusId" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                @*<div class="form-group">
                     <label asp-for="CreateDate" class="control-label"></label>
                     <input asp-for="CreateDate" class="form-control" />
                     <span asp-validation-for="CreateDate" class="text-danger"></span>
+                </div>*@
+                <div class="form-group">
+                    <input type="submit" value="Сохранить" class="btn btn-primary" />
                 </div>
-<div class="form-group">
-    <input type="submit" value="Сохранить" class="btn btn-primary" />
-</div>
-</form>
+            </form>
 </div>
 </div>
 

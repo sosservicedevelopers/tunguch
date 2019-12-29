@@ -1,42 +1,40 @@
 ﻿@model AisMKIT.Models.DictAwardsPosition
 
 @{
-    ViewData["Title"] = "Добавление";
+    ViewData["Title"] = "Должности награжденных";
 }
 
-    <h1>Добавление</h1>
+<h1>Добавление</h1>
 
-<h4>DictAwardsPosition</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<div class="form-group">
-                <label asp-for="NameKyrg" class="control-label"></label>
-                <input asp-for="NameKyrg" class="form-control" />
-                <span asp-validation-for="NameKyrg" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="NameRus" class="control-label"></label>
-                <input asp-for="NameRus" class="form-control" />
-                <span asp-validation-for="NameRus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DictStatusId" class="control-label"></label>
-                <select asp-for="DictStatusId" class ="form-control" asp-items="ViewBag.DictStatusId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Добавить" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<h4>Должности награжденных</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CreateDate" />
+                <input type="hidden" asp-for="NameKyrg" />
+                 <div class="form-group">
+                    <label asp-for="NameRus" class="control-label"></label>
+                    <input asp-for="NameRus" class="form-control" />
+                    <span asp-validation-for="NameRus" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictStatusId" class="control-label"></label>
+                    <select asp-for="DictStatusId" class="form-control" asp-items="ViewBag.DictStatusId"></select>
+                </div>
+                 
+                <div class="form-group">
+                    <input type="submit" value="Добавить" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
 </div>
 
 <div>
     <a asp-action="Index">Назад</a>
 </div>
 
-@section Scripts {
+    @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    }

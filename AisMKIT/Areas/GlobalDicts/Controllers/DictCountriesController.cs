@@ -55,7 +55,7 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] DictCountry dictCountry)
+        public async Task<IActionResult> Create([Bind("Id,Name,FullName,English,Alpha2,Alpha3,ISO,Location,LocationPrecise")] DictCountry dictCountry)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] DictCountry dictCountry)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,FullName,English,Alpha2,Alpha3,ISO,Location,LocationPrecise")] DictCountry dictCountry)
         {
             if (id != dictCountry.Id)
             {

@@ -1,26 +1,29 @@
 ﻿@model IEnumerable<AisMKIT.Models.DictStateAwardsType>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Виды государственных наград";
 }
 
-<h1>Виды государственных наград</h1>
+    <h2>Виды государственных наград</h2>
 
 <p>
-    <a asp-action="Create">Добавить</a>
+    <a asp-action="Create">Добавить новый</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.NameKyrg)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.NameRus)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DictStatus)
             </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -34,11 +37,14 @@
                 @Html.DisplayFor(modelItem => item.NameRus)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DictStatus.Name)
+                @Html.DisplayFor(modelItem => item.DictStatus.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
             </td>
         </tr>

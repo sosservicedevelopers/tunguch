@@ -15,16 +15,17 @@
                 <input type="hidden" asp-for="Id" />
                 <input type="hidden" asp-for="CreateDate" />
                 <input type="hidden" asp-for="NameKyrg" />
+                <input type="hidden" asp-for="ApplicationUserId" />
                 <div class="form-group">
                     <label asp-for="NameRus" class="control-label"></label>
                     <input asp-for="NameRus" class="form-control" />
                     <span asp-validation-for="NameRus" class="text-danger"></span>
                 </div>
                 @*<div class="form-group">
-                    <label asp-for="NameKyrg" class="control-label"></label>
-                    <input asp-for="NameKyrg" class="form-control" />
-                    <span asp-validation-for="NameKyrg" class="text-danger"></span>
-                </div>*@
+            <label asp-for="NameKyrg" class="control-label"></label>
+            <input asp-for="NameKyrg" class="form-control" />
+            <span asp-validation-for="NameKyrg" class="text-danger"></span>
+        </div>*@
                 <div class="form-group">
                     <label asp-for="DictLegalFormId" class="control-label"></label>
                     <select asp-for="DictLegalFormId" class="form-control" asp-items="ViewBag.DictLegalFormId"></select>
@@ -92,14 +93,14 @@
                     <span asp-validation-for="DeactiveDate" class="text-danger"></span>
                 </div>
                 @*<div class="form-group">
-                    <label asp-for="CreateDate" class="control-label"></label>
-                    <input asp-for="CreateDate" class="form-control" />
-                    <span asp-validation-for="CreateDate" class="text-danger"></span>
-                </div>*@
-            <div class="form-group">
-                <input type="submit" name="SubmitButton" value="Сохранить" class="btn btn-primary" />
-                <input type="submit" name="SubmitButton" value="Перерегистрировать" class="btn btn-primary" />
-            </div>
+            <label asp-for="CreateDate" class="control-label"></label>
+            <input asp-for="CreateDate" class="form-control" />
+            <span asp-validation-for="CreateDate" class="text-danger"></span>
+        </div>*@
+                <div class="form-group">
+                    <input type="submit" name="SubmitButton" value="Сохранить" class="btn btn-primary" />
+                    <input type="submit" name="SubmitButton" value="Перерегистрировать" class="btn btn-primary" />
+                </div>
             </form>
 </div>
 </div>

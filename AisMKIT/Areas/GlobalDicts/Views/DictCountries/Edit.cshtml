@@ -1,31 +1,69 @@
 ﻿@model AisMKIT.Models.DictCountry
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Страны";
 }
 
-<h1>Edit</h1>
+<h4>Редактирование</h4>
 
-<h4>DictCountry</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<h4>Страны</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FullName" class="control-label"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="English" class="control-label"></label>
+                    <input asp-for="English" class="form-control" />
+                    <span asp-validation-for="English" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Alpha2" class="control-label"></label>
+                    <input asp-for="Alpha2" class="form-control" />
+                    <span asp-validation-for="Alpha2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Alpha3" class="control-label"></label>
+                    <input asp-for="Alpha3" class="form-control" />
+                    <span asp-validation-for="Alpha3" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ISO" class="control-label"></label>
+                    <input asp-for="ISO" class="form-control" />
+                    <span asp-validation-for="ISO" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Location" class="control-label"></label>
+                    <input asp-for="Location" class="form-control" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LocationPrecise" class="control-label"></label>
+                    <input asp-for="LocationPrecise" class="form-control" />
+                    <span asp-validation-for="LocationPrecise" class="text-danger"></span>
+                </div>
+<div class="form-group">
+    <input type="submit" value="Сохранить" class="btn btn-primary" />
+</div>
+</form>
+</div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад</a>
 </div>
 
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

@@ -49,8 +49,11 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
         // GET: GlobalDicts/DictCultAndArtTypes/Create
         public IActionResult Create()
         {
-            ViewData["DictStatusId"] = new SelectList(_context.DictStatus, "Id", "Id");
-            return View();
+            ViewData["DictStatusId"] = new SelectList(_context.DictStatus, "Id", "Name");
+            DictCultAndArtType model = new DictCultAndArtType();
+            model.CreateDate = DateTime.Now;
+            model.NameKyrg = "NULL";
+            return View(model);
         }
 
         // POST: GlobalDicts/DictCultAndArtTypes/Create
@@ -66,7 +69,7 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DictStatusId"] = new SelectList(_context.DictStatus, "Id", "Id", dictCultAndArtType.DictStatusId);
+            ViewData["DictStatusId"] = new SelectList(_context.DictStatus, "Id", "Name", dictCultAndArtType.DictStatusId);
             return View(dictCultAndArtType);
         }
 
@@ -83,7 +86,7 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
             {
                 return NotFound();
             }
-            ViewData["DictStatusId"] = new SelectList(_context.DictStatus, "Id", "Id", dictCultAndArtType.DictStatusId);
+            ViewData["DictStatusId"] = new SelectList(_context.DictStatus, "Id", "Name", dictCultAndArtType.DictStatusId);
             return View(dictCultAndArtType);
         }
 
@@ -119,7 +122,7 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DictStatusId"] = new SelectList(_context.DictStatus, "Id", "Id", dictCultAndArtType.DictStatusId);
+            ViewData["DictStatusId"] = new SelectList(_context.DictStatus, "Id", "Name", dictCultAndArtType.DictStatusId);
             return View(dictCultAndArtType);
         }
 

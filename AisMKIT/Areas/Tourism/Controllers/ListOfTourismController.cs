@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace AisMKIT.Areas.Tourism.Controllers
 {
@@ -14,10 +16,11 @@ namespace AisMKIT.Areas.Tourism.Controllers
     public class ListOfTourismController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public ListOfTourismController(ApplicationDbContext context)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public ListOfTourismController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET: Tourism/ListOfTourism
@@ -59,9 +62,11 @@ namespace AisMKIT.Areas.Tourism.Controllers
             ViewData["DictFinSourceId"] = new SelectList(_context.DictFinSource, "Id", "NameRus");
             ViewData["DictLegalFormId"] = new SelectList(_context.DictLegalForm, "Id", "NameRus");
             ViewData["FactDistrictId"] = new SelectList(_context.DictDistrict, "NameRus", "NameRus");
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             ListOfTourism model = new ListOfTourism();
             model.CreateDate = DateTime.Now;
             model.NameKyrg = "NULL";
+            model.ApplicationUserId = uid;
             return View(model);
         }
 
@@ -70,7 +75,7 @@ namespace AisMKIT.Areas.Tourism.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictFinSourceId,DictDistrictId,LegalAddress,FactDistrictId,LegalFactAddress,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate")] ListOfTourism listOfTourism)
+        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictFinSourceId,DictDistrictId,LegalAddress,FactDistrictId,LegalFactAddress,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate,ApplicationUserId")] ListOfTourism listOfTourism)
         {
             if (ModelState.IsValid)
             {
@@ -138,7 +143,7 @@ namespace AisMKIT.Areas.Tourism.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictFinSourceId,DictDistrictId,LegalAddress,FactDistrictId,LegalFactAddress,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate")] ListOfTourism listOfTourism, string SubmitButton="")
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictLegalFormId,INN,LastNameDirector,FirstNameDirector,PatronicNameDirector,DictFinSourceId,DictDistrictId,LegalAddress,FactDistrictId,LegalFactAddress,RegistrationDate,ReregistrationDate,DeactiveDate,CreateDate,ApplicationUserId")] ListOfTourism listOfTourism, string SubmitButton="")
         {
             if (id != listOfTourism.Id)
             {
@@ -149,6 +154,8 @@ namespace AisMKIT.Areas.Tourism.Controllers
             {
                 try
                 {
+                    string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfTourism.ApplicationUserId = uid;
                     _context.Update(listOfTourism);
                     await _context.SaveChangesAsync();
                     if (SubmitButton == "Перерегистрировать") HistorSaved(listOfTourism);

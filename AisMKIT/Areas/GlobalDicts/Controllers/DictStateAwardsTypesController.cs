@@ -20,14 +20,14 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
             _context = context;
         }
 
-        // GET: StateAwards/DictStateAwardsTypes
+        // GET: GlobalDicts/DictStateAwardsTypes
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.DictStateAwardsType.Include(d => d.DictStatus);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: StateAwards/DictStateAwardsTypes/Details/5
+        // GET: GlobalDicts/DictStateAwardsTypes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,14 +46,17 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
             return View(dictStateAwardsType);
         }
 
-        // GET: StateAwards/DictStateAwardsTypes/Create
+        // GET: GlobalDicts/DictStateAwardsTypes/Create
         public IActionResult Create()
         {
             ViewData["DictStatusId"] = new SelectList(_context.DictStatus, "Id", "Name");
-            return View();
+            DictStateAwardsType model = new DictStateAwardsType();
+            model.CreateDate = DateTime.Now;
+            model.NameKyrg = "NULL";
+            return View(model);
         }
 
-        // POST: StateAwards/DictStateAwardsTypes/Create
+        // POST: GlobalDicts/DictStateAwardsTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -70,7 +73,7 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
             return View(dictStateAwardsType);
         }
 
-        // GET: StateAwards/DictStateAwardsTypes/Edit/5
+        // GET: GlobalDicts/DictStateAwardsTypes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,7 +90,7 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
             return View(dictStateAwardsType);
         }
 
-        // POST: StateAwards/DictStateAwardsTypes/Edit/5
+        // POST: GlobalDicts/DictStateAwardsTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -123,7 +126,7 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
             return View(dictStateAwardsType);
         }
 
-        // GET: StateAwards/DictStateAwardsTypes/Delete/5
+        // GET: GlobalDicts/DictStateAwardsTypes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -142,7 +145,7 @@ namespace AisMKIT.Areas.GlobalDicts.Controllers
             return View(dictStateAwardsType);
         }
 
-        // POST: StateAwards/DictStateAwardsTypes/Delete/5
+        // POST: GlobalDicts/DictStateAwardsTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

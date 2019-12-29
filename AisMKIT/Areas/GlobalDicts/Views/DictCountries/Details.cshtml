@@ -1,13 +1,13 @@
 ﻿@model AisMKIT.Models.DictCountry
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Страны";
 }
 
-<h1>Details</h1>
+<h4>Детали</h4>
 
 <div>
-    <h4>DictCountry</h4>
+    
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -16,9 +16,51 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.English)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.English)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Alpha2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Alpha2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Alpha3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Alpha3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ISO)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LocationPrecise)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LocationPrecise)
+        </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a> |
+    <a asp-action="Index">Назад</a>
 </div>

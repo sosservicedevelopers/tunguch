@@ -9,10 +9,12 @@ using AisMKIT.Data;
 using AisMKIT.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AisMKIT.Areas.Monuments.Controllers
 {
     [Area("Monuments")]
+    [Authorize(Roles = "Администратор,Администратор-Памятники")]
     public class ListOfMonumentsController : Controller
     {
         private readonly ApplicationDbContext _context; 

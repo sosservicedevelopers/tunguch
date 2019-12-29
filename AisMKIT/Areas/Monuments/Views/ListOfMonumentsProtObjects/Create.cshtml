@@ -1,0 +1,83 @@
+﻿@model AisMKIT.Models.ListOfMonumentsProtObjects
+
+@{
+    ViewData["Title"] = "Реестр охраняемых объектов культурного наследия";
+}
+
+<h1>Добавление</h1>
+
+<h4>Реестр охраняемых объектов культурного наследия</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CreateDate" />
+                <input type="hidden" asp-for="ApplicationUserId" />
+                <div class="form-group">
+                    <label asp-for="NameRus" class="control-label"></label>
+                    <input asp-for="NameRus" class="form-control" />
+                    <span asp-validation-for="NameRus" class="text-danger"></span>
+                </div>
+                 <div class="form-group">
+                    <label asp-for="DictDistrictId" class="control-label"></label>
+                    <select asp-for="DictDistrictId" class="form-control" asp-items="ViewBag.DictDistrictId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LegalAddress" class="control-label"></label>
+                    <input asp-for="LegalAddress" class="form-control" />
+                    <span asp-validation-for="LegalAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DictFinSourceId" class="control-label"></label>
+                    <select asp-for="DictFinSourceId" class="form-control" asp-items="ViewBag.DictFinSourceId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastNameDirector" class="control-label"></label>
+                    <input asp-for="LastNameDirector" class="form-control" />
+                    <span asp-validation-for="LastNameDirector" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstNameDirector" class="control-label"></label>
+                    <input asp-for="FirstNameDirector" class="form-control" />
+                    <span asp-validation-for="FirstNameDirector" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PatronicNameDirector" class="control-label"></label>
+                    <input asp-for="PatronicNameDirector" class="form-control" />
+                    <span asp-validation-for="PatronicNameDirector" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contacts" class="control-label"></label>
+                    <input asp-for="Contacts" class="form-control" />
+                    <span asp-validation-for="Contacts" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LegalDocs" class="control-label"></label>
+                    <input asp-for="LegalDocs" class="form-control" />
+                    <span asp-validation-for="LegalDocs" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Ploshad" class="control-label"></label>
+                    <input asp-for="Ploshad" class="form-control" />
+                    <span asp-validation-for="Ploshad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CurrentStatus" class="control-label"></label>
+                    <input asp-for="CurrentStatus" class="form-control" />
+                    <span asp-validation-for="CurrentStatus" class="text-danger"></span>
+                </div>
+                    <div class="form-group">
+                    <input type="submit" value="Добавить" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

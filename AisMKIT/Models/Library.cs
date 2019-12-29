@@ -86,7 +86,7 @@ namespace AisMKIT.Models
 
         [Display(Name = "Права устанавливающий документы")]
         public string PravaUstanavDoc { get; set; }
-
+        public DateTime CreateDate { get; set; }
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
     }

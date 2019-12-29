@@ -7,6 +7,54 @@ using System.ComponentModel.DataAnnotations;
 namespace AisMKIT.Models
 {
 
+    public class ListOfMonumentsProtObjects
+    {
+        public int Id { get; set; }
+
+        [Display(Name = "Наименование")]
+        public string NameRus { get; set; }
+
+        [Display(Name = "Наименование (кырг.)")]
+        public string NameKyrg { get; set; }
+         
+        [Display(Name = "Район")]
+        public int? DictDistrictId { get; set; }
+
+        [Display(Name = "Район")]
+        public DictDistrict DictDistrict { get; set; }
+        [Display(Name = "Адрес")]
+        public string LegalAddress { get; set; }
+        [Display(Name = "Источник финансирования")]
+        public int? DictFinSourceId { get; set; }
+        [Display(Name = "Источник финансирования")]
+        public DictFinSource DictFinSource { get; set; }
+
+        [Display(Name = "Фамилия директора")]
+        public string LastNameDirector { get; set; }
+
+        [Display(Name = "Имя директора")]
+        public string FirstNameDirector { get; set; }
+
+        [Display(Name = "Отчество директора")]
+        public string PatronicNameDirector { get; set; }
+
+        [Display(Name = "Контактные данные")]
+        public string Contacts { get; set; }
+
+        [Display(Name = "Правоустанавливающие документы")]
+        public string LegalDocs { get; set; }
+        [Display(Name = "Площадь (кв.м)")]
+        public string Ploshad { get; set; }
+
+        [Display(Name = "Текущее состотояние здания")]
+        public string CurrentStatus { get; set; }
+        public DateTime CreateDate { get; set; }
+
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+
+    }
+
     public class ListOfMonuments
     {
         public int Id { get; set; }
@@ -44,8 +92,6 @@ namespace AisMKIT.Models
         public ApplicationUser ApplicationUser { get; set; }
 
     }
-
-  
     public class DictMonumemtSignOfLoss
     {
         public int Id { get; set; }

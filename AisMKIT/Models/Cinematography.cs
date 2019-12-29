@@ -7,6 +7,24 @@ using System.ComponentModel.DataAnnotations;
 namespace AisMKIT.Models
 {
 
+    public class ListOfCinematographyDocuments
+    {
+        public int Id { get; set; }
+
+        [Display(Name = "Наименование")]
+        public string NameRus { get; set; }
+
+        [Display(Name = "Дата регистрации")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime? RegistrationDate { get; set; }
+ 
+
+        public DateTime CreateDate { get; set; }
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+
+    }
     public class ListOfCinematographyCertificates
     {
         public int Id { get; set; }
@@ -26,22 +44,22 @@ namespace AisMKIT.Models
         [Display(Name = "Год выпуска")]
         public string Years { get; set; }
         [Display(Name = "Режиссер")]
-        public int? DictRegiserId { get; set; }
+        public int? DictCinemaRegiserId { get; set; }
 
         [Display(Name = "Режиссер")]
-        public DictRegiser DictRegiser { get; set; }
+        public DictCinemaRegiser DictCinemaRegiser { get; set; }
 
         [Display(Name = "Продолжительность")]
-        public int? DictDurationId { get; set; }
+        public int? DictCinemaDurationId { get; set; }
 
         [Display(Name = "Продолжительность")]
-        public DictDuration DictDuration { get; set; }
+        public DictCinemaDuration DictCinemaDuration { get; set; }
 
         [Display(Name = "Возрастное ограничение")]
-        public int? DictAgeRestrictionsId { get; set; }
+        public int? DictCinemaAgeRestrictionsId { get; set; }
 
         [Display(Name = "Возрастное ограничение")]
-        public DictAgeRestrictions DictAgeRestrictions { get; set; }
+        public DictCinemaAgeRestrictions DictCinemaAgeRestrictions { get; set; }
 
          
         [Display(Name = "Дата выдачи удостоверения")]
@@ -54,7 +72,6 @@ namespace AisMKIT.Models
         public ApplicationUser ApplicationUser { get; set; }
 
     }
-
 
     public class ListOfCinematography
     {
@@ -237,7 +254,7 @@ namespace AisMKIT.Models
         public DateTime CreateDate { get; set; }
     }
 
-    public class DictAgeRestrictions
+    public class DictCinemaAgeRestrictions
     {
         public int Id { get; set; }
 
@@ -246,7 +263,7 @@ namespace AisMKIT.Models
 
     }
 
-    public class DictRegiser
+    public class DictCinemaRegiser
     {
         public int Id { get; set; }
 
@@ -260,7 +277,7 @@ namespace AisMKIT.Models
         public string FullName { get { return LastName + " " + FirstName; } set { } }
     }
 
-    public class DictDuration
+    public class DictCinemaDuration
     {
         public int Id { get; set; }
 

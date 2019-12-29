@@ -1,44 +1,40 @@
 ﻿@model IEnumerable<AisMKIT.Models.DictAwardsReason>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Причины награждения";
 }
 
-    <h1>Причины награждения</h1>
+    <h2>Причины награждения</h2>
 
 <p>
-    <a asp-action="Create">Добавить</a>
+    <a asp-action="Create">Добавить новый</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NameKyrg)
-            </th>
-            <th>
+               <th>
                 @Html.DisplayNameFor(model => model.NameRus)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DictStatus)
             </th>
+           
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameKyrg)
-            </td>
-            <td>
+              <td>
                 @Html.DisplayFor(modelItem => item.NameRus)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DictStatus.Name)
             </td>
+             
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
             </td>
         </tr>

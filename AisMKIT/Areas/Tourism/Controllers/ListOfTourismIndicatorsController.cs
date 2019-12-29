@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AisMKIT.Data;
 using AisMKIT.Models;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace AisMKIT.Areas.Tourism.Controllers
 {
@@ -14,11 +16,13 @@ namespace AisMKIT.Areas.Tourism.Controllers
     public class ListOfTourismIndicatorsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public ListOfTourismIndicatorsController(ApplicationDbContext context)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public ListOfTourismIndicatorsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
+
 
         // GET: Tourism/ListOfTourismIndicators
         public async Task<IActionResult> Index()
@@ -47,7 +51,11 @@ namespace AisMKIT.Areas.Tourism.Controllers
         // GET: Tourism/ListOfTourismIndicators/Create
         public IActionResult Create()
         {
-            return View();
+            string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            ListOfTourismIndicator model = new ListOfTourismIndicator();
+            model.CreateDate = DateTime.Now;
+            model.ApplicationUserId = uid;
+            return View(model);
         }
 
         // POST: Tourism/ListOfTourismIndicators/Create
@@ -55,7 +63,7 @@ namespace AisMKIT.Areas.Tourism.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Year,GDP,InTurist,OutTurist,VolumeOfServicesForExport,VolumeOfServicesForImport,SummOfInvestFromBudget,SummOfPrivateDomesticInvest,SummOfForeignInvest,AverageMonthSalary")] ListOfTourismIndicator listOfTourismIndicator)
+        public async Task<IActionResult> Create([Bind("Id,Year,GDP,InTurist,OutTurist,VolumeOfServicesForExport,VolumeOfServicesForImport,SummOfInvestFromBudget,SummOfPrivateDomesticInvest,SummOfForeignInvest,AverageMonthSalary,CreateDate,ApplicationUserId")] ListOfTourismIndicator listOfTourismIndicator)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +95,7 @@ namespace AisMKIT.Areas.Tourism.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Year,GDP,InTurist,OutTurist,VolumeOfServicesForExport,VolumeOfServicesForImport,SummOfInvestFromBudget,SummOfPrivateDomesticInvest,SummOfForeignInvest,AverageMonthSalary")] ListOfTourismIndicator listOfTourismIndicator)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Year,GDP,InTurist,OutTurist,VolumeOfServicesForExport,VolumeOfServicesForImport,SummOfInvestFromBudget,SummOfPrivateDomesticInvest,SummOfForeignInvest,AverageMonthSalary, CreateDate,ApplicationUserId")] ListOfTourismIndicator listOfTourismIndicator)
         {
             if (id != listOfTourismIndicator.Id)
             {
@@ -98,6 +106,8 @@ namespace AisMKIT.Areas.Tourism.Controllers
             {
                 try
                 {
+                    string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    listOfTourismIndicator.ApplicationUserId = uid;
                     _context.Update(listOfTourismIndicator);
                     await _context.SaveChangesAsync();
                 }

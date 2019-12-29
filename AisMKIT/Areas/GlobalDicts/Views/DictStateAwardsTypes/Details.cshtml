@@ -1,21 +1,21 @@
 ﻿@model AisMKIT.Models.DictStateAwardsType
 
 @{
-    ViewData["Title"] = "Подробности";
+    ViewData["Title"] = "Виды государственных наград";
 }
 
-    <h1>Подробности</h1>
+<h4>Детали</h4>
 
 <div>
-    <h4>DictStateAwardsType</h4>
+    
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        @*<dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.NameKyrg)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NameKyrg)
-        </dd>
+        </dd>*@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.NameRus)
         </dt>
@@ -26,8 +26,14 @@
             @Html.DisplayNameFor(model => model.DictStatus)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DictStatus.Name)
+            @Html.DisplayFor(model => model.DictStatus.Id)
         </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>*@
     </dl>
 </div>
 <div>

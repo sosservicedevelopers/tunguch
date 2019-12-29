@@ -18,51 +18,12 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    
+
                     <ul class="navbar-nav flex-grow-1">
-                        @*<li class="nav-item dropdown">
-            <a class="nav-link text-light dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Справочники</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Департаменты</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Виды объектнов культурного наследия</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Виды услуг</a>
-                <a class="dropdown-item" asp-area="" asp-controller="ClUchZavedCategories" asp-action="Index">Категории учебных заведений</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Категории произведений культуры и искусства</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Виды произведений культуры и искусства</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Виды наград</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"></a>
-            </div>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                        </li>
 
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link text-light dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Реестры</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" asp-area="" asp-controller="ListOfEducations" asp-action="Index">Реестр  учебных  заведений  </a>
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Реестр библиотек республики</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Реестр охраняемых объектов культурного наследия</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Реестр объектов произведений культуры и искусства</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Реестр подведомственных учреждений </a>
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Реестр государственных и ведомственных наград</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Реестр выданных разрешений</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"></a>
-            </div>
-
-        </li>*@
-
-                        @*<li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Пользователи</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" asp-area="" asp-controller="Role" asp-action="Index">Роли</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Role" asp-action="UserIndex">Пользователи</a>
-
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-
-        </li>*@
                         @if (User.IsInRole("Администратор"))
                         {
                             <li class="nav-item dropdown">
@@ -76,18 +37,165 @@
                                 </div>
 
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="GlobalDicts" asp-controller="Main" asp-action="Index">Общие справочники</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-controller="Home" asp-action="AdminPanel">Панель администрировния</a>
+                            </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
-                        </li>
+                        @if (User.IsInRole("Администратор-Библиотека"))
+                        {
 
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="GlobalDicts" asp-controller="Main" asp-action="Index">Общие справочники</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="Library" asp-controller="ListOfLibraryIndicators" asp-action="Index">Реестр</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Администратор-Памятники"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Справочники</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMonumemtSignOfLosses" asp-action="Index">Признак утраты</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMonumentTypes" asp-action="Index">Тип объекта</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMonumentTypologicalTypes" asp-action="Index">Типы типологической принадлежности</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="Monuments" asp-controller="ListOfMonuments" asp-action="Index">Реестр</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Администратор-СМИ"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Справочники</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMediaTypes" asp-action="Index">Типы СМИ</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMediaLangTypes" asp-action="Index">Язык вещания СМИ</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMediaFreqReleases" asp-action="Index">Периодичность выпуска СМИ</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictAgencyPerms" asp-action="Index">Орган выдающий разрещения</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictControlTypes" asp-action="Index">Вид проверки СМИ</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMediaSuitPerms" asp-action="Index">Судебное решение</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="Media" asp-controller="listOfMedias" asp-action="Index">Реестр</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Администратор-ТЗУ"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Справочники</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictTheatricalHalls" asp-action="Index">Залы для ТЗУ</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictEduInstTypes" asp-action="Index">Вид учебного заведения</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Реестра</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="Theatrical" asp-controller="ListOfTheatricals" asp-action="Index">Реестр ТЗУ</a>
+                                    <a class="dropdown-item" asp-area="EduInstitutions" asp-controller="ListOfEduInstituts" asp-action="Index">
+                                        Реестр учебных заведений
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                        @if (User.IsInRole("Администратор-Туризм"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Справочники</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictTourismServices" asp-action="Index">Туристические услуги</a>
+                                    @*<div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>*@
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="Tourism" asp-controller="ListOfTourism" asp-action="Index">Реестр субъектов туризма</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Администратор-Награды"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Справочники</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictStateAwardsTypes" asp-action="Index">Виды государстенных наград</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictAwardsPositions" asp-action="Index">Должности награжденных</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictAwardsReasons" asp-action="Index">Причины награждения</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="StateAwards" asp-controller="ListOfStateAwards" asp-action="Index">Реестр</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Администратор-Кинематография"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Справочники</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictCinematographyServices" asp-action="Index">Услуги кинематографии</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictCinemaAgeRestrictions" asp-action="Index">Возрастные ограничения</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictCinemaRegisers" asp-action="Index">Режисёры</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictCinemaDurations" asp-action="Index">Продолжительность фильма</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-controller="Home" asp-action="AdminPanel">Панель администрировния</a>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Реестра</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="Cinematography" asp-controller="ListOfCinematographies" asp-action="Index">Реестр</a>
+                                    <a class="dropdown-item" asp-area="Cinematography" asp-controller="ListOfCinematographyCertificates" asp-action="Index">Реестр удост.</a>
+                                    <a class="dropdown-item" asp-area="Cinematography" asp-controller="ListOfCinematographyDocuments" asp-action="Index">Реестр документов</a>
+                                </div>
+                            </li>
+                          
+                        }
+
+                        @if (User.IsInRole("Администратор-ПредоставЗалов"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Справочники</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictCultAndArtTypes" asp-action="Index">Типы объектов произведений культуры и исскуства</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictUnitOfMeasures" asp-action="Index">Единицы измерения</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictRentObjectTypes" asp-action="Index">Типы объектов для предоставления</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMonumemtSignOfLosses" asp-action="Index">Признак утраты</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictRentObjectTypes" asp-action="Index">Типы объктов</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMonumentTypes" asp-action="Index">Типы КММ</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictLocs" asp-action="Index">Места проведений</a>
+                                    <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictInitiatorOfProjs" asp-action="Index">Инициаторы проекта мероприятий</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Реестра</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="CultAndArt" asp-controller="ListOfCultAndArts" asp-action="Index">Реестр объектов произведений культуры и исскуства</a>
+                                    <a class="dropdown-item" asp-area="Rents" asp-controller="Main" asp-action="Index">
+                                        Реестр по предоставлению залов и т.д.
+                                    </a>
+                                    <a class="dropdown-item" asp-area="CulturalEvents" asp-controller="ListOfEvents" asp-action="Index">
+                                        Реестр по проведению культурно-массовых мероприятий
+                                    </a>
+                                    <a class="dropdown-item" asp-area="Monuments" asp-controller="ListOfMonumentsProtObjects" asp-action="Index">
+                                        Реестр охраняемых объектов культурного наследия
+                                    </a>
+                                </div>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

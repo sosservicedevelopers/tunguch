@@ -69,17 +69,20 @@ namespace AisMKIT.Data
         public DbSet<ListOfCinematographyHistory> ListOfCinematographyHistory { get; set; }
         public DbSet<ListOfCinematographyServices> ListOfCinematographyServices { get; set; }
         public DbSet<DictCinematographyServices> DictCinematographyServices { get; set; }
+        public DbSet<ListOfCinematographyDocuments> ListOfCinematographyDocuments { get; set; }
+        
 
         public DbSet<DictCountry> DictCountry { get; set; }
         public DbSet<ListOfCinematographyCertificates> ListOfCinematographyCertificates { get; set; }
-        public DbSet<DictAgeRestrictions> DictAgeRestrictions { get; set; }
-        public DbSet<DictRegiser> DictRegiser { get; set; }
-         public DbSet<DictDuration> DictDuration { get; set; }
+        public DbSet<DictCinemaAgeRestrictions> DictCinemaAgeRestrictions { get; set; }
+        public DbSet<DictCinemaRegiser> DictCinemaRegiser { get; set; }
+         public DbSet<DictCinemaDuration> DictCinemaDuration { get; set; }
 
         #endregion
 
         #region Monumetns
         public DbSet<ListOfMonuments> ListOfMonuments { get; set; }
+        public DbSet<ListOfMonumentsProtObjects> ListOfMonumentsProtObjects { get; set; }
         public DbSet<DictMonumemtSignOfLoss> DictMonumemtSignOfLoss { get; set; }
         public DbSet<DictMonumentType> DictMonumentType { get; set; }
         public DbSet<ListOfMonumetnTypologicalAccessory> ListOfMonumetnTypologicalAccessory { get; set; }
@@ -143,8 +146,9 @@ namespace AisMKIT.Data
         //Для postgresql
         public DbSet<AisMKIT.Models.ListOfCultEvents> ListOfCultEvents { get; set; }
         //Для postgresql
-        
+        public DbSet<AisMKIT.Models.ListOfEvents> ListOfEvents { get; set; }
         //Для postgresql
+      
          
     }
 }

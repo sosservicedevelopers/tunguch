@@ -29,7 +29,7 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         // GET: Cinematography/ListOfCinematographyCertificates
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.ListOfCinematographyCertificates.Include(l => l.ApplicationUser).Include(l => l.DictAgeRestrictions).Include(l => l.DictCountry).Include(l => l.DictDuration).Include(l => l.DictRegiser);
+            var applicationDbContext = _context.ListOfCinematographyCertificates.Include(l => l.ApplicationUser).Include(l => l.DictCinemaAgeRestrictions).Include(l => l.DictCountry).Include(l => l.DictCinemaDuration).Include(l => l.DictCinemaRegiser);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -43,10 +43,10 @@ namespace AisMKIT.Areas.Cinematography.Controllers
 
             var listOfCinematographyCertificates = await _context.ListOfCinematographyCertificates
                 .Include(l => l.ApplicationUser)
-                .Include(l => l.DictAgeRestrictions)
+                .Include(l => l.DictCinemaAgeRestrictions)
                 .Include(l => l.DictCountry)
-                .Include(l => l.DictDuration)
-                .Include(l => l.DictRegiser)
+                .Include(l => l.DictCinemaDuration)
+                .Include(l => l.DictCinemaRegiser)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (listOfCinematographyCertificates == null)
             {
@@ -60,10 +60,10 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         //[Authorize]
         public IActionResult Create()
         {
-            ViewData["DictAgeRestrictionsId"] = new SelectList(_context.DictAgeRestrictions, "Id", "Name");
+            ViewData["DictCinemaAgeRestrictionsId"] = new SelectList(_context.DictCinemaAgeRestrictions, "Id", "Name");
             ViewData["DictCountryId"] = new SelectList(_context.DictCountry, "Id", "Name");
-            ViewData["DictDurationId"] = new SelectList(_context.DictDuration, "Id", "Name");
-            ViewData["DictRegiserId"] = new SelectList(_context.DictRegiser, "Id", "FullName");
+            ViewData["DictCinemaDurationId"] = new SelectList(_context.DictCinemaDuration, "Id", "Name");
+            ViewData["DictCinemaRegiserId"] = new SelectList(_context.DictCinemaRegiser, "Id", "FullName");
 
             string uid = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
@@ -80,7 +80,7 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictCountryId,Years,DictRegiserId,DictDurationId,DictAgeRestrictionsId,RegistrationDate,CreateDate,ApplicationUserId,ApplicationUserId")] ListOfCinematographyCertificates listOfCinematographyCertificates)
+        public async Task<IActionResult> Create([Bind("Id,NameRus,NameKyrg,DictCountryId,Years,DictCinemaRegiserId,DictCinemaDurationId,DictCinemaAgeRestrictionsId,RegistrationDate,CreateDate,ApplicationUserId,ApplicationUserId")] ListOfCinematographyCertificates listOfCinematographyCertificates)
         {
             if (ModelState.IsValid)
             {
@@ -89,10 +89,10 @@ namespace AisMKIT.Areas.Cinematography.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["DictAgeRestrictionsId"] = new SelectList(_context.DictAgeRestrictions, "Id", "Name", listOfCinematographyCertificates.DictAgeRestrictionsId);
+            ViewData["DictCinemaAgeRestrictionsId"] = new SelectList(_context.DictCinemaAgeRestrictions, "Id", "Name", listOfCinematographyCertificates.DictCinemaAgeRestrictionsId);
             ViewData["DictCountryId"] = new SelectList(_context.DictCountry, "Id", "Name", listOfCinematographyCertificates.DictCountryId);
-            ViewData["DictDurationId"] = new SelectList(_context.DictDuration, "Id", "Name", listOfCinematographyCertificates.DictDurationId);
-            ViewData["DictRegiserId"] = new SelectList(_context.DictRegiser, "Id", "FullName", listOfCinematographyCertificates.DictRegiserId);
+            ViewData["DictCinemaDurationId"] = new SelectList(_context.DictCinemaDuration, "Id", "Name", listOfCinematographyCertificates.DictCinemaDurationId);
+            ViewData["DictCinemaRegiserId"] = new SelectList(_context.DictCinemaRegiser, "Id", "FullName", listOfCinematographyCertificates.DictCinemaRegiserId);
             
             return View(listOfCinematographyCertificates);
         }
@@ -111,10 +111,10 @@ namespace AisMKIT.Areas.Cinematography.Controllers
                 return NotFound();
             }
 
-            ViewData["DictAgeRestrictionsId"] = new SelectList(_context.DictAgeRestrictions, "Id", "Name", listOfCinematographyCertificates.DictAgeRestrictionsId);
+            ViewData["DictCinemaAgeRestrictionsId"] = new SelectList(_context.DictCinemaAgeRestrictions, "Id", "Name", listOfCinematographyCertificates.DictCinemaAgeRestrictionsId);
             ViewData["DictCountryId"] = new SelectList(_context.DictCountry, "Id", "Name", listOfCinematographyCertificates.DictCountryId);
-            ViewData["DictDurationId"] = new SelectList(_context.DictDuration, "Id", "Name", listOfCinematographyCertificates.DictDurationId);
-            ViewData["DictRegiserId"] = new SelectList(_context.DictRegiser, "Id", "FullName", listOfCinematographyCertificates.DictRegiserId);
+            ViewData["DictCinemaDurationId"] = new SelectList(_context.DictCinemaDuration, "Id", "Name", listOfCinematographyCertificates.DictCinemaDurationId);
+            ViewData["DictCinemaRegiserId"] = new SelectList(_context.DictCinemaRegiser, "Id", "FullName", listOfCinematographyCertificates.DictCinemaRegiserId);
             
             return View(listOfCinematographyCertificates);
         }
@@ -124,7 +124,7 @@ namespace AisMKIT.Areas.Cinematography.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictCountryId,Years,DictRegiserId,DictDurationId,DictAgeRestrictionsId,RegistrationDate,CreateDate,ApplicationUserId")] ListOfCinematographyCertificates listOfCinematographyCertificates)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameRus,NameKyrg,DictCountryId,Years,DictCinemaRegiserId,DictCinemaDurationId,DictCinemaAgeRestrictionsId,RegistrationDate,CreateDate,ApplicationUserId")] ListOfCinematographyCertificates listOfCinematographyCertificates)
         {
             if (id != listOfCinematographyCertificates.Id)
             {
@@ -154,10 +154,10 @@ namespace AisMKIT.Areas.Cinematography.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["DictAgeRestrictionsId"] = new SelectList(_context.DictAgeRestrictions, "Id", "Name", listOfCinematographyCertificates.DictAgeRestrictionsId);
+            ViewData["DictCinemaAgeRestrictionsId"] = new SelectList(_context.DictCinemaAgeRestrictions, "Id", "Name", listOfCinematographyCertificates.DictCinemaAgeRestrictionsId);
             ViewData["DictCountryId"] = new SelectList(_context.DictCountry, "Id", "Name", listOfCinematographyCertificates.DictCountryId);
-            ViewData["DictDurationId"] = new SelectList(_context.DictDuration, "Id", "Name", listOfCinematographyCertificates.DictDurationId);
-            ViewData["DictRegiserId"] = new SelectList(_context.DictRegiser, "Id", "FullName", listOfCinematographyCertificates.DictRegiserId);
+            ViewData["DictCinemaDurationId"] = new SelectList(_context.DictCinemaDuration, "Id", "Name", listOfCinematographyCertificates.DictCinemaDurationId);
+            ViewData["DictCinemaRegiserId"] = new SelectList(_context.DictCinemaRegiser, "Id", "FullName", listOfCinematographyCertificates.DictCinemaRegiserId);
             
             return View(listOfCinematographyCertificates);
         }
@@ -172,10 +172,10 @@ namespace AisMKIT.Areas.Cinematography.Controllers
 
             var listOfCinematographyCertificates = await _context.ListOfCinematographyCertificates
                 .Include(l => l.ApplicationUser)
-                .Include(l => l.DictAgeRestrictions)
+                .Include(l => l.DictCinemaAgeRestrictions)
                 .Include(l => l.DictCountry)
-                .Include(l => l.DictDuration)
-                .Include(l => l.DictRegiser)
+                .Include(l => l.DictCinemaDuration)
+                .Include(l => l.DictCinemaRegiser)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (listOfCinematographyCertificates == null)
             {

@@ -69,6 +69,8 @@ namespace AisMKIT.Models
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? DeactiveDate { get; set; }
+
+       
         public DateTime CreateDate { get; set; }
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
@@ -222,7 +224,7 @@ namespace AisMKIT.Models
 
         [Display(Name = "среднемесячная зарплата по отрасли")]
         public string AverageMonthSalary { get; set; }
-
+        public DateTime CreateDate { get; set; }
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
     }

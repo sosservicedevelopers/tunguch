@@ -1,19 +1,40 @@
 ﻿@model IEnumerable<AisMKIT.Models.DictCountry>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Страны";
 }
 
-<h1>Index</h1>
+    <h2>Страны</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Добавить новый</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.English)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alpha2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alpha3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationPrecise)
             </th>
             <th></th>
         </tr>
@@ -25,9 +46,30 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.English)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alpha2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alpha3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationPrecise)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
             </td>
         </tr>
 }
