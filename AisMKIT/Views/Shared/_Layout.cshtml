@@ -87,7 +87,7 @@
                                 <a class="nav-link text-light" asp-area="Media" asp-controller="listOfMedias" asp-action="Index">Реестр</a>
                             </li>
                         }
-                        @if (User.IsInRole("Администратор-ТЗУ"))
+                        @if (User.IsInRole("Администратор-ТЗУ") || User.IsInRole("Администратор-УчебЗаведения"))
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Справочники</a>

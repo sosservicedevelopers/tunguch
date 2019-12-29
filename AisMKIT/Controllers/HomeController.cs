@@ -8,9 +8,11 @@ using Microsoft.Extensions.Logging;
 using AisMKIT.Models;
 using NLog;
 using System.Globalization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AisMKIT.Controllers
 {
+    [Authorize(Roles = "Администратор")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

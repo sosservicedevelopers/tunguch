@@ -1,9 +1,10 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AisMKIT.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,7 +27,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: false),
                     Address = table.Column<string>(nullable: false),
                     Contacts = table.Column<string>(nullable: true),
@@ -43,7 +44,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -56,7 +57,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -69,7 +70,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     LastName = table.Column<string>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
                     Patronic = table.Column<string>(nullable: true),
@@ -85,7 +86,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: true),
                     FullName = table.Column<string>(nullable: true),
                     English = table.Column<string>(nullable: true),
@@ -105,7 +106,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true)
                 },
@@ -119,7 +120,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -132,7 +133,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -145,7 +146,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true)
                 },
@@ -159,7 +160,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true)
                 },
@@ -173,7 +174,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -186,7 +187,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -199,7 +200,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -252,7 +253,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
@@ -274,7 +275,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     CreateDate = table.Column<DateTime>(nullable: false),
@@ -297,7 +298,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
@@ -319,7 +320,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
@@ -341,7 +342,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
@@ -363,7 +364,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     CreateDate = table.Column<DateTime>(nullable: false),
@@ -386,7 +387,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
@@ -408,7 +409,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     CreateDate = table.Column<DateTime>(nullable: false),
@@ -431,7 +432,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     CreateDate = table.Column<DateTime>(nullable: false),
@@ -454,7 +455,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     CreateDate = table.Column<DateTime>(nullable: false),
@@ -477,7 +478,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     CreateDate = table.Column<DateTime>(nullable: false),
@@ -500,7 +501,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     CreateDate = table.Column<DateTime>(nullable: false),
@@ -523,7 +524,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     CreateDate = table.Column<DateTime>(nullable: false),
@@ -546,7 +547,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     CreateDate = table.Column<DateTime>(nullable: false),
@@ -569,7 +570,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
@@ -591,7 +592,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
@@ -613,7 +614,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
@@ -635,7 +636,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
@@ -657,7 +658,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: false),
@@ -679,7 +680,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
@@ -701,7 +702,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictStatusId = table.Column<int>(nullable: true),
@@ -723,7 +724,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     DictTypeOfKMMId = table.Column<int>(nullable: false),
                     DistLocId = table.Column<int>(nullable: false),
                     EventTopic = table.Column<string>(nullable: true),
@@ -759,7 +760,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -844,7 +845,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
                     DictCountryId = table.Column<int>(nullable: true),
@@ -860,25 +861,25 @@ namespace AisMKIT.Migrations
                 {
                     table.PrimaryKey("PK_ListOfCinematographyCertificates", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ListOfCinematographyCertificates_AspNetUsers_ApplicationUserId",
+                        name: "FK_ListOfCinematographyCertificates_AspNetUsers_ApplicationUse~",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ListOfCinematographyCertificates_DictCinemaAgeRestrictions_DictCinemaAgeRestrictionsId",
+                        name: "FK_ListOfCinematographyCertificates_DictCinemaAgeRestrictions_~",
                         column: x => x.DictCinemaAgeRestrictionsId,
                         principalTable: "DictCinemaAgeRestrictions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ListOfCinematographyCertificates_DictCinemaDuration_DictCinemaDurationId",
+                        name: "FK_ListOfCinematographyCertificates_DictCinemaDuration_DictCin~",
                         column: x => x.DictCinemaDurationId,
                         principalTable: "DictCinemaDuration",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ListOfCinematographyCertificates_DictCinemaRegiser_DictCinemaRegiserId",
+                        name: "FK_ListOfCinematographyCertificates_DictCinemaRegiser_DictCine~",
                         column: x => x.DictCinemaRegiserId,
                         principalTable: "DictCinemaRegiser",
                         principalColumn: "Id",
@@ -892,11 +893,77 @@ namespace AisMKIT.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ListOfCinematographyDocuments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    NameRus = table.Column<string>(nullable: true),
+                    RegistrationDate = table.Column<DateTime>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListOfCinematographyDocuments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ListOfCinematographyDocuments_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ListOfEvents",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    DictTypeOfKMMId = table.Column<int>(nullable: false),
+                    DistLocId = table.Column<int>(nullable: false),
+                    EventTopic = table.Column<string>(nullable: true),
+                    StartDateTime = table.Column<string>(nullable: true),
+                    EndDateTime = table.Column<string>(nullable: true),
+                    DictInitiatorOfProjId = table.Column<int>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListOfEvents", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ListOfEvents_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ListOfEvents_DictInitiatorOfProj_DictInitiatorOfProjId",
+                        column: x => x.DictInitiatorOfProjId,
+                        principalTable: "DictInitiatorOfProj",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ListOfEvents_DictTypeOfKMM_DictTypeOfKMMId",
+                        column: x => x.DictTypeOfKMMId,
+                        principalTable: "DictTypeOfKMM",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ListOfEvents_DictLoc_DistLocId",
+                        column: x => x.DistLocId,
+                        principalTable: "DictLoc",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ListOfLibraryIndicators",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     LibraryName = table.Column<string>(nullable: true),
                     DataSozdania = table.Column<DateTime>(nullable: false),
                     CountOfBook = table.Column<string>(nullable: true),
@@ -922,6 +989,7 @@ namespace AisMKIT.Migrations
                     Librarians = table.Column<string>(nullable: true),
                     DegEducation = table.Column<string>(nullable: true),
                     PravaUstanavDoc = table.Column<string>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false),
                     ApplicationUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -940,7 +1008,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Year = table.Column<string>(nullable: true),
                     GDP = table.Column<string>(nullable: true),
                     InTurist = table.Column<string>(nullable: true),
@@ -951,6 +1019,7 @@ namespace AisMKIT.Migrations
                     SummOfPrivateDomesticInvest = table.Column<string>(nullable: true),
                     SummOfForeignInvest = table.Column<string>(nullable: true),
                     AverageMonthSalary = table.Column<string>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false),
                     ApplicationUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -965,11 +1034,55 @@ namespace AisMKIT.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ListOfMonumentsProtObjects",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    NameRus = table.Column<string>(nullable: true),
+                    NameKyrg = table.Column<string>(nullable: true),
+                    DictDistrictId = table.Column<int>(nullable: true),
+                    LegalAddress = table.Column<string>(nullable: true),
+                    DictFinSourceId = table.Column<int>(nullable: true),
+                    LastNameDirector = table.Column<string>(nullable: true),
+                    FirstNameDirector = table.Column<string>(nullable: true),
+                    PatronicNameDirector = table.Column<string>(nullable: true),
+                    Contacts = table.Column<string>(nullable: true),
+                    LegalDocs = table.Column<string>(nullable: true),
+                    Ploshad = table.Column<string>(nullable: true),
+                    CurrentStatus = table.Column<string>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListOfMonumentsProtObjects", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ListOfMonumentsProtObjects_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ListOfMonumentsProtObjects_DictDistrict_DictDistrictId",
+                        column: x => x.DictDistrictId,
+                        principalTable: "DictDistrict",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ListOfMonumentsProtObjects_DictFinSource_DictFinSourceId",
+                        column: x => x.DictFinSourceId,
+                        principalTable: "DictFinSource",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ListOfCinematography",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
                     DictLegalFormId = table.Column<int>(nullable: true),
@@ -1022,7 +1135,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     DictCultAndArtTypeId = table.Column<int>(nullable: false),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
@@ -1080,7 +1193,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
                     DictLegalFormId = table.Column<int>(nullable: true),
@@ -1131,7 +1244,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
                     DictLegalFormId = table.Column<int>(nullable: true),
@@ -1177,7 +1290,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ListOfTheatricalId = table.Column<int>(nullable: false),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
@@ -1224,7 +1337,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
                     DictLegalFormId = table.Column<int>(nullable: true),
@@ -1277,7 +1390,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
                     DictLegalFormId = table.Column<int>(nullable: true),
@@ -1342,7 +1455,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
                     DatingOfMonument = table.Column<string>(nullable: true),
@@ -1376,7 +1489,7 @@ namespace AisMKIT.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ListOfMonuments_DictMonumemtSignOfLoss_DictMonumemtSignOfLossId",
+                        name: "FK_ListOfMonuments_DictMonumemtSignOfLoss_DictMonumemtSignOfLo~",
                         column: x => x.DictMonumemtSignOfLossId,
                         principalTable: "DictMonumemtSignOfLoss",
                         principalColumn: "Id",
@@ -1394,7 +1507,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     LastNameDirector = table.Column<string>(nullable: true),
                     FirstNameDirector = table.Column<string>(nullable: true),
                     PatronicNameDirector = table.Column<string>(nullable: true),
@@ -1439,7 +1552,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameKyrg = table.Column<string>(nullable: true),
                     NameRus = table.Column<string>(nullable: true),
                     DictUnitOfMeasureId = table.Column<int>(nullable: true),
@@ -1468,7 +1581,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ListOfCinematographyId = table.Column<int>(nullable: false),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
@@ -1516,7 +1629,7 @@ namespace AisMKIT.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ListOfCinematographyHistory_ListOfCinematography_ListOfCinematographyId",
+                        name: "FK_ListOfCinematographyHistory_ListOfCinematography_ListOfCine~",
                         column: x => x.ListOfCinematographyId,
                         principalTable: "ListOfCinematography",
                         principalColumn: "Id",
@@ -1528,7 +1641,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     DictCinematographyServicesId = table.Column<int>(nullable: false),
                     ListOfCinematographyId = table.Column<int>(nullable: false),
                     DictStatusId = table.Column<int>(nullable: false),
@@ -1546,7 +1659,7 @@ namespace AisMKIT.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ListOfCinematographyServices_DictCinematographyServices_DictCinematographyServicesId",
+                        name: "FK_ListOfCinematographyServices_DictCinematographyServices_Dic~",
                         column: x => x.DictCinematographyServicesId,
                         principalTable: "DictCinematographyServices",
                         principalColumn: "Id",
@@ -1558,7 +1671,7 @@ namespace AisMKIT.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ListOfCinematographyServices_ListOfCinematography_ListOfCinematographyId",
+                        name: "FK_ListOfCinematographyServices_ListOfCinematography_ListOfCin~",
                         column: x => x.ListOfCinematographyId,
                         principalTable: "ListOfCinematography",
                         principalColumn: "Id",
@@ -1570,7 +1683,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ListOfTheatricalId = table.Column<int>(nullable: false),
                     LastNameOfArts = table.Column<string>(nullable: true),
                     FirstNameOfArts = table.Column<string>(nullable: true),
@@ -1602,7 +1715,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ListOfTheatricalId = table.Column<int>(nullable: false),
                     Year = table.Column<string>(nullable: true),
                     Month = table.Column<string>(nullable: true),
@@ -1623,7 +1736,7 @@ namespace AisMKIT.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ListOfEventsTheatrical_DictTheatricalHall_DictTheatricalHallId",
+                        name: "FK_ListOfEventsTheatrical_DictTheatricalHall_DictTheatricalHal~",
                         column: x => x.DictTheatricalHallId,
                         principalTable: "DictTheatricalHall",
                         principalColumn: "Id",
@@ -1641,7 +1754,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ListOfTourismId = table.Column<int>(nullable: false),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
@@ -1701,7 +1814,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     DictTourismServicesId = table.Column<int>(nullable: false),
                     ListOfTourismId = table.Column<int>(nullable: false),
                     DictStatusId = table.Column<int>(nullable: false),
@@ -1725,7 +1838,7 @@ namespace AisMKIT.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ListOfTourismServices_DictTourismServices_DictTourismServicesId",
+                        name: "FK_ListOfTourismServices_DictTourismServices_DictTourismServic~",
                         column: x => x.DictTourismServicesId,
                         principalTable: "DictTourismServices",
                         principalColumn: "Id",
@@ -1743,7 +1856,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ListOfMediaId = table.Column<int>(nullable: false),
                     DictControlTypeId = table.Column<int>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: true),
@@ -1790,7 +1903,7 @@ namespace AisMKIT.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ListOfControlMedia_DictMediaControlResult_DictMediaControlResultId",
+                        name: "FK_ListOfControlMedia_DictMediaControlResult_DictMediaControlR~",
                         column: x => x.DictMediaControlResultId,
                         principalTable: "DictMediaControlResult",
                         principalColumn: "Id",
@@ -1814,7 +1927,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ListOfMediaId = table.Column<int>(nullable: false),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
@@ -1857,7 +1970,7 @@ namespace AisMKIT.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ListOfMediaHistory_DictMediaFreqRelease_DictMediaFreqReleaseId",
+                        name: "FK_ListOfMediaHistory_DictMediaFreqRelease_DictMediaFreqReleas~",
                         column: x => x.DictMediaFreqReleaseId,
                         principalTable: "DictMediaFreqRelease",
                         principalColumn: "Id",
@@ -1887,7 +2000,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ListOfMediaId = table.Column<int>(nullable: false),
                     CreateDate = table.Column<DateTime>(nullable: false),
                     NumberOfPermission = table.Column<int>(nullable: false),
@@ -1927,7 +2040,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ListOfMonumentsId = table.Column<int>(nullable: false),
                     DictMonumentTypologicalTypeId = table.Column<int>(nullable: false),
                     CreateDate = table.Column<DateTime>(nullable: false),
@@ -1937,19 +2050,19 @@ namespace AisMKIT.Migrations
                 {
                     table.PrimaryKey("PK_ListOfMonumetnTypologicalAccessory", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ListOfMonumetnTypologicalAccessory_AspNetUsers_ApplicationUserId",
+                        name: "FK_ListOfMonumetnTypologicalAccessory_AspNetUsers_ApplicationU~",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ListOfMonumetnTypologicalAccessory_DictMonumentTypologicalType_DictMonumentTypologicalTypeId",
+                        name: "FK_ListOfMonumetnTypologicalAccessory_DictMonumentTypologicalT~",
                         column: x => x.DictMonumentTypologicalTypeId,
                         principalTable: "DictMonumentTypologicalType",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ListOfMonumetnTypologicalAccessory_ListOfMonuments_ListOfMonumentsId",
+                        name: "FK_ListOfMonumetnTypologicalAccessory_ListOfMonuments_ListOfMo~",
                         column: x => x.ListOfMonumentsId,
                         principalTable: "ListOfMonuments",
                         principalColumn: "Id",
@@ -1961,7 +2074,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
                     DictRentObjectTypeId = table.Column<int>(nullable: true),
@@ -1990,7 +2103,7 @@ namespace AisMKIT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ListOfRentsId = table.Column<int>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: true),
                     EndDate = table.Column<DateTime>(nullable: true),
@@ -2024,8 +2137,7 @@ namespace AisMKIT.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true,
-                filter: "[NormalizedName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -2056,8 +2168,7 @@ namespace AisMKIT.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_DictAgencyPerm_DictStatusId",
@@ -2220,6 +2331,11 @@ namespace AisMKIT.Migrations
                 column: "DictCountryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ListOfCinematographyDocuments_ApplicationUserId",
+                table: "ListOfCinematographyDocuments",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ListOfCinematographyHistory_ApplicationUserId",
                 table: "ListOfCinematographyHistory",
                 column: "ApplicationUserId");
@@ -2360,6 +2476,26 @@ namespace AisMKIT.Migrations
                 column: "DictLegalFormId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ListOfEvents_ApplicationUserId",
+                table: "ListOfEvents",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfEvents_DictInitiatorOfProjId",
+                table: "ListOfEvents",
+                column: "DictInitiatorOfProjId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfEvents_DictTypeOfKMMId",
+                table: "ListOfEvents",
+                column: "DictTypeOfKMMId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfEvents_DistLocId",
+                table: "ListOfEvents",
+                column: "DistLocId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ListOfEventsTheatrical_ApplicationUserId",
                 table: "ListOfEventsTheatrical",
                 column: "ApplicationUserId");
@@ -2470,12 +2606,27 @@ namespace AisMKIT.Migrations
                 column: "DictMonumentTypeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ListOfMonumentsProtObjects_ApplicationUserId",
+                table: "ListOfMonumentsProtObjects",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfMonumentsProtObjects_DictDistrictId",
+                table: "ListOfMonumentsProtObjects",
+                column: "DictDistrictId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ListOfMonumentsProtObjects_DictFinSourceId",
+                table: "ListOfMonumentsProtObjects",
+                column: "DictFinSourceId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ListOfMonumetnTypologicalAccessory_ApplicationUserId",
                 table: "ListOfMonumetnTypologicalAccessory",
                 column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ListOfMonumetnTypologicalAccessory_DictMonumentTypologicalTypeId",
+                name: "IX_ListOfMonumetnTypologicalAccessory_DictMonumentTypologicalT~",
                 table: "ListOfMonumetnTypologicalAccessory",
                 column: "DictMonumentTypologicalTypeId");
 
@@ -2664,6 +2815,9 @@ namespace AisMKIT.Migrations
                 name: "ListOfCinematographyCertificates");
 
             migrationBuilder.DropTable(
+                name: "ListOfCinematographyDocuments");
+
+            migrationBuilder.DropTable(
                 name: "ListOfCinematographyHistory");
 
             migrationBuilder.DropTable(
@@ -2685,6 +2839,9 @@ namespace AisMKIT.Migrations
                 name: "ListOfEduInstituts");
 
             migrationBuilder.DropTable(
+                name: "ListOfEvents");
+
+            migrationBuilder.DropTable(
                 name: "ListOfEventsTheatrical");
 
             migrationBuilder.DropTable(
@@ -2692,6 +2849,9 @@ namespace AisMKIT.Migrations
 
             migrationBuilder.DropTable(
                 name: "ListOfMediaHistory");
+
+            migrationBuilder.DropTable(
+                name: "ListOfMonumentsProtObjects");
 
             migrationBuilder.DropTable(
                 name: "ListOfMonumetnTypologicalAccessory");
@@ -2751,6 +2911,9 @@ namespace AisMKIT.Migrations
                 name: "DictCultAndArtType");
 
             migrationBuilder.DropTable(
+                name: "DictEduInstType");
+
+            migrationBuilder.DropTable(
                 name: "DictInitiatorOfProj");
 
             migrationBuilder.DropTable(
@@ -2758,9 +2921,6 @@ namespace AisMKIT.Migrations
 
             migrationBuilder.DropTable(
                 name: "DictLoc");
-
-            migrationBuilder.DropTable(
-                name: "DictEduInstType");
 
             migrationBuilder.DropTable(
                 name: "DictTheatricalHall");
