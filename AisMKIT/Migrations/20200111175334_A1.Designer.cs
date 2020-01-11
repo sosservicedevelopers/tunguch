@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AisMKIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191229035811_initial")]
-    partial class initial
+    [Migration("20200111175334_A1")]
+    partial class A1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -88,6 +88,50 @@ namespace AisMKIT.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.CinemaCountries", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("DictCountryId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("ListOfCinematographyCertificatesId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DictCountryId");
+
+                    b.HasIndex("ListOfCinematographyCertificatesId");
+
+                    b.ToTable("CinemaCountries");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.CinemaRegisers", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("DictCinemaRegiserId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("ListOfCinematographyCertificatesId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DictCinemaRegiserId");
+
+                    b.HasIndex("ListOfCinematographyCertificatesId");
+
+                    b.ToTable("CinemaRegisers");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.Departments", b =>
@@ -1017,12 +1061,6 @@ namespace AisMKIT.Migrations
                     b.Property<int?>("DictCinemaDurationId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("DictCinemaRegiserId")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("DictCountryId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("NameKyrg")
                         .HasColumnType("text");
 
@@ -1042,10 +1080,6 @@ namespace AisMKIT.Migrations
                     b.HasIndex("DictCinemaAgeRestrictionsId");
 
                     b.HasIndex("DictCinemaDurationId");
-
-                    b.HasIndex("DictCinemaRegiserId");
-
-                    b.HasIndex("DictCountryId");
 
                     b.ToTable("ListOfCinematographyCertificates");
                 });
@@ -2669,6 +2703,28 @@ namespace AisMKIT.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("AisMKIT.Models.CinemaCountries", b =>
+                {
+                    b.HasOne("AisMKIT.Models.DictCountry", "DictCountry")
+                        .WithMany()
+                        .HasForeignKey("DictCountryId");
+
+                    b.HasOne("AisMKIT.Models.ListOfCinematographyCertificates", "ListOfCinematographyCertificates")
+                        .WithMany("CinemaCountries")
+                        .HasForeignKey("ListOfCinematographyCertificatesId");
+                });
+
+            modelBuilder.Entity("AisMKIT.Models.CinemaRegisers", b =>
+                {
+                    b.HasOne("AisMKIT.Models.DictCinemaRegiser", "DictCinemaRegiser")
+                        .WithMany()
+                        .HasForeignKey("DictCinemaRegiserId");
+
+                    b.HasOne("AisMKIT.Models.ListOfCinematographyCertificates", "ListOfCinematographyCertificates")
+                        .WithMany("CinemaRegisers")
+                        .HasForeignKey("ListOfCinematographyCertificatesId");
+                });
+
             modelBuilder.Entity("AisMKIT.Models.DictAgencyPerm", b =>
                 {
                     b.HasOne("AisMKIT.Models.DictStatus", "DictStatus")
@@ -2863,14 +2919,6 @@ namespace AisMKIT.Migrations
                     b.HasOne("AisMKIT.Models.DictCinemaDuration", "DictCinemaDuration")
                         .WithMany()
                         .HasForeignKey("DictCinemaDurationId");
-
-                    b.HasOne("AisMKIT.Models.DictCinemaRegiser", "DictCinemaRegiser")
-                        .WithMany()
-                        .HasForeignKey("DictCinemaRegiserId");
-
-                    b.HasOne("AisMKIT.Models.DictCountry", "DictCountry")
-                        .WithMany()
-                        .HasForeignKey("DictCountryId");
                 });
 
             modelBuilder.Entity("AisMKIT.Models.ListOfCinematographyDocuments", b =>

@@ -26,7 +26,11 @@ namespace AisMKIT
         public void ConfigureServices(IServiceCollection services)
         {
             //Äëÿ Postgresql
-              services.AddDbContext<ApplicationDbContext>();
+            //  services.AddDbContext<ApplicationDbContext>();
+            
+            services.AddDbContext<ApplicationDbContext>(options => //options.UsePostgreSql(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseNpgsql(
+                Configuration.GetConnectionString("DefaultConnection")));
 
             //services.AddDbContext<ApplicationDbContext>(options => //options.UsePostgreSql(Configuration.GetConnectionString("DefaultConnection")));
             //options.UseSqlServer(

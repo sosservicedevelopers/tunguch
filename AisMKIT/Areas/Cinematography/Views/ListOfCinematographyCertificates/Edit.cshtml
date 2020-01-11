@@ -16,26 +16,82 @@
             <input type="hidden" asp-for="CreateDate" />
             <input type="hidden" asp-for="NameKyrg" />
             <input type="hidden" asp-for="ApplicationUserId" />
+            <input type="hidden" name="CountriesRegisersJson" id="CountriesAndRegisers" />
+
             <div class="form-group">
                 <label asp-for="NameRus" class="control-label"></label>
                 <input asp-for="NameRus" class="form-control" />
                 <span asp-validation-for="NameRus" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DictCountryId" class="control-label"></label>
-                <select asp-for="DictCountryId" class="form-control" asp-items="ViewBag.DictCountryId"></select>
-                <span asp-validation-for="DictCountryId" class="text-danger"></span>
+
+
+            <div class="row">
+                <div class="ml-3 mr-2">
+                    <label class="control-label">Страна</label>
+                </div>
+                <div class="">
+                    <span onclick="addSelectList('countries');" class="btn-sm btn-secondary">+</span>
+                </div>
             </div>
+            <div id="countries" class="form-group">
+                @if (ViewBag.CCLength != 0)
+                {
+
+                    @foreach (var selectList in ViewBag.CinemaCountriesIds)
+                    {
+                        <select class="form-control" asp-items="@selectList"></select>
+                    }
+
+                }
+                else
+                {
+                    <div id="countries" class="form-group">
+                        <select class="form-control" asp-items="ViewBag.DictCountryId"></select>
+                    </div>
+                }
+            </div>
+
+            <div class="row">
+                <div class="ml-3 mr-2">
+                    <label class="control-label">Режиссёр</label>
+                </div>
+                <div class="">
+                    <span onclick="addSelectList('regisers');" class="btn-sm btn-secondary">+</span>
+                </div>
+            </div>
+            <div id="regisers" class="form-group">
+                @if (ViewBag.CRLength != 0)
+                {
+                    @foreach (var selectList in ViewBag.CinemaRegisersIds)
+                    {
+                        <select class="form-control" asp-items="@selectList"></select>
+                    }
+                }
+                else
+                {
+                    <div id="regisers" class="form-group">
+                        <select class="form-control" asp-items="ViewBag.DictCinemaRegiserId"></select>
+                    </div>
+                }
+
+            </div>
+
+
+            @*<div class="form-group">
+            <label asp-for="DictCountryId" class="control-label"></label>
+            <select asp-for="DictCountryId" class="form-control" asp-items="ViewBag.DictCountryId"></select>
+            <span asp-validation-for="DictCountryId" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <label asp-for="Years" class="control-label"></label>
                 <input asp-for="Years" class="form-control" />
                 <span asp-validation-for="Years" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DictCinemaRegiserId" class="control-label"></label>
-                <select asp-for="DictCinemaRegiserId" class="form-control" asp-items="ViewBag.DictCinemaRegiserId"></select>
-                <span asp-validation-for="DictCinemaRegiserId" class="text-danger"></span>
-            </div>
+            @*<div class="form-group">
+            <label asp-for="DictCinemaRegiserId" class="control-label"></label>
+            <select asp-for="DictCinemaRegiserId" class="form-control" asp-items="ViewBag.DictCinemaRegiserId"></select>
+            <span asp-validation-for="DictCinemaRegiserId" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <label asp-for="DictCinemaDurationId" class="control-label"></label>
                 <select asp-for="DictCinemaDurationId" class="form-control" asp-items="ViewBag.DictCinemaDurationId"></select>
@@ -51,8 +107,11 @@
                 <input asp-for="RegistrationDate" class="form-control" />
                 <span asp-validation-for="RegistrationDate" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Сохранить" class="btn btn-primary" />
+                <span class="btn btn-primary" onclick="initInputJSON()">Сохранить</span>
+
+                <input type="submit" id="sendFormBtn" value="Сохранить" class="btn btn-primary" hidden />
             </div>
         </form>
     </div>
@@ -62,3 +121,4 @@
     <a asp-action="Index">Назад</a>
 </div>
 
+<script src="~/js/site.js"></script>

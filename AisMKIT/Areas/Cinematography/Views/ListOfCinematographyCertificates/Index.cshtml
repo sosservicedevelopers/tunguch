@@ -18,13 +18,13 @@
                     @Html.DisplayNameFor(model => model.NameRus)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DictCountry)
+                    @Html.DisplayNameFor(model => model.CinemaCountries)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Years)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DictCinemaRegiser)
+                    @Html.DisplayNameFor(model => model.CinemaRegisers)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.DictCinemaDuration)
@@ -46,13 +46,31 @@
                         @Html.DisplayFor(modelItem => item.NameRus)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.DictCountry.Name)
+                        @foreach (var country in item.CinemaCountries)
+                        {
+                            @country.DictCountry.Name
+
+                            @if (country.Id != item.CinemaCountries.LastOrDefault().Id)
+                            {
+                                <i>,</i>
+                            }
+                        }
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Years)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.DictCinemaRegiser.FullName)
+
+                        @foreach (var regiser in item.CinemaRegisers)
+                        {
+                            @regiser.DictCinemaRegiser.FullName
+
+                            @if (regiser.Id != item.CinemaRegisers.LastOrDefault().Id)
+                            {
+                                <i>,</i>
+                            }
+                        }
+
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.DictCinemaDuration.Name)

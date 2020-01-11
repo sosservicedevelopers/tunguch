@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AisMKIT.Migrations
 {
-    public partial class initial : Migration
+    public partial class A1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -848,9 +848,7 @@ namespace AisMKIT.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     NameRus = table.Column<string>(nullable: true),
                     NameKyrg = table.Column<string>(nullable: true),
-                    DictCountryId = table.Column<int>(nullable: true),
                     Years = table.Column<string>(nullable: true),
-                    DictCinemaRegiserId = table.Column<int>(nullable: true),
                     DictCinemaDurationId = table.Column<int>(nullable: true),
                     DictCinemaAgeRestrictionsId = table.Column<int>(nullable: true),
                     RegistrationDate = table.Column<DateTime>(nullable: false),
@@ -876,18 +874,6 @@ namespace AisMKIT.Migrations
                         name: "FK_ListOfCinematographyCertificates_DictCinemaDuration_DictCin~",
                         column: x => x.DictCinemaDurationId,
                         principalTable: "DictCinemaDuration",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ListOfCinematographyCertificates_DictCinemaRegiser_DictCine~",
-                        column: x => x.DictCinemaRegiserId,
-                        principalTable: "DictCinemaRegiser",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ListOfCinematographyCertificates_DictCountry_DictCountryId",
-                        column: x => x.DictCountryId,
-                        principalTable: "DictCountry",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -1577,6 +1563,58 @@ namespace AisMKIT.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CinemaCountries",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ListOfCinematographyCertificatesId = table.Column<int>(nullable: true),
+                    DictCountryId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CinemaCountries", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CinemaCountries_DictCountry_DictCountryId",
+                        column: x => x.DictCountryId,
+                        principalTable: "DictCountry",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_CinemaCountries_ListOfCinematographyCertificates_ListOfCine~",
+                        column: x => x.ListOfCinematographyCertificatesId,
+                        principalTable: "ListOfCinematographyCertificates",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CinemaRegisers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ListOfCinematographyCertificatesId = table.Column<int>(nullable: true),
+                    DictCinemaRegiserId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CinemaRegisers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CinemaRegisers_DictCinemaRegiser_DictCinemaRegiserId",
+                        column: x => x.DictCinemaRegiserId,
+                        principalTable: "DictCinemaRegiser",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_CinemaRegisers_ListOfCinematographyCertificates_ListOfCinem~",
+                        column: x => x.ListOfCinematographyCertificatesId,
+                        principalTable: "ListOfCinematographyCertificates",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ListOfCinematographyHistory",
                 columns: table => new
                 {
@@ -2171,6 +2209,26 @@ namespace AisMKIT.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_CinemaCountries_DictCountryId",
+                table: "CinemaCountries",
+                column: "DictCountryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CinemaCountries_ListOfCinematographyCertificatesId",
+                table: "CinemaCountries",
+                column: "ListOfCinematographyCertificatesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CinemaRegisers_DictCinemaRegiserId",
+                table: "CinemaRegisers",
+                column: "DictCinemaRegiserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CinemaRegisers_ListOfCinematographyCertificatesId",
+                table: "CinemaRegisers",
+                column: "ListOfCinematographyCertificatesId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DictAgencyPerm_DictStatusId",
                 table: "DictAgencyPerm",
                 column: "DictStatusId");
@@ -2319,16 +2377,6 @@ namespace AisMKIT.Migrations
                 name: "IX_ListOfCinematographyCertificates_DictCinemaDurationId",
                 table: "ListOfCinematographyCertificates",
                 column: "DictCinemaDurationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ListOfCinematographyCertificates_DictCinemaRegiserId",
-                table: "ListOfCinematographyCertificates",
-                column: "DictCinemaRegiserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ListOfCinematographyCertificates_DictCountryId",
-                table: "ListOfCinematographyCertificates",
-                column: "DictCountryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ListOfCinematographyDocuments_ApplicationUserId",
@@ -2809,10 +2857,13 @@ namespace AisMKIT.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "DictMediaDistribTerritory");
+                name: "CinemaCountries");
 
             migrationBuilder.DropTable(
-                name: "ListOfCinematographyCertificates");
+                name: "CinemaRegisers");
+
+            migrationBuilder.DropTable(
+                name: "DictMediaDistribTerritory");
 
             migrationBuilder.DropTable(
                 name: "ListOfCinematographyDocuments");
@@ -2881,16 +2932,13 @@ namespace AisMKIT.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "DictCinemaAgeRestrictions");
-
-            migrationBuilder.DropTable(
-                name: "DictCinemaDuration");
+                name: "DictCountry");
 
             migrationBuilder.DropTable(
                 name: "DictCinemaRegiser");
 
             migrationBuilder.DropTable(
-                name: "DictCountry");
+                name: "ListOfCinematographyCertificates");
 
             migrationBuilder.DropTable(
                 name: "DictCinematographyServices");
@@ -2957,6 +3005,12 @@ namespace AisMKIT.Migrations
 
             migrationBuilder.DropTable(
                 name: "ListOfTourism");
+
+            migrationBuilder.DropTable(
+                name: "DictCinemaAgeRestrictions");
+
+            migrationBuilder.DropTable(
+                name: "DictCinemaDuration");
 
             migrationBuilder.DropTable(
                 name: "DictMonumemtSignOfLoss");

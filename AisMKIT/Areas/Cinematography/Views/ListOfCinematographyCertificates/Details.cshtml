@@ -10,10 +10,10 @@
     <h4>Сертификаты к фильмам</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NameRus)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NameRus)
         </dd>
         @*@<dt class = "col-sm-2">
@@ -22,7 +22,44 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NameKyrg)
         </dd>*@
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CinemaCountries)
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var country in Model.CinemaCountries)
+            {
+                @country.DictCountry.Name
+
+                @if (country.Id != Model.CinemaCountries.LastOrDefault().Id)
+                {
+                    <i>,</i>
+                }
+            }
+        </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Years)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Years)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CinemaRegisers)
+        </dt>
+        <dd class="col-sm-10">
+
+            @foreach (var regiser in Model.CinemaRegisers)
+            {
+                @regiser.DictCinemaRegiser.FullName
+
+                @if (regiser.Id != Model.CinemaRegisers.LastOrDefault().Id)
+                {
+                    <i>,</i>
+                }
+            }
+        </dd>
+        @*<dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.DictCountry)
         </dt>
         <dd class = "col-sm-10">
@@ -39,35 +76,35 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DictCinemaRegiser.Id)
-        </dd>
-        <dt class = "col-sm-2">
+        </dd>*@
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DictCinemaDuration)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DictCinemaDuration.Id)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DictCinemaAgeRestrictions)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DictCinemaAgeRestrictions.Id)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.RegistrationDate)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RegistrationDate)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CreateDate)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CreateDate)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ApplicationUser)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ApplicationUser.Id)
         </dd>
     </dl>

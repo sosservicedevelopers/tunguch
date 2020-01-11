@@ -35,19 +35,18 @@ namespace AisMKIT.Models
         [Display(Name = "Название фильма (кырг.)")]
         public string NameKyrg { get; set; }
 
+        
+        // промежуточные таблицы для Стран и Режиссёров
+        //public int? ListOfCinematographyCertificatesId { get; set; }
         [Display(Name = "Страна")]
-        public int? DictCountryId { get; set; }
+        public List<CinemaCountries> CinemaCountries { get; set; }
 
-        [Display(Name = "Страна")]
-        public DictCountry DictCountry { get; set; }
+        [Display(Name = "Режиссёр")]
+        public List<CinemaRegisers> CinemaRegisers { get; set; }
+
 
         [Display(Name = "Год выпуска")]
         public string Years { get; set; }
-        [Display(Name = "Режиссер")]
-        public int? DictCinemaRegiserId { get; set; }
-
-        [Display(Name = "Режиссер")]
-        public DictCinemaRegiser DictCinemaRegiser { get; set; }
 
         [Display(Name = "Продолжительность")]
         public int? DictCinemaDurationId { get; set; }
@@ -286,5 +285,45 @@ namespace AisMKIT.Models
 
     }
     
+    public class CinemaCountries
+    {
+        public int Id { get; set; }
 
+        [Display(Name = "Фильм")]
+        public int? ListOfCinematographyCertificatesId { get; set; }
+        
+        [Display(Name = "Фильм")]
+        public ListOfCinematographyCertificates ListOfCinematographyCertificates { get; set; }
+
+        [Display(Name = "Страна")]
+        public int? DictCountryId { get; set; }
+
+        [Display(Name = "Страна")]
+        public DictCountry DictCountry { get; set; }
+    }
+
+    public class CinemaRegisers
+    {
+        public int Id { get; set; }
+
+        [Display(Name = "Фильм")]
+        public int? ListOfCinematographyCertificatesId { get; set; }
+
+        [Display(Name = "Фильм")]
+        public ListOfCinematographyCertificates ListOfCinematographyCertificates { get; set; }
+
+        [Display(Name = "Режиссер")]
+        public int? DictCinemaRegiserId { get; set; }
+
+        [Display(Name = "Режиссер")]
+        public DictCinemaRegiser DictCinemaRegiser { get; set; }
+    }
+
+
+    public class JsonData
+    {
+        public int[] countries { get; set; }
+        public int[] regisers { get; set; }
+
+    }
 }

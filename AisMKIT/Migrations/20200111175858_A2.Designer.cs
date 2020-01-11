@@ -3,15 +3,17 @@ using System;
 using AisMKIT.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AisMKIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200111175858_A2")]
+    partial class A2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,6 +101,7 @@ namespace AisMKIT.Migrations
                         .HasColumnType("integer");
 
                     b.Property<int?>("ListOfCinematographyCertificatesId")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -2709,7 +2712,9 @@ namespace AisMKIT.Migrations
 
                     b.HasOne("AisMKIT.Models.ListOfCinematographyCertificates", "ListOfCinematographyCertificates")
                         .WithMany("CinemaCountries")
-                        .HasForeignKey("ListOfCinematographyCertificatesId");
+                        .HasForeignKey("ListOfCinematographyCertificatesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("AisMKIT.Models.CinemaRegisers", b =>

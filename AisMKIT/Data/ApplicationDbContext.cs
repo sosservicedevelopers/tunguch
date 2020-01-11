@@ -5,6 +5,8 @@ using AisMKIT.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+
 
 namespace AisMKIT.Data
 {
@@ -77,6 +79,9 @@ namespace AisMKIT.Data
         public DbSet<DictCinemaAgeRestrictions> DictCinemaAgeRestrictions { get; set; }
         public DbSet<DictCinemaRegiser> DictCinemaRegiser { get; set; }
          public DbSet<DictCinemaDuration> DictCinemaDuration { get; set; }
+        // промежуточные таблицы
+        public DbSet<CinemaCountries> CinemaCountries { get; set; }
+        public DbSet<CinemaRegisers> CinemaRegisers { get; set; }
 
         #endregion
 
@@ -120,10 +125,38 @@ namespace AisMKIT.Data
 
         #endregion
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Seed();
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Seed();
+
+            //modelBuilder.Entity<CinemaCountries>()
+            //            .HasMany(c => c.ListOfCinematographyCertificates)
+            //            .WithOne(e => e.CinemaCountries)
+            //            .HasForeignKey(e => e.StoreId)
+            //            .IsRequired();
+
+            //modelBuilder.Entity<CinemaCountries>()
+            //               .HasOne(s => s.ListOfCinematographyCertificates)
+            //               .WithMany(c => c.CinemaCountries)
+            //               .HasForeignKey(s => s.ListOfCinematographyCertificatesId)
+            //               .IsRequired();
+
+
+            //modelBuilder.Entity<CinemaCountries>()
+            //               .HasOne(s => s.DictCountry)
+            //               .WithMany(c => c.CinemaCountries)
+            //               .HasForeignKey(s => s.DictCountryId)
+            //               .IsRequired();
+
+            //modelBuilder.Entity<ListOfCinematographyCertificates>()
+            //               .HasOne(s => s.CinemaCountries.FirstOrDefault())
+            //               .WithMany()
+            //               .HasForeignKey(s => s.CinemaCountries.FirstOrDefault().Id);
+
+
+        }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -134,8 +167,9 @@ namespace AisMKIT.Data
         {
             // optionsBuilder.UseNpgsql("Host=192.168.145.130;Port=5432;Database=AisMKIT;Username=postgres;Password=admin");
             //  optionsBuilder.UseNpgsql("Host=212.112.106.181;Port=5432;Database=aismkitdb;Username=postgres;Password=dbPwdAdmin");
-            optionsBuilder.UseNpgsql("Host=192.168.161.130;Port=5432;Database=aismkitdb;Username=postgres;Password=dbPwdAdmin");
+            //optionsBuilder.UseNpgsql("Host=192.168.161.130;Port=5432;Database=aismkitdb;Username=postgres;Password=dbPwdAdmin");
             // optionsBuilder.UseNpgsql("Host=127.0.0.1;Port=5432;Database=aismkitdb;Username=postgres;Password=dbPwdAdmin");
+            optionsBuilder.UseNpgsql("Host=127.0.0.1;Port=5432;Database=aismkitdb2;Username=postgres;Password=dbPwdAdmin");
 
         }
         //Для postgresql
