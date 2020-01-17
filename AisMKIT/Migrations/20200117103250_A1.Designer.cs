@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AisMKIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200111175334_A1")]
+    [Migration("20200117103250_A1")]
     partial class A1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -2482,35 +2482,74 @@ namespace AisMKIT.Migrations
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("text");
 
-                    b.Property<string>("AverageMonthSalary")
-                        .HasColumnType("text");
+                    b.Property<double>("AverageMonthSalary")
+                        .HasColumnType("double precision");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("GDP")
-                        .HasColumnType("text");
+                    b.Property<double>("FromCIS")
+                        .HasColumnType("double precision");
 
-                    b.Property<string>("InTurist")
-                        .HasColumnType("text");
+                    b.Property<double>("FromForeign")
+                        .HasColumnType("double precision");
 
-                    b.Property<string>("OutTurist")
-                        .HasColumnType("text");
+                    b.Property<double>("GDP")
+                        .HasColumnType("double precision");
 
-                    b.Property<string>("SummOfForeignInvest")
-                        .HasColumnType("text");
+                    b.Property<double>("GrossValueAdded")
+                        .HasColumnType("double precision");
 
-                    b.Property<string>("SummOfInvestFromBudget")
-                        .HasColumnType("text");
+                    b.Property<double>("InTurist")
+                        .HasColumnType("double precision");
 
-                    b.Property<string>("SummOfPrivateDomesticInvest")
-                        .HasColumnType("text");
+                    b.Property<double>("InvestmentsTourismSector")
+                        .HasColumnType("double precision");
 
-                    b.Property<string>("VolumeOfServicesForExport")
-                        .HasColumnType("text");
+                    b.Property<double>("OutTurist")
+                        .HasColumnType("double precision");
 
-                    b.Property<string>("VolumeOfServicesForImport")
-                        .HasColumnType("text");
+                    b.Property<double>("RevenuesFromTransportTourists")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("SanatoriumResortActivities")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("ServicesShortTermResidence")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("ShareOfTourismInGDP")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("SummOfForeignInvest")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("SummOfInvestFromBudget")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("SummOfPrivateDomesticInvest")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("TaxRevenue")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("TheNumCitizensfromNearAndFar")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("TourismTetailSales")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("TravelAgencyServices")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("TurnoverPreparedFood")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("VolumeOfServicesForExport")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("VolumeOfServicesForImport")
+                        .HasColumnType("double precision");
 
                     b.Property<string>("Year")
                         .HasColumnType("text");

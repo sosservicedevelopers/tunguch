@@ -95,9 +95,9 @@ namespace AisMKIT.Data
 
                 if (!context.DictFinSource.Any())
                 {
-                    context.DictFinSource.Add(new DictFinSource() { NameRus = "Государственное", NameKyrg = "Государственное", CreateDate = DateTime.Now, DictStatusId = 1 });
-                    context.DictFinSource.Add(new DictFinSource() { NameRus = "Коммерческое", NameKyrg = "Коммерческое", CreateDate = DateTime.Now, DictStatusId = 1 });
-                    context.DictFinSource.Add(new DictFinSource() { NameRus = "Муниципиальное", NameKyrg = "Муниципиальное", CreateDate = DateTime.Now, DictStatusId = 1 });
+                    context.DictFinSource.Add(new DictFinSource() { NameRus = "Государственная", NameKyrg = "Государственная", CreateDate = DateTime.Now, DictStatusId = 1 });
+                    context.DictFinSource.Add(new DictFinSource() { NameRus = "Частная", NameKyrg = "Частная", CreateDate = DateTime.Now, DictStatusId = 1 });
+                    context.DictFinSource.Add(new DictFinSource() { NameRus = "Муниципиальная", NameKyrg = "Муниципиальная", CreateDate = DateTime.Now, DictStatusId = 1 });
                     context.SaveChanges();
                 }
                 if (!context.DictMediaLangType.Any())

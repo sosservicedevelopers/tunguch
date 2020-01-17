@@ -10,9 +10,7 @@ using System.Linq;
 
 namespace AisMKIT.Data
 {
-    
 
-   
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         #region Dictionary

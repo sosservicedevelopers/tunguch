@@ -23,7 +23,6 @@ namespace AisMKIT.Areas.Tourism.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-
         // GET: Tourism/ListOfTourismIndicators
         public async Task<IActionResult> Index()
         {
@@ -63,7 +62,7 @@ namespace AisMKIT.Areas.Tourism.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Year,GDP,InTurist,OutTurist,VolumeOfServicesForExport,VolumeOfServicesForImport,SummOfInvestFromBudget,SummOfPrivateDomesticInvest,SummOfForeignInvest,AverageMonthSalary,CreateDate,ApplicationUserId")] ListOfTourismIndicator listOfTourismIndicator)
+        public async Task<IActionResult> Create([Bind("Id,Year,GDP,InTurist,OutTurist,VolumeOfServicesForExport,VolumeOfServicesForImport,SummOfInvestFromBudget,SummOfPrivateDomesticInvest,SummOfForeignInvest,AverageMonthSalary,CreateDate,ApplicationUserId,  GrossValueAdded,ShareOfTourismInGDP,TaxRevenue,TheNumCitizensfromNearAndFa,FromCIS,FromForeign,InvestmentsTourismSector,RevenuesFromTransportTourists,RevenuesFromTransportTourists,TourismTetailSales,TurnoverPreparedFood,TravelAgencyServices,SanatoriumResortActivities,ServicesShortTermResidence")] ListOfTourismIndicator listOfTourismIndicator)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +94,7 @@ namespace AisMKIT.Areas.Tourism.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Year,GDP,InTurist,OutTurist,VolumeOfServicesForExport,VolumeOfServicesForImport,SummOfInvestFromBudget,SummOfPrivateDomesticInvest,SummOfForeignInvest,AverageMonthSalary, CreateDate,ApplicationUserId")] ListOfTourismIndicator listOfTourismIndicator)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Year,GDP,InTurist,OutTurist,VolumeOfServicesForExport,VolumeOfServicesForImport,SummOfInvestFromBudget,SummOfPrivateDomesticInvest,SummOfForeignInvest,AverageMonthSalary, CreateDate,ApplicationUserId,  GrossValueAdded,ShareOfTourismInGDP,TaxRevenue,TheNumCitizensfromNearAndFa,FromCIS,FromForeign,InvestmentsTourismSector,RevenuesFromTransportTourists,RevenuesFromTransportTourists,TourismTetailSales,TurnoverPreparedFood,TravelAgencyServices,SanatoriumResortActivities,ServicesShortTermResidence")] ListOfTourismIndicator listOfTourismIndicator)
         {
             if (id != listOfTourismIndicator.Id)
             {

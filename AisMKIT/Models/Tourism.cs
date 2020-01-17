@@ -195,35 +195,94 @@ namespace AisMKIT.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "год")]
+        [Display(Name = "Год")]
         public string Year { get; set; }
 
-        [Display(Name = "объём ВВП")]
-        public string GDP { get; set; }
+        [Display(Name = "Объём ВВП")]
+        public double GDP { get; set; }
 
-        [Display(Name = "количество въехавших туристов в страну")]
-        public string InTurist { get; set; }
+        //новый
+        [Display(Name = "Валовая добавленная стоимость в сфере туристической деятельности (млн. cомов)")]
+        public double GrossValueAdded { get; set; }
+
+        //новый
+        [Display(Name = "Доля сферы туристической деятельности в ВВП (в процентах)")]
+        public double ShareOfTourismInGDP { get; set; }
+
+        //новый
+        [Display(Name = "Поступления налоговых платежей в бюджет республики от туристической деятельности и деятельности гостиниц и ресторанов")]
+        public double TaxRevenue { get; set; }
+
+        //новый
+        [Display(Name = "Общее число прибывших граждан из стран дальнего и ближнего зарубежья")]
+        public double TheNumCitizensfromNearAndFar { get; set; }
+
+        //новый
+        [Display(Name = "в том числе из стран СНГ")]
+        public double FromCIS { get; set; }
+
+        //новый
+        [Display(Name = "и из стран дальнего зарубежья")]
+        public double FromForeign { get; set; }
+
+
+        [Display(Name = "Общее число прибывших граждан в Кыргызскую Республику, на которых распространяется Закон 'О безвизовом режиме'")]
+        public double InTurist { get; set; }
 
         [Display(Name = "количество выехавших туристов")]
-        public string OutTurist { get; set; }
+        public double OutTurist { get; set; }
 
-        [Display(Name = "объем услуг на экспорт")]
-        public string VolumeOfServicesForExport { get; set; }
+        [Display(Name = "Экспорт туристских услуг (доходы от приема иностранных граждан), млн. долларов США")]
+        public double VolumeOfServicesForExport { get; set; }
 
         [Display(Name = "объем услуг на импорт")]
-        public string VolumeOfServicesForImport { get; set; }
+        public double VolumeOfServicesForImport { get; set; }
+
+        //новый
+        [Display(Name = "Инвестиции в основной капитал в сфере туризма, млн. сом ")]
+        public double InvestmentsTourismSector { get; set; }
+
 
         [Display(Name = "сумма инвестиций из бюджета")]
-        public string SummOfInvestFromBudget { get; set; }
+        public double SummOfInvestFromBudget { get; set; }
 
         [Display(Name = "сумма частных внутренних  инвестиций")]
-        public string SummOfPrivateDomesticInvest { get; set; }
+        public double SummOfPrivateDomesticInvest { get; set; }
 
         [Display(Name = "сумма   иностранных инвестиций")]
-        public string SummOfForeignInvest { get; set; }
+        public double SummOfForeignInvest { get; set; }
 
         [Display(Name = "среднемесячная зарплата по отрасли")]
-        public string AverageMonthSalary { get; set; }
+        public double AverageMonthSalary { get; set; }
+
+        //новый
+        [Display(Name = "Доходы, полученные от перевозок туристов всеми видами транспорта, млн. сом")]
+        public double RevenuesFromTransportTourists { get; set; }
+
+
+        //новый
+        [Display(Name = "Оборот розничной торговли в сфере туризма, млн. сом")]
+        public double TourismTetailSales { get; set; }
+
+
+        //новый
+        [Display(Name = "Оборот ресторанов, баров, столовых и др. предприятий по поставке готовой пищи, млн. сом")]
+        public double TurnoverPreparedFood { get; set; }
+
+
+        //новый
+        [Display(Name = "Услуги деятельности туристических агентств, млн. сом")]
+        public double TravelAgencyServices { get; set; }
+
+
+        //новый
+        [Display(Name = "Услуги санаторно-курортной деятельности, млн. сом")]
+        public double SanatoriumResortActivities { get; set; }
+
+        //новый
+        [Display(Name = "Услуги гостиниц и прочих мест краткосрочного проживания, млн. сом")]
+        public double ServicesShortTermResidence { get; set; }
+
         public DateTime CreateDate { get; set; }
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }

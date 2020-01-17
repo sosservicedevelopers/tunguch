@@ -88,10 +88,10 @@ namespace AisMKIT.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Источник финансирования (Кырг)")]
+        [Display(Name = "Форма собстенности (Кырг)")]
         public string NameKyrg { get; set; }
 
-        [Display(Name = "Источник финансирования (Русск)")]
+        [Display(Name = "Форма собстенности (Русск)")]
         public string NameRus { get; set; }
 
         [Display(Name = "Дата ввода записи")]
