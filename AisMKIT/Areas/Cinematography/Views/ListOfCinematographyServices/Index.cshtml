@@ -4,56 +4,62 @@
     ViewData["Title"] = "Список оказываемых услуг";
 }
 
-    <h2>Список оказываемых услуг</h2>
+<h2>Список оказываемых услуг</h2>
+<br />
 
 <p>
     <a asp-action="Create">Добавить новый</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DictCinematographyServices)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.ListOfCinematography)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.DictStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeactivateStatus)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.CreateDate)
-            </th>*@
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DictCinematographyServices.NameRus)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.ListOfCinematography.Id)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.DictStatus.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeactivateStatus)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>*@
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="overflow-auto">
+
+    <table id="myTable" class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DictCinematographyServices)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.ListOfCinematography)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.DictStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeactivateStatus)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.CreateDate)
+                    </th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictCinematographyServices.NameRus)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.ListOfCinematography.Id)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictStatus.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeactivateStatus)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.CreateDate)
+                        </td>*@
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

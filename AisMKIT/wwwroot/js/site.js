@@ -3,8 +3,14 @@
 
 // Write your JavaScript code.
 
+//--------- Начало. Это JavaScript-код для работы со всеми таблицами ----------
+// используется JavaScript-библиотека - Vanilla-DataTables
+var dataTable = new DataTable("#myTable");
 
-//
+//--------- Конец. Это JavaScript-код для работы со всеми таблицами ----------
+
+
+//--------- Начало. Это JavaScript-код для Кинемотографии -> Прокатные удостоверения -------------
 function initInputJSON() {
 
     // get object
@@ -81,3 +87,4 @@ function addSelectList(id) {
 }
 
 
+//--------- Конец. Это JavaScript-код для Кинемотографии -> Прокатные удостоверения -------------

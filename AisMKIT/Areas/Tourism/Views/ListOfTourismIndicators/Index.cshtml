@@ -4,274 +4,281 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Индикаторы туризма</h1>
+<h2>Индикаторы туризма</h2>
 
+<br />
 <p>
     <a asp-action="Create">Добавить</a>
 </p>
-<table class="table overflow-auto">
-    <thead>
-        <tr>
+<br />
 
-            <th>
-                @Html.DisplayNameFor(model => model.Year)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GDP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GrossValueAdded)
+<div class="container overflow-auto">
 
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShareOfTourismInGDP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TaxRevenue)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TheNumCitizensfromNearAndFar)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FromCIS)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FromForeign)
-            </th>
+    <table id="myTable" class="table table-hover">
+        <thead class="thead-light">
+            <tr>
 
-            <th>
-                @Html.DisplayNameFor(model => model.InTurist)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OutTurist)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VolumeOfServicesForExport)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VolumeOfServicesForImport)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InvestmentsTourismSector)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SummOfInvestFromBudget)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SummOfPrivateDomesticInvest)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SummOfForeignInvest)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AverageMonthSalary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RevenuesFromTransportTourists)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TourismTetailSales)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TurnoverPreparedFood)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TravelAgencyServices)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SanatoriumResortActivities)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServicesShortTermResidence)
-            </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GDP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GrossValueAdded)
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShareOfTourismInGDP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TaxRevenue)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TheNumCitizensfromNearAndFar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FromCIS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FromForeign)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.InTurist)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OutTurist)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VolumeOfServicesForExport)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VolumeOfServicesForImport)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InvestmentsTourismSector)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SummOfInvestFromBudget)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SummOfPrivateDomesticInvest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SummOfForeignInvest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AverageMonthSalary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RevenuesFromTransportTourists)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TourismTetailSales)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TurnoverPreparedFood)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TravelAgencyServices)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SanatoriumResortActivities)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServicesShortTermResidence)
+                </th>
 
 
-            @*<th>
-            @Html.DisplayNameFor(model => model.Year)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GDP)
-        </th>
-        <th>
-            Валовая добавленная стоимость в сфере туристической деятельности (млн. cомов)
-        </th>
-        <th>
-            Доля сферы туристической деятельности в ВВП (в процентах)
-        </th>
-        <th>
-            Поступления налоговых платежей в бюджет республики от туристической деятельности и деятельности гостиниц и ресторанов
-        </th>
-        <th>
-            Общее число прибывших граждан из стран дальнего и ближнего зарубежья
-        </th>
-        <th>
-            в том числе из стран СНГ
-        </th>
-        <th>
-            и из стран дальнего зарубежья
-        </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.Year)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GDP)
+                    </th>
+                    <th>
+                        Валовая добавленная стоимость в сфере туристической деятельности (млн. cомов)
+                    </th>
+                    <th>
+                        Доля сферы туристической деятельности в ВВП (в процентах)
+                    </th>
+                    <th>
+                        Поступления налоговых платежей в бюджет республики от туристической деятельности и деятельности гостиниц и ресторанов
+                    </th>
+                    <th>
+                        Общее число прибывших граждан из стран дальнего и ближнего зарубежья
+                    </th>
+                    <th>
+                        в том числе из стран СНГ
+                    </th>
+                    <th>
+                        и из стран дальнего зарубежья
+                    </th>
 
-        <th>
-            @Html.DisplayNameFor(model => model.InTurist)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OutTurist)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VolumeOfServicesForExport)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VolumeOfServicesForImport)
-        </th>
-        <th>
-            Инвестиции в основной капитал в сфере туризма, млн. сом
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SummOfInvestFromBudget)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SummOfPrivateDomesticInvest)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SummOfForeignInvest)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AverageMonthSalary)
-        </th>
-        <th>
-            Доходы, полученные от перевозок туристов всеми видами транспорта, млн. сом
-        </th>
-        <th>
-            Оборот розничной торговли в сфере туризма, млн. сом
-        </th>
-        <th>
-            Оборот ресторанов, баров, столовых и др. предприятий по поставке готовой пищи, млн. сом
-        </th>
-        <th>
-            Услуги деятельности туристических агентств, млн. сом
-        </th>
-        <th>
-            Услуги санаторно-курортной деятельности, млн. сом
-        </th>
-        <th>
-            Услуги гостиниц и прочих мест краткосрочного проживания, млн. сом
-        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.InTurist)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OutTurist)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VolumeOfServicesForExport)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VolumeOfServicesForImport)
+                    </th>
+                    <th>
+                        Инвестиции в основной капитал в сфере туризма, млн. сом
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SummOfInvestFromBudget)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SummOfPrivateDomesticInvest)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SummOfForeignInvest)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AverageMonthSalary)
+                    </th>
+                    <th>
+                        Доходы, полученные от перевозок туристов всеми видами транспорта, млн. сом
+                    </th>
+                    <th>
+                        Оборот розничной торговли в сфере туризма, млн. сом
+                    </th>
+                    <th>
+                        Оборот ресторанов, баров, столовых и др. предприятий по поставке готовой пищи, млн. сом
+                    </th>
+                    <th>
+                        Услуги деятельности туристических агентств, млн. сом
+                    </th>
+                    <th>
+                        Услуги санаторно-курортной деятельности, млн. сом
+                    </th>
+                    <th>
+                        Услуги гостиниц и прочих мест краткосрочного проживания, млн. сом
+                    </th>*@
 
-            <th></th>
+                <th></th>
 
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
 
-            <th>
-                @Html.DisplayFor(modelItem => item.Year)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.GDP)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.GrossValueAdded)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.ShareOfTourismInGDP)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.TaxRevenue)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.TheNumCitizensfromNearAndFar)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.FromCIS)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.FromForeign)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.InTurist)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.OutTurist)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.VolumeOfServicesForExport)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.VolumeOfServicesForImport)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.InvestmentsTourismSector)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.SummOfInvestFromBudget)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.SummOfPrivateDomesticInvest)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.SummOfForeignInvest)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.AverageMonthSalary)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.RevenuesFromTransportTourists)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.TourismTetailSales)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.TurnoverPreparedFood)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.TravelAgencyServices)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.SanatoriumResortActivities)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.ServicesShortTermResidence)
-            </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.GDP)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.GrossValueAdded)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.ShareOfTourismInGDP)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.TaxRevenue)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.TheNumCitizensfromNearAndFar)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.FromCIS)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.FromForeign)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.InTurist)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.OutTurist)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.VolumeOfServicesForExport)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.VolumeOfServicesForImport)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.InvestmentsTourismSector)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.SummOfInvestFromBudget)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.SummOfPrivateDomesticInvest)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.SummOfForeignInvest)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.AverageMonthSalary)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.RevenuesFromTransportTourists)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.TourismTetailSales)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.TurnoverPreparedFood)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.TravelAgencyServices)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.SanatoriumResortActivities)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.ServicesShortTermResidence)
+                    </th>
 
-            @*<td>
-            @Html.DisplayFor(modelItem => item.Year)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GDP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InTurist)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OutTurist)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VolumeOfServicesForExport)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VolumeOfServicesForImport)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SummOfInvestFromBudget)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SummOfPrivateDomesticInvest)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SummOfForeignInvest)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AverageMonthSalary)
-        </td>*@
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Year)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GDP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InTurist)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OutTurist)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VolumeOfServicesForExport)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VolumeOfServicesForImport)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SummOfInvestFromBudget)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SummOfPrivateDomesticInvest)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SummOfForeignInvest)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AverageMonthSalary)
+                        </td>*@
 
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

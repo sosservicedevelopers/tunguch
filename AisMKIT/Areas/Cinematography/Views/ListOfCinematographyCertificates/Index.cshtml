@@ -4,15 +4,17 @@
     ViewData["Title"] = "Index";
 }
 
-    <h1>Реестр прокатных удостоверений</h1>
+<h2>Реестр прокатных удостоверений</h2>
+<br />
 
 <p>
-    <a asp-action="Create">Добавить</a>
+    <a asp-action="Create">Добавить новый</a>
 </p>
 
-<div class="container overflow-auto">
-    <table class="table">
-        <thead>
+<div class="overflow-auto">
+
+    <table id="myTable" class="table table-hover">
+        <thead class="thead-light">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.NameRus)

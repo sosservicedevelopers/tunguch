@@ -4,62 +4,68 @@
     ViewData["Title"] = "Список мероприятий";
 }
 
-<h1>Список мероприятий</h1>
-
+<h2>Список мероприятий</h2>
+<br />
 <p>
-    <a asp-action="Create">Добавить</a>
+    <a asp-action="Create">Добавить новый</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DictTypeOfKMM)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DistLoc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EventTopic)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDateTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndDateTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DictInitiatorOfProj)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DictTypeOfKMM.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DistLoc.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventTopic)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DictInitiatorOfProj.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<br />
+
+<div class="overflow-auto">
+
+    <table id="myTable" class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DictTypeOfKMM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DistLoc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventTopic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartDateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndDateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DictInitiatorOfProj)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictTypeOfKMM.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DistLoc.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventTopic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DictInitiatorOfProj.Name)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>    

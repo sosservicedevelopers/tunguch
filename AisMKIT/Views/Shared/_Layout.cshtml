@@ -4,7 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Тунгуч</title>
+    <!--Bootstrap-->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!--Vanilla-DataTables-->
+    <link href="~/lib/Vanilla-DataTables/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+    <!--Стили для сайта-->
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -33,7 +37,6 @@
                                     <a class="dropdown-item" asp-area="" asp-controller="Role" asp-action="UserIndex">Пользователи</a>
 
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
 
                             </li>
@@ -61,7 +64,6 @@
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMonumentTypes" asp-action="Index">Тип объекта</a>
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMonumentTypologicalTypes" asp-action="Index">Типы типологической принадлежности</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -80,7 +82,6 @@
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictControlTypes" asp-action="Index">Вид проверки СМИ</a>
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictMediaSuitPerms" asp-action="Index">Судебное решение</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -95,7 +96,6 @@
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictTheatricalHalls" asp-action="Index">Залы для ТЗУ</a>
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictEduInstTypes" asp-action="Index">Вид учебного заведения</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -115,7 +115,7 @@
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictTourismServices" asp-action="Index">Туристические услуги</a>
                                     @*<div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>*@
+                                        <a class="dropdown-item" href="#">Separated link</a>*@
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -131,7 +131,6 @@
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictAwardsPositions" asp-action="Index">Должности награжденных</a>
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictAwardsReasons" asp-action="Index">Причины награждения</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -148,7 +147,6 @@
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictCinemaRegisers" asp-action="Index">Режисёры</a>
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictCinemaDurations" asp-action="Index">Продолжительность фильма</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
                             </li>
 
@@ -160,7 +158,7 @@
                                     <a class="dropdown-item" asp-area="Cinematography" asp-controller="ListOfCinematographyDocuments" asp-action="Index">Реестр документов</a>
                                 </div>
                             </li>
-                          
+
                         }
 
                         @if (User.IsInRole("Администратор-ПредоставЗалов"))
@@ -177,7 +175,6 @@
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictLocs" asp-action="Index">Места проведений</a>
                                     <a class="dropdown-item" asp-area="GlobalDicts" asp-controller="DictInitiatorOfProjs" asp-action="Index">Инициаторы проекта мероприятий</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -201,7 +198,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="p-lg-5">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -209,12 +206,21 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - Тунгуч -
+            &copy; 2020 - Тунгуч -
         </div>
     </footer>
+
+    <!--Загрузка скриптов в конце, чтобы увеличить скорость загрузски сайта-->
+    <!--jQuery-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!--Bootstrap JS-->
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Vanilla-DataTables это JavaScript-библиотека для работы с таблицами-->
+    <script src="~/lib/Vanilla-DataTables/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
+    <!--JavaScript-коды для сайта-->
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>

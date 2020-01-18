@@ -3,20 +3,251 @@
     ViewData["Title"] = "АИС";
 }
 
+<br />
+
+<div class="container marketing">
+
+
+    <div class="card-deck">
+
+        <div class="card">
+
+            <div class="card-body">
+                <h4>Реестр средств массовой информации</h4>
+                <p>
+                    @ViewBag.ListOfMedias
+                    - записей
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" asp-area="Media" asp-controller="ListOfMedias" asp-action="Index">Перейти &raquo;</a>
+            </div>
+            <p>
+            </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="card">
+
+            <div class="card-body">
+                <h4>Реестр памятников</h4>
+                <p>
+                    @ViewBag.ListOfMonuments
+                    - записей
+
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" asp-area="Monuments" asp-controller="ListOfMonuments" asp-action="Index">Перейти &raquo;</a>
+
+            </div>
+            <p>
+            </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="card">
+
+            <div class="card-body">
+                <h4>Реестр субъектов кинематографии</h4>
+                <p>
+                    @ViewBag.ListOfCinematographies
+                    - записей
+
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" asp-area="Cinematography" asp-controller="ListOfCinematographies" asp-action="Index">Перейти &raquo;</a>
+
+            </div>
+            <p>
+            </p>
+        </div><!-- /.col-lg-4 -->
+    </div>
+
+
+    <div class="card-deck">
+
+        <div class="card">
+            
+            <div class="card-body">
+                <h4>Реестр театрально-зрелищных учреждений</h4>
+                <p>
+                    @ViewBag.ListOfTheatricals
+                    - записей
+
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" asp-area="Theatrical" asp-controller="ListOfTheatricals" asp-action="Index">Перейти &raquo;</a>
+
+            </div>
+            <p>
+            </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="card">
+            
+            <div class="card-body">
+                <h4>Реестр учебных заведений</h4>
+                <p>
+                    @ViewBag.ListOfEduInstituts
+                    - записей
+
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" asp-area="EduInstitutions" asp-controller="ListOfEduInstituts" asp-action="Index">Перейти &raquo;</a>
+
+            </div>
+            <p>
+            </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="card">
+            
+            <div class="card-body">
+                <h4>Реестр субъектов туризма</h4>
+                <p>
+                    @ViewBag.ListOfTourism
+                    - записей
+
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" asp-area="Tourism" asp-controller="ListOfTourism" asp-action="Index">Перейти &raquo;</a>
+
+            </div>
+            <p>
+            </p>
+        </div><!-- /.col-lg-4 -->
+    </div>
+
+
+    <div class="card-deck">
+
+        <div class="card">
+           
+            <div class="card-body">
+                <h4>Реестр библиотек</h4>
+                <p>
+                    @ViewBag.ListOfLibraryIndicators
+                    - записей
+
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" asp-area="Library" asp-controller="ListOfLibraryIndicators" asp-action="Index">Перейти &raquo;</a>
+            </div>
+            <p>
+            </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="card">
+            
+            <div class="card-body">
+                <h4>Реестр объектов произведений культуры и исскуства</h4>
+                <p>
+                    @ViewBag.ListOfCultAndArts
+                    - записей
+
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" asp-area="CultAndArt" asp-controller="ListOfCultAndArts" asp-action="Index">Перейти &raquo;</a>
+
+            </div>
+            <p>
+
+            </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="card">
+           
+            <div class="card-body">
+                <h4>Реестр по предоставлению залов и т.д.</h4>
+                <p>
+                    @ViewBag.ListOfRents
+                    - записей
+
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" asp-area="Rents" asp-controller="Main" asp-action="Index">Перейти &raquo;</a>
+
+            </div>
+            <p>
+            </p>
+        </div><!-- /.col-lg-4 -->
+    </div>
+
+    <div class="card-deck">
+
+        <div class="card">
+
+            <div class="card-body">
+                <h4>Реестр государственных наград</h4>
+                <p>
+                    @ViewBag.ListOfStateAwards
+                    - записей
+
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" asp-area="StateAwards" asp-controller="ListOfStateAwards" asp-action="Index">Перейти &raquo;</a>
+
+            </div>
+            <p>
+
+            </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="card">
+
+            <div class="card-body">
+
+                <h4>Реестр охраняемых объектов культурного наследия</h4>
+                <p>
+                    @ViewBag.ListOfMonumentsProtObjects
+                    - записей
+
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" asp-area="Monuments" asp-controller="ListOfMonumentsProtObjects" asp-action="Index">Перейти &raquo;</a>
+
+            </div>
+            <p>
+            </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="card">
+
+            <div class="card-body">
+
+                <h4>.</h4>
+                <p>.
+                </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" href="#">.</a>
+
+            </div>
+            <p>
+            </p>
+        </div><!-- /.col-lg-4 -->
+
+    </div><!-- /. -->
+
+
+
     <div class="row justify-content-center">
 
         @*<div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action">Action item</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-success">Success item</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Secondary item</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-info">Info item</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-warning">Warning item</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Danger item</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Primary item</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-dark">Dark item</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-light">Light item</a>
-        </div>*@
-        <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">Action item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-success">Success item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Secondary item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-info">Info item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-warning">Warning item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Danger item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Primary item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-dark">Dark item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-light">Light item</a>
+            </div>*@
+
+
+        @*
+            <div class="list-group">
             <a class="list-group-item list-group-item-action list-group-item-success" asp-area="Media" asp-controller="ListOfMedias" asp-action="Index">Реестр средств массовой информации</a>
             <a class="list-group-item list-group-item-action list-group-item-secondary" asp-area="Monuments" asp-controller="ListOfMonuments" asp-action="Index">Реестр памятников</a>
             <a class="list-group-item list-group-item-action list-group-item-info" asp-area="Cinematography" asp-controller="ListOfCinematographies" asp-action="Index">Реестр субъектов кинематографии</a>
@@ -29,22 +260,23 @@
             <a class="list-group-item list-group-item-action list-group-item-secondary" asp-area="StateAwards" asp-controller="ListOfStateAwards" asp-action="Index">Реестр государственных наград</a>
             <a class="list-group-item list-group-item-action list-group-item-dark" asp-area="Monuments" asp-controller="ListOfMonumentsProtObjects" asp-action="Index">Реестр охраняемых объектов культурного наследия</a>
 
-        </div>
-        
-        @*<div class="btn">
-            <a asp-area="Media" asp-controller="ListOfMedias" asp-action="Index">Реестр средств массовой информации</a>
-        </div>
-        <div class="btn">
-            <a asp-area="Cinematography" asp-controller="ListOfCinematographies" asp-action="Index">Реестр субъектов кинематографии</a>
-        </div>
-        <div class="btn">
-            <a asp-area="Theatrical" asp-controller="ListOfTheatricals" asp-action="Index">Реестр театрально-зрелищных учреждений</a>
-        </div>
-        <div class="btn">
-            <a asp-area="Theatrical" asp-controller="ListOfEduInstituts" asp-action="Index">Реестр учебных заведений</a>
-        </div>
-        <div class="btn">
-            <a asp-area="Tourism" asp-controller="ListOfTourism" asp-action="Index">Реестр субъектов туризма</a>
         </div>*@
+
+        @*<div class="btn">
+                <a asp-area="Media" asp-controller="ListOfMedias" asp-action="Index">Реестр средств массовой информации</a>
+            </div>
+            <div class="btn">
+                <a asp-area="Cinematography" asp-controller="ListOfCinematographies" asp-action="Index">Реестр субъектов кинематографии</a>
+            </div>
+            <div class="btn">
+                <a asp-area="Theatrical" asp-controller="ListOfTheatricals" asp-action="Index">Реестр театрально-зрелищных учреждений</a>
+            </div>
+            <div class="btn">
+                <a asp-area="Theatrical" asp-controller="ListOfEduInstituts" asp-action="Index">Реестр учебных заведений</a>
+            </div>
+            <div class="btn">
+                <a asp-area="Tourism" asp-controller="ListOfTourism" asp-action="Index">Реестр субъектов туризма</a>
+            </div>*@
     </div>
 
+</div>
