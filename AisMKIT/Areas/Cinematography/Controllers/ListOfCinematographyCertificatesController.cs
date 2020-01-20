@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 namespace AisMKIT.Areas.Cinematography.Controllers
 {
     [Area("Cinematography")]
-    [Authorize(Roles = "Администратор-Кинематография")]
+    [Authorize(Roles = "Администратор,Администратор-Кинематография")]
     public class ListOfCinematographyCertificatesController : Controller
     {
         private readonly ApplicationDbContext _context;

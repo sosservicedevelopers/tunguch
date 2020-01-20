@@ -166,8 +166,8 @@ namespace AisMKIT.Data
             // optionsBuilder.UseNpgsql("Host=192.168.145.130;Port=5432;Database=AisMKIT;Username=postgres;Password=admin");
             //  optionsBuilder.UseNpgsql("Host=212.112.106.181;Port=5432;Database=aismkitdb;Username=postgres;Password=dbPwdAdmin");
             //optionsBuilder.UseNpgsql("Host=192.168.161.130;Port=5432;Database=aismkitdb;Username=postgres;Password=dbPwdAdmin");
-            // optionsBuilder.UseNpgsql("Host=127.0.0.1;Port=5432;Database=aismkitdb;Username=postgres;Password=dbPwdAdmin");
-            optionsBuilder.UseNpgsql("Host=127.0.0.1;Port=5432;Database=aismkitdb2;Username=postgres;Password=dbPwdAdmin");
+             optionsBuilder.UseNpgsql("Host=127.0.0.1;Port=5432;Database=aismkitdb;Username=postgres;Password=dbPwdAdmin");
+           // optionsBuilder.UseNpgsql("Host=127.0.0.1;Port=5432;Database=aismkitdb2;Username=postgres;Password=dbPwdAdmin");
 
         }
         //Для postgresql

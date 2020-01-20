@@ -2480,74 +2480,74 @@ namespace AisMKIT.Migrations
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("text");
 
-                    b.Property<double>("AverageMonthSalary")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("AverageMonthSalary")
+                        .HasColumnType("numeric");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<double>("FromCIS")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("FromCIS")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("FromForeign")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("FromForeign")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("GDP")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("GDP")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("GrossValueAdded")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("GrossValueAdded")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("InTurist")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("InTurist")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("InvestmentsTourismSector")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("InvestmentsTourismSector")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("OutTurist")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("OutTurist")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("RevenuesFromTransportTourists")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("RevenuesFromTransportTourists")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("SanatoriumResortActivities")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("SanatoriumResortActivities")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("ServicesShortTermResidence")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("ServicesShortTermResidence")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("ShareOfTourismInGDP")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("ShareOfTourismInGDP")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("SummOfForeignInvest")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("SummOfForeignInvest")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("SummOfInvestFromBudget")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("SummOfInvestFromBudget")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("SummOfPrivateDomesticInvest")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("SummOfPrivateDomesticInvest")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("TaxRevenue")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("TaxRevenue")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("TheNumCitizensfromNearAndFar")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("TheNumCitizensfromNearAndFar")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("TourismTetailSales")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("TourismTetailSales")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("TravelAgencyServices")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("TravelAgencyServices")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("TurnoverPreparedFood")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("TurnoverPreparedFood")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("VolumeOfServicesForExport")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("VolumeOfServicesForExport")
+                        .HasColumnType("numeric");
 
-                    b.Property<double>("VolumeOfServicesForImport")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("VolumeOfServicesForImport")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("Year")
                         .HasColumnType("text");

@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace AisMKIT.Areas.Cinematography.Controllers
 {
     [Area("Cinematography")]
-    [Authorize(Roles = "Администратор-Кинематография")]
+    [Authorize(Roles = "Администратор,Администратор-Кинематография")]
     public class ListOfCinematographyServicesController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace AisMKIT.Models
 { 
@@ -199,89 +200,91 @@ namespace AisMKIT.Models
         public string Year { get; set; }
 
         [Display(Name = "Объём ВВП")]
-        public double GDP { get; set; }
+        public decimal GDP { get; set; } = 0;
 
         //новый
         [Display(Name = "Валовая добавленная стоимость в сфере туристической деятельности (млн. cомов)")]
-        public double GrossValueAdded { get; set; }
+        public decimal GrossValueAdded { get; set; } = 0;
 
         //новый
         [Display(Name = "Доля сферы туристической деятельности в ВВП (в процентах)")]
-        public double ShareOfTourismInGDP { get; set; }
+        public decimal ShareOfTourismInGDP { get; set; } = 0;
 
         //новый
         [Display(Name = "Поступления налоговых платежей в бюджет республики от туристической деятельности и деятельности гостиниц и ресторанов")]
-        public double TaxRevenue { get; set; }
+        public decimal TaxRevenue { get; set; } = 0;
 
         //новый
         [Display(Name = "Общее число прибывших граждан из стран дальнего и ближнего зарубежья")]
-        public double TheNumCitizensfromNearAndFar { get; set; }
+        public decimal TheNumCitizensfromNearAndFar { get; set; } = 0;
 
         //новый
         [Display(Name = "в том числе из стран СНГ")]
-        public double FromCIS { get; set; }
+        public decimal FromCIS { get; set; } = 0;
 
         //новый
         [Display(Name = "и из стран дальнего зарубежья")]
-        public double FromForeign { get; set; }
+        public decimal FromForeign { get; set; } = 0;
 
 
         [Display(Name = "Общее число прибывших граждан в Кыргызскую Республику, на которых распространяется Закон 'О безвизовом режиме'")]
-        public double InTurist { get; set; }
+        public decimal InTurist { get; set; } = 0;
 
         [Display(Name = "количество выехавших туристов")]
-        public double OutTurist { get; set; }
+        public decimal OutTurist { get; set; } = 0;
 
         [Display(Name = "Экспорт туристских услуг (доходы от приема иностранных граждан), млн. долларов США")]
-        public double VolumeOfServicesForExport { get; set; }
+        public decimal VolumeOfServicesForExport { get; set; } = 0;
 
         [Display(Name = "объем услуг на импорт")]
-        public double VolumeOfServicesForImport { get; set; }
+        [DefaultValue(100)]
+        public decimal VolumeOfServicesForImport { get; set; } = 0;
 
         //новый
         [Display(Name = "Инвестиции в основной капитал в сфере туризма, млн. сом ")]
-        public double InvestmentsTourismSector { get; set; }
+        public decimal InvestmentsTourismSector { get; set; } = 0;
 
 
         [Display(Name = "сумма инвестиций из бюджета")]
-        public double SummOfInvestFromBudget { get; set; }
+        public decimal SummOfInvestFromBudget { get; set; } = 0;
 
         [Display(Name = "сумма частных внутренних  инвестиций")]
-        public double SummOfPrivateDomesticInvest { get; set; }
+        public decimal SummOfPrivateDomesticInvest { get; set; } = 0;
 
         [Display(Name = "сумма   иностранных инвестиций")]
-        public double SummOfForeignInvest { get; set; }
+        public decimal SummOfForeignInvest { get; set; } = 0;
 
         [Display(Name = "среднемесячная зарплата по отрасли")]
-        public double AverageMonthSalary { get; set; }
+        public decimal AverageMonthSalary { get; set; } = 0;
 
         //новый
         [Display(Name = "Доходы, полученные от перевозок туристов всеми видами транспорта, млн. сом")]
-        public double RevenuesFromTransportTourists { get; set; }
+        public decimal RevenuesFromTransportTourists { get; set; } = 0;
 
 
         //новый
         [Display(Name = "Оборот розничной торговли в сфере туризма, млн. сом")]
-        public double TourismTetailSales { get; set; }
+        public decimal TourismTetailSales { get; set; } = 0;
 
 
         //новый
         [Display(Name = "Оборот ресторанов, баров, столовых и др. предприятий по поставке готовой пищи, млн. сом")]
-        public double TurnoverPreparedFood { get; set; }
+        public decimal TurnoverPreparedFood { get; set; } = 0;
 
 
         //новый
         [Display(Name = "Услуги деятельности туристических агентств, млн. сом")]
-        public double TravelAgencyServices { get; set; }
+        public decimal TravelAgencyServices { get; set; } = 0;
 
 
         //новый
         [Display(Name = "Услуги санаторно-курортной деятельности, млн. сом")]
-        public double SanatoriumResortActivities { get; set; }
+        public decimal SanatoriumResortActivities { get; set; } = 0;
 
         //новый
         [Display(Name = "Услуги гостиниц и прочих мест краткосрочного проживания, млн. сом")]
-        public double ServicesShortTermResidence { get; set; }
+        [DefaultValue(0)]
+        public decimal ServicesShortTermResidence { get; set; } = 0;
 
         public DateTime CreateDate { get; set; }
         public string ApplicationUserId { get; set; }

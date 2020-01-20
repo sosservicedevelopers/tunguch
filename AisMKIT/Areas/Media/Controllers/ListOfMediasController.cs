@@ -49,45 +49,8 @@ namespace AisMKIT.Areas.Media.Controllers
                     join ltr in _context.ListOfTeleRadio on l.Id equals ltr.ListOfMediaId
                     join ag in _context.DictAgencyPerm on ltr.DictAgencyPermId equals ag.Id
                     join lcm in _context.ListOfControlMedia on l.Id equals lcm.ListOfMediaId into gj
-                    from subpet in gj.Where(lcm=>lcm.WarningDate != null & lcm.WarningRemovalDate == null & lcm.AnulmentDate==null).DefaultIfEmpty()
-                   where mt.Id>2 & l.EliminationDate==null //& gj.AnulmentDate==null & lcm.WarningEndDate!=null
-                 select new
-                    {
-                        Name = l.NameRus,
-                        LegalForm = lf.NameRus,
-                        INN=l.INN,
-                        RegisterDate=l.RegistrationDate,
-                        MediaType=mt.NameRus,
-                        PermisionNo=ltr.NumberOfPermission,
-                        PermisionDate=ltr.PermissionDate,
-                        DepPermGive=ag.NameRus,
-                        WarningDate = subpet.WarningDate==null? null: subpet.WarningDate,
-                        WarningEndDate = subpet.WarningEndDate == null ? null : subpet.WarningEndDate
-                     //WarningEndDate = subpet.WarningEndDate
-
-            };
-            List<PermissionMediaModel> lst = new List<PermissionMediaModel>();
-            //  var qq = await q ;
-            int id = 1;
-            foreach (var item in await q.ToListAsync())
-            {
-                lst.Add(new PermissionMediaModel { DepPermGive = item.DepPermGive, INN = item.INN, LegalForm = item.LegalForm, MediaType = item.MediaType, Name = item.Name, PermissionDate = item.PermisionDate, PermissionNo = item.PermisionNo, RegisterDate = item.RegisterDate, WarningEndDate = item.WarningEndDate, WarningDate = item.WarningDate });
-                id++;
-            }
-            return View(lst);
-        }
-
-        public async Task<IActionResult> PermissionsDepartment()
-        {
-            //l.DictFinSourceId==1 & l.EliminationDate == null
-            var q = from l in _context.ListOfMedia
-                    join lf in _context.DictLegalForm on l.DictLegalFormId equals lf.Id
-                    join mt in _context.DictMediaType on l.DictMediaTypeId equals mt.Id
-                    join ltr in _context.ListOfTeleRadio on l.Id equals ltr.ListOfMediaId
-                    join ag in _context.DictAgencyPerm on ltr.DictAgencyPermId equals ag.Id
-                    join lcm in _context.ListOfControlMedia on l.Id equals lcm.ListOfMediaId into gj
                     from subpet in gj.Where(lcm => lcm.WarningDate != null & lcm.WarningRemovalDate == null & lcm.AnulmentDate == null).DefaultIfEmpty()
-                    where l.DictFinSourceId == 1 & l.EliminationDate == null //& gj.AnulmentDate==null & lcm.WarningEndDate!=null
+                    where mt.Id > 2 & l.EliminationDate == null //& gj.AnulmentDate==null & lcm.WarningEndDate!=null
                     select new
                     {
                         Name = l.NameRus,
@@ -109,6 +72,44 @@ namespace AisMKIT.Areas.Media.Controllers
             foreach (var item in await q.ToListAsync())
             {
                 lst.Add(new PermissionMediaModel { DepPermGive = item.DepPermGive, INN = item.INN, LegalForm = item.LegalForm, MediaType = item.MediaType, Name = item.Name, PermissionDate = item.PermisionDate, PermissionNo = item.PermisionNo, RegisterDate = item.RegisterDate, WarningEndDate = item.WarningEndDate, WarningDate = item.WarningDate });
+                id++;
+            }
+            return View(lst);
+        }
+
+        public async Task<IActionResult> PermissionsDepartment()
+        {
+            //l.DictFinSourceId==1 & l.EliminationDate == null
+            var q = from l in _context.ListOfMedia
+                    join lf in _context.DictLegalForm on l.DictLegalFormId equals lf.Id
+                    join mt in _context.DictMediaType on l.DictMediaTypeId equals mt.Id
+                    join ltr in _context.ListOfTeleRadio on l.Id equals ltr.ListOfMediaId
+                    join ag in _context.DictAgencyPerm on ltr.DictAgencyPermId equals ag.Id
+                    //join lcm in _context.ListOfControlMedia on l.Id equals lcm.ListOfMediaId into gj
+                    //from subpet in gj.Where(lcm => lcm.WarningDate != null & lcm.WarningRemovalDate == null & lcm.AnulmentDate == null).DefaultIfEmpty()
+                    where l.DictFinSourceId == 1 & l.EliminationDate == null //& gj.AnulmentDate==null & lcm.WarningEndDate!=null
+                    select new
+                    {
+                        Name = l.NameRus,
+                        LegalForm = lf.NameRus,
+                        INN = l.INN,
+                        RegisterDate = l.RegistrationDate,
+                        MediaType = mt.NameRus,
+                        PermisionNo = ltr.NumberOfPermission,
+                        PermisionDate = ltr.PermissionDate,
+                        DepPermGive = ag.NameRus,
+                        WarningDate = " ",// subpet.WarningDate == null ? null : subpet.WarningDate,
+                        WarningEndDate = " " //subpet.WarningEndDate == null ? null : subpet.WarningEndDate
+                        //WarningEndDate = subpet.WarningEndDate
+
+                    };
+            List<PermissionMediaModel> lst = new List<PermissionMediaModel>();
+            //  var qq = await q ;
+            int id = 1;
+            foreach (var item in await q.ToListAsync())
+            {
+                //lst.Add(new PermissionMediaModel { DepPermGive = item.DepPermGive, INN = item.INN, LegalForm = item.LegalForm, MediaType = item.MediaType, Name = item.Name, PermissionDate = item.PermisionDate, PermissionNo = item.PermisionNo, RegisterDate = item.RegisterDate, WarningEndDate = item.WarningEndDate, WarningDate = item.WarningDate });
+                lst.Add(new PermissionMediaModel { DepPermGive = item.DepPermGive, INN = item.INN, LegalForm = item.LegalForm, MediaType = item.MediaType, Name = item.Name, PermissionDate = item.PermisionDate, PermissionNo = item.PermisionNo, RegisterDate = item.RegisterDate, WarningEndDate = null, WarningDate = null });
                 id++;
             }
             return View(lst);
